@@ -37,7 +37,15 @@ public:
     {
         initialize_serial_port();      // 初始化串口
         initialize_ros_components();   // 初始化ROS相关组件
-        initialize_timers();           // 初始化定时器
+        
+        // 延迟启动TF查找，给系统时间来初始化TF frames
+        tf_startup_timer_ = this->create_wall_timer(
+            std::chrono::seconds(3),  // 延迟3秒
+            [this]() {
+                tf_startup_timer_->cancel();  // 取消启动定时器
+                initialize_timers();          // 启动TF定时器
+                RCLCPP_INFO(this->get_logger(), "开始TF数据发送");
+            });
         
         // 启动异步读取
         start_async_read();
@@ -46,6 +54,9 @@ public:
         io_thread_ = std::thread([this]() {
             io_context_.run();
         });
+        auto message = std::make_unique<std_msgs::msg::String>();
+        message->data = "car_mode_on";
+        mode_pub_->publish(*message);
     }
     
     ~SerialComNode() {
@@ -95,15 +106,19 @@ private:
         RCLCPP_INFO(this->get_logger(), "订阅话题: /tracked_pose");
         RCLCPP_INFO(this->get_logger(), "发布话题: /mode_switch");
         RCLCPP_INFO(this->get_logger(), "发布话题: /vehicle_height");
-        auto message = std::make_unique<std_msgs::msg::String>();
-        message->data = "car_mode_on";
-        mode_pub_->publish(*message);
+        
     }
 
     // 初始化定时器，用于定时发送TF数据
     void initialize_timers()
     {
-        tf_timer_ = this->create_wall_timer(10ms, [this]() { send_tf_data(); }); // 每10ms调用send_tf_data
+        // 添加一个初始延迟，等待TF系统初始化
+        tf_timer_ = this->create_wall_timer(10ms, [this]() { send_tf_data(); }); // 改为100ms，减少频率
+        
+        // 添加TF可用性检查标志
+        tf_available_ = false;
+        tf_check_count_ = 0;
+        last_tf_warn_time_ = this->get_clock()->now();
     }
 
     // 开始异步读取串口数据
@@ -303,12 +318,46 @@ private:
     void send_tf_data()
     {
         try {
+            // 首先检查TF frame是否存在
+            if (!tf_available_) {
+                // 检查 odom 和 base_link frame 是否存在
+                if (tf_buffer_->canTransform("odom", "base_link", tf2::TimePointZero)) {
+                    tf_available_ = true;
+                    RCLCPP_INFO(this->get_logger(), "TF frames 'odom' 和 'base_link' 现在可用");
+                } else {
+                    tf_check_count_++;
+                    // 只在前几次检查失败时打印信息，然后每30秒打印一次
+                    auto current_time = this->get_clock()->now();
+                    if (tf_check_count_ <= 5 || 
+                        (current_time - last_tf_warn_time_).seconds() > 30.0) {
+                        RCLCPP_WARN(this->get_logger(), 
+                                   "等待TF frames 'odom' 和 'base_link' 可用... (检查次数: %d)", 
+                                   tf_check_count_);
+                        last_tf_warn_time_ = current_time;
+                    }
+                    return;
+                }
+            }
+            
             // 获取从 "odom" 到 "base_link" 的变换
             auto transform = tf_buffer_->lookupTransform("odom", "base_link", tf2::TimePointZero);
             send_position_data(transform);    // 发送位置信息
             send_orientation_data(transform); // 发送方向信息
+            
         } catch (const tf2::TransformException& ex) {
-            RCLCPP_WARN(this->get_logger(), "TF Error: %s", ex.what()); // 打印TF错误信息
+            // 如果之前认为TF可用但现在失败了，重置状态
+            if (tf_available_) {
+                tf_available_ = false;
+                tf_check_count_ = 0;
+                RCLCPP_WARN(this->get_logger(), "TF变换丢失，重新等待: %s", ex.what());
+            }
+            
+            // 限制错误日志频率
+            auto current_time = this->get_clock()->now();
+            if ((current_time - last_tf_warn_time_).seconds() > 5.0) {
+                RCLCPP_WARN(this->get_logger(), "TF Error: %s", ex.what());
+                last_tf_warn_time_ = current_time;
+            }
         }
     }
 
@@ -421,6 +470,12 @@ private:
     std::shared_ptr<tf2_ros::TransformListener> tf_listener_; // TF监听器
 
     rclcpp::TimerBase::SharedPtr tf_timer_; // 定时器
+    rclcpp::TimerBase::SharedPtr tf_startup_timer_; // 启动延迟定时器
+    
+    // TF状态跟踪变量
+    bool tf_available_;
+    int tf_check_count_;
+    rclcpp::Time last_tf_warn_time_;
     
     // Twist 消息订阅者
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr twist_sub_;

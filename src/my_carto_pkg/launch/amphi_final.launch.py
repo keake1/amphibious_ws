@@ -49,7 +49,6 @@ def generate_launch_description():
     name='target_publisher_node',
     output='screen',
     parameters=[{
-            'publish_rate_ms': 5,
             'waypoints': [
                 '0.0,1.88,0.0',
                 '0.0,0.0,0.0'
@@ -81,7 +80,7 @@ def generate_launch_description():
             actions=[target_pub_node]
         ),
         TimerAction(
-            period=12.0,
+            period=10.0,
             actions=[com_node]
         ),
     ])

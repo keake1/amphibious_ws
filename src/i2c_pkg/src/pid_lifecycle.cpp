@@ -1,3 +1,5 @@
+#include "amp_interfaces/srv/set_target.hpp"
+#include <std_srvs/srv/trigger.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp_lifecycle/lifecycle_node.hpp>
 #include <tf2_ros/transform_listener.h>
@@ -147,8 +149,7 @@ private:
 class CarPIDLifecycleNode : public rclcpp_lifecycle::LifecycleNode {
 public:
     CarPIDLifecycleNode()
-        : LifecycleNode("pid_lifecycle_node"), 
-          last_time_(this->get_clock()->now()) {
+        : LifecycleNode("pid_lifecycle_node"), last_time_(this->get_clock()->now()) {
         
         // 只在构造函数中声明参数，不创建资源
         this->declare_parameter("position_kp", 2.0);
@@ -222,10 +223,12 @@ public:
             // 创建生命周期发布者
             wheel_velocity_pub_ = this->create_publisher<std_msgs::msg::Float32MultiArray>(
                 "wheel_velocities", 10);
-                
-            // 添加目标到达信号发布者
-            target_reached_pub_ = this->create_publisher<std_msgs::msg::Bool>(
-                "target_reached", 10);
+            
+            // 创建/set_target服务服务端
+            set_target_srv_ = this->create_service<amp_interfaces::srv::SetTarget>(
+                "/set_target", std::bind(&CarPIDLifecycleNode::set_target_callback, this, std::placeholders::_1, std::placeholders::_2));
+            // 创建/notify_arrival服务客户端
+            notify_arrival_client_ = this->create_client<std_srvs::srv::Trigger>("/notify_arrival");
             
             RCLCPP_INFO(this->get_logger(), "小车PID生命周期节点配置完成");
             RCLCPP_INFO(this->get_logger(), "位置积分区域: %.2f m, 角度积分区域: %.2f rad (%.2f°)", 
@@ -241,20 +244,11 @@ public:
     // 激活节点阶段：启动通信和处理
     CallbackReturn on_activate(const rclcpp_lifecycle::State &) {
         RCLCPP_INFO(this->get_logger(), "正在激活小车PID生命周期节点...");
-        
-        // 创建订阅者（只在激活状态接收消息）
-        target_sub_ = this->create_subscription<geometry_msgs::msg::PoseStamped>(
-            "target_position", 10, 
-            std::bind(&CarPIDLifecycleNode::target_callback, this, std::placeholders::_1));
-        
-        // 创建定时器（只在激活状态执行控制循环）
-        // timer_ = this->create_wall_timer(
-        //     10ms, std::bind(&CarPIDLifecycleNode::control_loop, this));
-        
+        // 创建定时器（200Hz）
+        timer_ = this->create_wall_timer(
+            std::chrono::milliseconds(5), std::bind(&CarPIDLifecycleNode::control_loop, this));
         // 激活发布者
         wheel_velocity_pub_->on_activate();
-        target_reached_pub_->on_activate();
-        
         RCLCPP_INFO(this->get_logger(), "小车PID生命周期节点已激活");
         return CallbackReturn::SUCCESS;
     }
@@ -262,31 +256,17 @@ public:
     // 停用节点阶段：停止处理但保留资源
     CallbackReturn on_deactivate(const rclcpp_lifecycle::State &) {
         RCLCPP_INFO(this->get_logger(), "正在停用小车PID生命周期节点...");
-        
-        // 停止定时器
         timer_.reset();
-        
-        // 停止订阅者
-        target_sub_.reset();
-        
-        // 停用发布者
         wheel_velocity_pub_->on_deactivate();
-        target_reached_pub_->on_deactivate();
-        
-        // 重置PID控制器状态
-        if (position_pid_x_) position_pid_x_->reset();
-        if (position_pid_y_) position_pid_y_->reset();
-        if (angle_pid_) angle_pid_->reset();
-        
-        RCLCPP_INFO(this->get_logger(), "小车PID生命周期节点已停用");
         return CallbackReturn::SUCCESS;
     }
 
     // 清理节点阶段：释放资源
     CallbackReturn on_cleanup(const rclcpp_lifecycle::State &) {
         RCLCPP_INFO(this->get_logger(), "正在清理小车PID生命周期节点资源...");
-        
-        // 清理资源
+        timer_.reset();
+        set_target_srv_.reset();
+        notify_arrival_client_.reset();
         wheel_velocity_pub_.reset();
         position_pid_x_.reset();
         position_pid_y_.reset();
@@ -301,14 +281,9 @@ public:
     // 关闭节点阶段：在任何状态下紧急关闭
     CallbackReturn on_shutdown(const rclcpp_lifecycle::State &) {
         RCLCPP_INFO(this->get_logger(), "正在关闭小车PID生命周期节点...");
-        
-        // 停止定时器（如果存在）
         timer_.reset();
-        
-        // 停止订阅者（如果存在）
-        target_sub_.reset();
-        
-        // 清理所有资源（无论当前状态）
+        set_target_srv_.reset();
+        notify_arrival_client_.reset();
         wheel_velocity_pub_.reset();
         position_pid_x_.reset();
         position_pid_y_.reset();
@@ -334,47 +309,21 @@ private:
         return yaw;
     }
     
-    // 目标位置回调
-    void target_callback(const geometry_msgs::msg::PoseStamped::SharedPtr msg) {
-        // 检查节点状态
-        if (this->get_current_state().id() != lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE) {
-            RCLCPP_WARN(this->get_logger(), "收到目标位置，但节点未激活，忽略消息");
-            return;
-        }
-        
-        target_x_ = msg->pose.position.x;
-        target_y_ = msg->pose.position.y;
-        
-        tf2::Quaternion q(
-            msg->pose.orientation.x,
-            msg->pose.orientation.y,
-            msg->pose.orientation.z,
-            msg->pose.orientation.w);
-        tf2::Matrix3x3 m(q);
-        double roll, pitch, yaw;
-        m.getRPY(roll, pitch, yaw);
-        target_yaw_ = yaw;
-        
+    // /set_target服务回调，收到目标点后保存
+    void set_target_callback(const std::shared_ptr<amp_interfaces::srv::SetTarget::Request> request,
+                            std::shared_ptr<amp_interfaces::srv::SetTarget::Response> response) {
+        target_x_ = request->x;
+        target_y_ = request->y;
+        target_yaw_ = request->yaw;
         has_target_ = true;
-        
-        control_loop();  // 立即执行控制循环
-
-        // RCLCPP_INFO(this->get_logger(), "新目标: x=%.2f, y=%.2f, yaw=%.2f°", 
-        //            target_x_, target_y_, target_yaw_ * 180.0 / M_PI);
+        RCLCPP_INFO(this->get_logger(), "收到目标: x=%.2f, y=%.2f, yaw=%.2f", target_x_, target_y_, target_yaw_);
+        response->success = true;
+        response->message = "目标已保存";
     }
     
-    // 主控制循环
+    // PID控制循环
     void control_loop() {
-        // 检查节点状态
-        if (this->get_current_state().id() != lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE) {
-            return;
-        }
-        
-        if (!has_target_) {
-            wheel_velocities_ = {0.0, 0.0, 0.0, 0.0}; // 停止轮速
-            publish_wheel_velocities();
-            return;
-        }
+        if (!has_target_) return;
         
         try {
             auto transform = tf_buffer_->lookupTransform(
@@ -412,26 +361,19 @@ private:
             double distance_error = std::sqrt(error_x*error_x + error_y*error_y);
             static int arrived_count = 0;
             if (distance_error < 0.05 && std::abs(error_yaw) < 0.1) {
-                
                 arrived_count++;
                 if (arrived_count > 30) {  // 持续0.3秒到达目标
-                    RCLCPP_INFO(this->get_logger(), "已到达目标位置");
-                    
-                    // 发布目标到达信号
-                    if (target_reached_pub_->is_activated()) {
-                        auto reached_msg = std_msgs::msg::Bool();
-                        reached_msg.data = true;
-                        target_reached_pub_->publish(reached_msg);
-                        RCLCPP_INFO(this->get_logger(), "已发布目标到达信号");
+                    RCLCPP_INFO(this->get_logger(), "已到达目标位置，调用/notify_arrival服务");
+                    auto req = std::make_shared<std_srvs::srv::Trigger::Request>();
+                    while (!notify_arrival_client_->wait_for_service(1s)) {
+                        RCLCPP_WARN(this->get_logger(), "等待/notify_arrival服务可用...");
                     }
-                    
-                    has_target_ = false;  // 停止控制
+                    notify_arrival_client_->async_send_request(req);
+                    has_target_ = false;
                     arrived_count = 0;
                     position_pid_x_->reset();
                     position_pid_y_->reset();
                     angle_pid_->reset();
-                    
-                    // 发送零速度命令确保停止
                     wheel_velocities_ = {0.0, 0.0, 0.0, 0.0};
                     publish_wheel_velocities();
                 }
@@ -505,9 +447,9 @@ private:
     std::unique_ptr<PIDController> position_pid_y_;
     std::unique_ptr<PIDController> angle_pid_;
     std::shared_ptr<rclcpp_lifecycle::LifecyclePublisher<std_msgs::msg::Float32MultiArray>> wheel_velocity_pub_;
-    std::shared_ptr<rclcpp_lifecycle::LifecyclePublisher<std_msgs::msg::Bool>> target_reached_pub_;  // 目标到达信号发布者
+    rclcpp::Service<amp_interfaces::srv::SetTarget>::SharedPtr set_target_srv_;
+    rclcpp::Client<std_srvs::srv::Trigger>::SharedPtr notify_arrival_client_;
     rclcpp::TimerBase::SharedPtr timer_;
-    rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr target_sub_;
     
     double target_x_, target_y_, target_yaw_;
     double max_linear_speed_, max_angular_speed_;
