@@ -1,0 +1,45 @@
+[0.152s] Invoking command in '/home/sunrise/amphibious_ws/build/i2c_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/i2c_pkg -- -j8 -l8
+[0.477s] [35m[1mConsolidate compiler generated dependencies of target pid[0m
+[0.592s] [ 16%] Built target car_drive
+[0.672s] [ 33%] Built target car_drive_pid
+[0.696s] [ 50%] Built target car_drive_pid_pwm
+[0.714s] [ 58%] [32mBuilding CXX object CMakeFiles/pid_velocity.dir/src/pid_velocity.cpp.o[0m
+[0.752s] [ 75%] Built target target_pub
+[0.794s] [ 91%] Built target pid
+[18.149s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+[18.151s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+[18.152s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+[18.152s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[18.153s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[18.154s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[18.154s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[18.155s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[18.155s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[18.156s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[18.156s]                  from [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_velocity.cpp:1[m[K:
+[18.156s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_velocity.cpp:[m[K In member function ‘[01m[Kvoid VelocityPIDNode::control_loop()[m[K’:
+[18.157s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_velocity.cpp:231:13:[m[K [01;31m[Kerror: [m[Kstatic assertion failed: First argument to logging macros must be an rclcpp::Logger
+[18.157s]   231 |             [01;31m[KRCLCPP_INFO[m[K("%lf",error);
+[18.158s]       |             [01;31m[K^~~~~~~~~~~[m[K
+[18.158s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+[18.159s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+[18.159s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+[18.160s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+[18.160s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[18.161s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[18.161s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[18.162s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[18.162s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[18.163s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[18.163s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[18.163s]                  from [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_velocity.cpp:1[m[K:
+[18.164s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_velocity.cpp:231:13:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kget_name[m[K’ in ‘[01m[K("%lf")[m[K’, which is of non-class type ‘[01m[Kconst char [4][m[K’
+[18.164s]   231 |             [01;31m[KRCLCPP_INFO[m[K("%lf",error);
+[18.165s]       |             [01;31m[K^~~~~~~~~~~[m[K
+[18.165s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_velocity.cpp:231:13:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kget_name[m[K’ in ‘[01m[K("%lf")[m[K’, which is of non-class type ‘[01m[Kconst char [4][m[K’
+[18.166s]   231 |             [01;31m[KRCLCPP_INFO[m[K("%lf",error);
+[18.166s]       |             [01;31m[K^~~~~~~~~~~[m[K
+[39.420s] gmake[2]: *** [CMakeFiles/pid_velocity.dir/build.make:76：CMakeFiles/pid_velocity.dir/src/pid_velocity.cpp.o] 错误 1
+[39.421s] gmake[1]: *** [CMakeFiles/Makefile2:251：CMakeFiles/pid_velocity.dir/all] 错误 2
+[39.422s] gmake: *** [Makefile:146：all] 错误 2
+[39.432s] Invoked command in '/home/sunrise/amphibious_ws/build/i2c_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/i2c_pkg -- -j8 -l8

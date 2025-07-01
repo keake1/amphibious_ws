@@ -1,0 +1,14 @@
+[33mCMake Warning (dev) at CMakeLists.txt:44 (add_executable):
+  Policy CMP0115 is not set: Source file extensions must be explicit.  Run
+  "cmake --help-policy CMP0115" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  File:
+
+    /home/sunrise/amphibious_ws/src/i2c_pkg/src/velocity_by_encoder.cpp
+This warning is for project developers.  Use -Wno-dev to suppress it.
+[0m
+[01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/velocity_by_encoder.cpp:[m[K In member function ‘[01m[Kint EncoderVelocityNode::i2c_write(uint8_t, const uint8_t*, size_t)[m[K’:
+[01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/velocity_by_encoder.cpp:160:17:[m[K [01;35m[Kwarning: [m[KISO C++ forbids variable length array ‘[01m[Kbuffer[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wvla-Wvla]8;;[m[K]
+  160 |         uint8_t [01;35m[Kbuffer[m[K[length + 1];
+      |                 [01;35m[K^~~~~~[m[K

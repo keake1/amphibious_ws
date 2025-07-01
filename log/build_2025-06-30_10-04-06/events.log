@@ -1,0 +1,1222 @@
+[0.000000] (-) TimerEvent: {}
+[0.000779] (base_lidar) JobQueued: {'identifier': 'base_lidar', 'dependencies': OrderedDict()}
+[0.001555] (camera_pkg) JobQueued: {'identifier': 'camera_pkg', 'dependencies': OrderedDict()}
+[0.003138] (com_pkg) JobQueued: {'identifier': 'com_pkg', 'dependencies': OrderedDict()}
+[0.003857] (i2c_pkg) JobQueued: {'identifier': 'i2c_pkg', 'dependencies': OrderedDict()}
+[0.004618] (my_carto_pkg) JobQueued: {'identifier': 'my_carto_pkg', 'dependencies': OrderedDict()}
+[0.004849] (yolo_detect_pkg) JobQueued: {'identifier': 'yolo_detect_pkg', 'dependencies': OrderedDict()}
+[0.005228] (bluesea2) JobQueued: {'identifier': 'bluesea2', 'dependencies': OrderedDict([('base_lidar', '/home/sunrise/amphibious_ws/install/base_lidar')])}
+[0.005436] (base_lidar) JobStarted: {'identifier': 'base_lidar'}
+[0.057429] (camera_pkg) JobStarted: {'identifier': 'camera_pkg'}
+[0.096899] (com_pkg) JobStarted: {'identifier': 'com_pkg'}
+[0.100406] (-) TimerEvent: {}
+[0.138304] (i2c_pkg) JobStarted: {'identifier': 'i2c_pkg'}
+[0.183716] (my_carto_pkg) JobStarted: {'identifier': 'my_carto_pkg'}
+[0.200609] (-) TimerEvent: {}
+[0.224631] (yolo_detect_pkg) JobStarted: {'identifier': 'yolo_detect_pkg'}
+[0.291707] (base_lidar) JobProgress: {'identifier': 'base_lidar', 'progress': 'cmake'}
+[0.298189] (base_lidar) JobProgress: {'identifier': 'base_lidar', 'progress': 'build'}
+[0.302535] (base_lidar) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/sunrise/amphibious_ws/build/base_lidar', '--', '-j8', '-l8'], 'cwd': '/home/sunrise/amphibious_ws/build/base_lidar', 'env': OrderedDict([('LANGUAGE', 'zh_CN'), ('USER', 'sunrise'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1441'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib:'), ('HOME', '/home/sunrise'), ('OLDPWD', '/home/sunrise'), ('DESKTOP_SESSION', 'xfce'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('TROS_DISTRO', 'humble'), ('COLCON_PREFIX_PATH', '/home/sunrise/amphibious_ws/install:/home/sunrise/fly_ws/install:/home/sunrise/cartographer_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'sunrise'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/sunrise/cartographer_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/sunrise/cartographer_ws/install/cartographer/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', 'c1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sunrise/cartographer_ws/install/cartographer/bin:/opt/tros/humble/bin:/opt/ros/humble/bin:/home/sunrise/.local/bin:/usr/hobot/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1305,unix/ubuntu:/tmp/.ICE-unix/1305'), ('GDM_LANG', 'zh_CN'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'xfce'), ('XAUTHORITY', '/home/sunrise/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXqCtY6e/agent.1440'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/sunrise'), ('AMENT_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/tros/humble:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c04b6926-7e1d-4165-bff6-8392a4698012'), ('GDMSESSION', 'xfce'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '7'), ('PWD', '/home/sunrise/amphibious_ws/build/base_lidar'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xfce:/etc/xdg:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share'), ('PYTHONPATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages:/home/sunrise/amphibious_ws/install/base/local/lib/python3.10/dist-packages:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages:/home/sunrise/fly_ws/install/base/local/lib/python3.10/dist-packages:/opt/tros/humble/lib/python3.10/site-packages:/opt/tros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble')]), 'shell': False}
+[0.308226] (-) TimerEvent: {}
+[0.317062] (camera_pkg) JobProgress: {'identifier': 'camera_pkg', 'progress': 'cmake'}
+[0.321760] (camera_pkg) JobProgress: {'identifier': 'camera_pkg', 'progress': 'build'}
+[0.323607] (camera_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/sunrise/amphibious_ws/build/camera_pkg', '--', '-j8', '-l8'], 'cwd': '/home/sunrise/amphibious_ws/build/camera_pkg', 'env': OrderedDict([('LANGUAGE', 'zh_CN'), ('USER', 'sunrise'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1441'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib:'), ('HOME', '/home/sunrise'), ('OLDPWD', '/home/sunrise'), ('DESKTOP_SESSION', 'xfce'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('TROS_DISTRO', 'humble'), ('COLCON_PREFIX_PATH', '/home/sunrise/amphibious_ws/install:/home/sunrise/fly_ws/install:/home/sunrise/cartographer_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'sunrise'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/sunrise/cartographer_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/sunrise/cartographer_ws/install/cartographer/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', 'c1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sunrise/cartographer_ws/install/cartographer/bin:/opt/tros/humble/bin:/opt/ros/humble/bin:/home/sunrise/.local/bin:/usr/hobot/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1305,unix/ubuntu:/tmp/.ICE-unix/1305'), ('GDM_LANG', 'zh_CN'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'xfce'), ('XAUTHORITY', '/home/sunrise/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXqCtY6e/agent.1440'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/sunrise'), ('AMENT_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/tros/humble:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c04b6926-7e1d-4165-bff6-8392a4698012'), ('GDMSESSION', 'xfce'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '7'), ('PWD', '/home/sunrise/amphibious_ws/build/camera_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xfce:/etc/xdg:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share'), ('PYTHONPATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages:/home/sunrise/amphibious_ws/install/base/local/lib/python3.10/dist-packages:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages:/home/sunrise/fly_ws/install/base/local/lib/python3.10/dist-packages:/opt/tros/humble/lib/python3.10/site-packages:/opt/tros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble')]), 'shell': False}
+[0.333885] (com_pkg) JobProgress: {'identifier': 'com_pkg', 'progress': 'cmake'}
+[0.339532] (com_pkg) JobProgress: {'identifier': 'com_pkg', 'progress': 'build'}
+[0.341810] (com_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/sunrise/amphibious_ws/build/com_pkg', '--', '-j8', '-l8'], 'cwd': '/home/sunrise/amphibious_ws/build/com_pkg', 'env': OrderedDict([('LANGUAGE', 'zh_CN'), ('USER', 'sunrise'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1441'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib:'), ('HOME', '/home/sunrise'), ('OLDPWD', '/home/sunrise'), ('DESKTOP_SESSION', 'xfce'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('TROS_DISTRO', 'humble'), ('COLCON_PREFIX_PATH', '/home/sunrise/amphibious_ws/install:/home/sunrise/fly_ws/install:/home/sunrise/cartographer_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'sunrise'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/sunrise/cartographer_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/sunrise/cartographer_ws/install/cartographer/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', 'c1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sunrise/cartographer_ws/install/cartographer/bin:/opt/tros/humble/bin:/opt/ros/humble/bin:/home/sunrise/.local/bin:/usr/hobot/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1305,unix/ubuntu:/tmp/.ICE-unix/1305'), ('GDM_LANG', 'zh_CN'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'xfce'), ('XAUTHORITY', '/home/sunrise/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXqCtY6e/agent.1440'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/sunrise'), ('AMENT_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/tros/humble:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c04b6926-7e1d-4165-bff6-8392a4698012'), ('GDMSESSION', 'xfce'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '7'), ('PWD', '/home/sunrise/amphibious_ws/build/com_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xfce:/etc/xdg:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share'), ('PYTHONPATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages:/home/sunrise/amphibious_ws/install/base/local/lib/python3.10/dist-packages:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages:/home/sunrise/fly_ws/install/base/local/lib/python3.10/dist-packages:/opt/tros/humble/lib/python3.10/site-packages:/opt/tros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble')]), 'shell': False}
+[0.354735] (i2c_pkg) JobProgress: {'identifier': 'i2c_pkg', 'progress': 'cmake'}
+[0.360145] (i2c_pkg) JobProgress: {'identifier': 'i2c_pkg', 'progress': 'build'}
+[0.362333] (i2c_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/sunrise/amphibious_ws/build/i2c_pkg', '--', '-j8', '-l8'], 'cwd': '/home/sunrise/amphibious_ws/build/i2c_pkg', 'env': OrderedDict([('LANGUAGE', 'zh_CN'), ('USER', 'sunrise'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1441'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib:'), ('HOME', '/home/sunrise'), ('OLDPWD', '/home/sunrise'), ('DESKTOP_SESSION', 'xfce'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('TROS_DISTRO', 'humble'), ('COLCON_PREFIX_PATH', '/home/sunrise/amphibious_ws/install:/home/sunrise/fly_ws/install:/home/sunrise/cartographer_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'sunrise'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/sunrise/cartographer_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/sunrise/cartographer_ws/install/cartographer/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', 'c1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sunrise/cartographer_ws/install/cartographer/bin:/opt/tros/humble/bin:/opt/ros/humble/bin:/home/sunrise/.local/bin:/usr/hobot/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1305,unix/ubuntu:/tmp/.ICE-unix/1305'), ('GDM_LANG', 'zh_CN'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'xfce'), ('XAUTHORITY', '/home/sunrise/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXqCtY6e/agent.1440'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/sunrise'), ('AMENT_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/tros/humble:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c04b6926-7e1d-4165-bff6-8392a4698012'), ('GDMSESSION', 'xfce'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '7'), ('PWD', '/home/sunrise/amphibious_ws/build/i2c_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xfce:/etc/xdg:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share'), ('PYTHONPATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages:/home/sunrise/amphibious_ws/install/base/local/lib/python3.10/dist-packages:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages:/home/sunrise/fly_ws/install/base/local/lib/python3.10/dist-packages:/opt/tros/humble/lib/python3.10/site-packages:/opt/tros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble')]), 'shell': False}
+[0.378741] (my_carto_pkg) JobProgress: {'identifier': 'my_carto_pkg', 'progress': 'cmake'}
+[0.384082] (my_carto_pkg) JobProgress: {'identifier': 'my_carto_pkg', 'progress': 'build'}
+[0.384583] (my_carto_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/sunrise/amphibious_ws/build/my_carto_pkg', '--', '-j8', '-l8'], 'cwd': '/home/sunrise/amphibious_ws/build/my_carto_pkg', 'env': OrderedDict([('LANGUAGE', 'zh_CN'), ('USER', 'sunrise'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1441'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib:'), ('HOME', '/home/sunrise'), ('OLDPWD', '/home/sunrise'), ('DESKTOP_SESSION', 'xfce'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('TROS_DISTRO', 'humble'), ('COLCON_PREFIX_PATH', '/home/sunrise/amphibious_ws/install:/home/sunrise/fly_ws/install:/home/sunrise/cartographer_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'sunrise'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/sunrise/cartographer_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/sunrise/cartographer_ws/install/cartographer/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', 'c1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sunrise/cartographer_ws/install/cartographer/bin:/opt/tros/humble/bin:/opt/ros/humble/bin:/home/sunrise/.local/bin:/usr/hobot/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1305,unix/ubuntu:/tmp/.ICE-unix/1305'), ('GDM_LANG', 'zh_CN'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'xfce'), ('XAUTHORITY', '/home/sunrise/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXqCtY6e/agent.1440'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/sunrise'), ('AMENT_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/tros/humble:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c04b6926-7e1d-4165-bff6-8392a4698012'), ('GDMSESSION', 'xfce'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '7'), ('PWD', '/home/sunrise/amphibious_ws/build/my_carto_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xfce:/etc/xdg:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share'), ('PYTHONPATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages:/home/sunrise/amphibious_ws/install/base/local/lib/python3.10/dist-packages:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages:/home/sunrise/fly_ws/install/base/local/lib/python3.10/dist-packages:/opt/tros/humble/lib/python3.10/site-packages:/opt/tros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble')]), 'shell': False}
+[0.414867] (-) TimerEvent: {}
+[0.516455] (-) TimerEvent: {}
+[0.618189] (-) TimerEvent: {}
+[0.719476] (-) TimerEvent: {}
+[0.820882] (-) TimerEvent: {}
+[0.922190] (-) TimerEvent: {}
+[1.023613] (-) TimerEvent: {}
+[1.124891] (-) TimerEvent: {}
+[1.226121] (-) TimerEvent: {}
+[1.327717] (-) TimerEvent: {}
+[1.429333] (-) TimerEvent: {}
+[1.530840] (-) TimerEvent: {}
+[1.632892] (-) TimerEvent: {}
+[1.734882] (-) TimerEvent: {}
+[1.836501] (-) TimerEvent: {}
+[1.943128] (-) TimerEvent: {}
+[2.045154] (-) TimerEvent: {}
+[2.147389] (-) TimerEvent: {}
+[2.250132] (-) TimerEvent: {}
+[2.354334] (-) TimerEvent: {}
+[2.458921] (-) TimerEvent: {}
+[2.563137] (-) TimerEvent: {}
+[2.671134] (-) TimerEvent: {}
+[2.772596] (-) TimerEvent: {}
+[2.874677] (-) TimerEvent: {}
+[2.976530] (-) TimerEvent: {}
+[3.083210] (-) TimerEvent: {}
+[3.193120] (-) TimerEvent: {}
+[3.297829] (-) TimerEvent: {}
+[3.399543] (-) TimerEvent: {}
+[3.501897] (-) TimerEvent: {}
+[3.607128] (-) TimerEvent: {}
+[3.689917] (base_lidar) StdoutLine: {'line': b'[  3%] Built target base_lidar__cpp\n'}
+[3.692482] (base_lidar) StdoutLine: {'line': b'[ 12%] Built target base_lidar__rosidl_generator_c\n'}
+[3.693848] (base_lidar) StdoutLine: {'line': b'[ 12%] Built target ament_cmake_python_copy_base_lidar\n'}
+[3.697801] (base_lidar) StdoutLine: {'line': b'[ 22%] Built target base_lidar__rosidl_typesupport_cpp\n'}
+[3.699005] (base_lidar) StdoutLine: {'line': b'[ 32%] Built target base_lidar__rosidl_typesupport_fastrtps_cpp\n'}
+[3.700147] (base_lidar) StdoutLine: {'line': b'[ 41%] Built target base_lidar__rosidl_typesupport_introspection_c\n'}
+[3.701152] (base_lidar) StdoutLine: {'line': b'[ 51%] Built target base_lidar__rosidl_typesupport_fastrtps_c\n'}
+[3.702174] (base_lidar) StdoutLine: {'line': b'[ 61%] Built target base_lidar__rosidl_typesupport_c\n'}
+[3.703531] (base_lidar) StdoutLine: {'line': b'[ 70%] Built target base_lidar__rosidl_typesupport_introspection_cpp\n'}
+[3.704830] (base_lidar) StdoutLine: {'line': b'[ 70%] Built target base_lidar\n'}
+[3.705831] (base_lidar) StdoutLine: {'line': b'[ 74%] Built target base_lidar__py\n'}
+[3.706780] (base_lidar) StdoutLine: {'line': b'[ 80%] Built target base_lidar__rosidl_generator_py\n'}
+[3.709417] (-) TimerEvent: {}
+[3.714406] (base_lidar) StdoutLine: {'line': b'[ 87%] Built target base_lidar__rosidl_typesupport_fastrtps_c__pyext\n'}
+[3.718200] (base_lidar) StdoutLine: {'line': b'[ 93%] Built target base_lidar__rosidl_typesupport_introspection_c__pyext\n'}
+[3.721315] (base_lidar) StdoutLine: {'line': b'[100%] Built target base_lidar__rosidl_typesupport_c__pyext\n'}
+[3.722844] (camera_pkg) StdoutLine: {'line': b'[100%] Built target camera_pub\n'}
+[3.724404] (com_pkg) StdoutLine: {'line': b'[ 50%] Built target com_node_without_imu\n'}
+[3.725525] (com_pkg) StdoutLine: {'line': b'[100%] Built target com_node\n'}
+[3.726577] (i2c_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target car_drive_pid_pwm\x1b[0m\n'}
+[3.727732] (i2c_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target pid_velocity_lifecycle\x1b[0m\n'}
+[3.728592] (i2c_pkg) StdoutLine: {'line': b'[ 11%] Built target target_pub\n'}
+[3.734818] (i2c_pkg) StdoutLine: {'line': b'[ 22%] Built target pid_velocity\n'}
+[3.738984] (i2c_pkg) StdoutLine: {'line': b'[ 33%] Built target pid\n'}
+[3.741414] (i2c_pkg) StdoutLine: {'line': b'[ 44%] Built target car_drive\n'}
+[3.744749] (i2c_pkg) StdoutLine: {'line': b'[ 55%] Built target car_drive_pid_pwm\n'}
+[3.745648] (i2c_pkg) StdoutLine: {'line': b'[ 66%] Built target car_drive_pid\n'}
+[3.746551] (i2c_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target pid_lifecycle\x1b[0m\n'}
+[3.749243] (i2c_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target car_drive_pid_pwm_lifecycle\x1b[0m\n'}
+[3.750495] (i2c_pkg) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/pid_velocity_lifecycle.dir/src/pid_velocity_lifecycle.cpp.o\x1b[0m\n'}
+[3.751513] (i2c_pkg) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding CXX object CMakeFiles/pid_lifecycle.dir/src/pid_lifecycle.cpp.o\x1b[0m\n'}
+[3.752686] (i2c_pkg) StdoutLine: {'line': b'[ 88%] Built target car_drive_pid_pwm_lifecycle\n'}
+[3.753705] (camera_pkg) CommandEnded: {'returncode': 0}
+[3.759835] (camera_pkg) JobProgress: {'identifier': 'camera_pkg', 'progress': 'install'}
+[3.812205] (camera_pkg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/sunrise/amphibious_ws/build/camera_pkg'], 'cwd': '/home/sunrise/amphibious_ws/build/camera_pkg', 'env': OrderedDict([('LANGUAGE', 'zh_CN'), ('USER', 'sunrise'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1441'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib:'), ('HOME', '/home/sunrise'), ('OLDPWD', '/home/sunrise'), ('DESKTOP_SESSION', 'xfce'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('TROS_DISTRO', 'humble'), ('COLCON_PREFIX_PATH', '/home/sunrise/amphibious_ws/install:/home/sunrise/fly_ws/install:/home/sunrise/cartographer_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'sunrise'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/sunrise/cartographer_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/sunrise/cartographer_ws/install/cartographer/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', 'c1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sunrise/cartographer_ws/install/cartographer/bin:/opt/tros/humble/bin:/opt/ros/humble/bin:/home/sunrise/.local/bin:/usr/hobot/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1305,unix/ubuntu:/tmp/.ICE-unix/1305'), ('GDM_LANG', 'zh_CN'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'xfce'), ('XAUTHORITY', '/home/sunrise/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXqCtY6e/agent.1440'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/sunrise'), ('AMENT_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/tros/humble:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c04b6926-7e1d-4165-bff6-8392a4698012'), ('GDMSESSION', 'xfce'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '7'), ('PWD', '/home/sunrise/amphibious_ws/build/camera_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xfce:/etc/xdg:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share'), ('PYTHONPATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages:/home/sunrise/amphibious_ws/install/base/local/lib/python3.10/dist-packages:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages:/home/sunrise/fly_ws/install/base/local/lib/python3.10/dist-packages:/opt/tros/humble/lib/python3.10/site-packages:/opt/tros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble')]), 'shell': False}
+[3.815759] (-) TimerEvent: {}
+[3.824362] (com_pkg) CommandEnded: {'returncode': 0}
+[3.827228] (com_pkg) JobProgress: {'identifier': 'com_pkg', 'progress': 'install'}
+[3.827591] (com_pkg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/sunrise/amphibious_ws/build/com_pkg'], 'cwd': '/home/sunrise/amphibious_ws/build/com_pkg', 'env': OrderedDict([('LANGUAGE', 'zh_CN'), ('USER', 'sunrise'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1441'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib:'), ('HOME', '/home/sunrise'), ('OLDPWD', '/home/sunrise'), ('DESKTOP_SESSION', 'xfce'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('TROS_DISTRO', 'humble'), ('COLCON_PREFIX_PATH', '/home/sunrise/amphibious_ws/install:/home/sunrise/fly_ws/install:/home/sunrise/cartographer_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'sunrise'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/sunrise/cartographer_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/sunrise/cartographer_ws/install/cartographer/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', 'c1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sunrise/cartographer_ws/install/cartographer/bin:/opt/tros/humble/bin:/opt/ros/humble/bin:/home/sunrise/.local/bin:/usr/hobot/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1305,unix/ubuntu:/tmp/.ICE-unix/1305'), ('GDM_LANG', 'zh_CN'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'xfce'), ('XAUTHORITY', '/home/sunrise/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXqCtY6e/agent.1440'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/sunrise'), ('AMENT_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/tros/humble:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c04b6926-7e1d-4165-bff6-8392a4698012'), ('GDMSESSION', 'xfce'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '7'), ('PWD', '/home/sunrise/amphibious_ws/build/com_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xfce:/etc/xdg:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share'), ('PYTHONPATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages:/home/sunrise/amphibious_ws/install/base/local/lib/python3.10/dist-packages:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages:/home/sunrise/fly_ws/install/base/local/lib/python3.10/dist-packages:/opt/tros/humble/lib/python3.10/site-packages:/opt/tros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble')]), 'shell': False}
+[3.842238] (my_carto_pkg) CommandEnded: {'returncode': 0}
+[3.845269] (my_carto_pkg) JobProgress: {'identifier': 'my_carto_pkg', 'progress': 'install'}
+[3.845634] (my_carto_pkg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/sunrise/amphibious_ws/build/my_carto_pkg'], 'cwd': '/home/sunrise/amphibious_ws/build/my_carto_pkg', 'env': OrderedDict([('LANGUAGE', 'zh_CN'), ('USER', 'sunrise'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1441'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib:'), ('HOME', '/home/sunrise'), ('OLDPWD', '/home/sunrise'), ('DESKTOP_SESSION', 'xfce'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('TROS_DISTRO', 'humble'), ('COLCON_PREFIX_PATH', '/home/sunrise/amphibious_ws/install:/home/sunrise/fly_ws/install:/home/sunrise/cartographer_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'sunrise'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/sunrise/cartographer_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/sunrise/cartographer_ws/install/cartographer/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', 'c1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sunrise/cartographer_ws/install/cartographer/bin:/opt/tros/humble/bin:/opt/ros/humble/bin:/home/sunrise/.local/bin:/usr/hobot/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1305,unix/ubuntu:/tmp/.ICE-unix/1305'), ('GDM_LANG', 'zh_CN'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'xfce'), ('XAUTHORITY', '/home/sunrise/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXqCtY6e/agent.1440'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/sunrise'), ('AMENT_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/tros/humble:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c04b6926-7e1d-4165-bff6-8392a4698012'), ('GDMSESSION', 'xfce'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '7'), ('PWD', '/home/sunrise/amphibious_ws/build/my_carto_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xfce:/etc/xdg:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share'), ('PYTHONPATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages:/home/sunrise/amphibious_ws/install/base/local/lib/python3.10/dist-packages:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages:/home/sunrise/fly_ws/install/base/local/lib/python3.10/dist-packages:/opt/tros/humble/lib/python3.10/site-packages:/opt/tros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble')]), 'shell': False}
+[3.849098] (base_lidar) StdoutLine: {'line': b'running egg_info\n'}
+[3.856231] (base_lidar) StdoutLine: {'line': b'writing base_lidar.egg-info/PKG-INFO\n'}
+[3.859798] (base_lidar) StdoutLine: {'line': b'writing dependency_links to base_lidar.egg-info/dependency_links.txt\n'}
+[3.863467] (base_lidar) StdoutLine: {'line': b'writing top-level names to base_lidar.egg-info/top_level.txt\n'}
+[3.876400] (camera_pkg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[3.877593] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/lib/camera_pkg/camera_pub\n'}
+[3.878869] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/share/ament_index/resource_index/package_run_dependencies/camera_pkg\n'}
+[3.880268] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/share/ament_index/resource_index/parent_prefix_path/camera_pkg\n'}
+[3.881378] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/environment/ament_prefix_path.sh\n'}
+[3.882854] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/environment/ament_prefix_path.dsv\n'}
+[3.883925] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/environment/path.sh\n'}
+[3.884899] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/environment/path.dsv\n'}
+[3.885743] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/local_setup.bash\n'}
+[3.886763] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/local_setup.sh\n'}
+[3.887606] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/local_setup.zsh\n'}
+[3.888386] (base_lidar) StdoutLine: {'line': b"reading manifest file 'base_lidar.egg-info/SOURCES.txt'\n"}
+[3.889262] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/local_setup.dsv\n'}
+[3.890088] (camera_pkg) StdoutLine: {'line': b'-- Installing: /home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/package.dsv\n'}
+[3.894512] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/share/ament_index/resource_index/packages/camera_pkg\n'}
+[3.895602] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/cmake/camera_pkgConfig.cmake\n'}
+[3.896573] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/cmake/camera_pkgConfig-version.cmake\n'}
+[3.897496] (camera_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/package.xml\n'}
+[3.898579] (base_lidar) StdoutLine: {'line': b"writing manifest file 'base_lidar.egg-info/SOURCES.txt'\n"}
+[3.911771] (my_carto_pkg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[3.918309] (com_pkg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[3.919329] (-) TimerEvent: {}
+[3.920584] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/lib/com_pkg/com_node\n'}
+[3.921657] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/lib/com_pkg/com_node_without_imu\n'}
+[3.922588] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/share/ament_index/resource_index/package_run_dependencies/com_pkg\n'}
+[3.923665] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/share/ament_index/resource_index/parent_prefix_path/com_pkg\n'}
+[3.924806] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/environment/ament_prefix_path.sh\n'}
+[3.928889] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/environment/ament_prefix_path.dsv\n'}
+[3.934437] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/environment/path.sh\n'}
+[3.946757] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/environment/path.dsv\n'}
+[3.947614] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/local_setup.bash\n'}
+[3.948366] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/local_setup.sh\n'}
+[3.949142] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/local_setup.zsh\n'}
+[3.949973] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/local_setup.dsv\n'}
+[3.950889] (com_pkg) StdoutLine: {'line': b'-- Installing: /home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.dsv\n'}
+[3.951760] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/launch\n'}
+[3.952583] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/launch/fly_carto.launch.py\n'}
+[3.969181] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/launch/amphi_carto.launch.py\n'}
+[3.970220] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/urdf\n'}
+[3.971054] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/urdf/fly.urdf\n'}
+[3.971857] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/configuration_files\n'}
+[3.972600] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/configuration_files/amphi.lua\n'}
+[3.973520] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/configuration_files/pose_graph.lua\n'}
+[3.974367] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/configuration_files/trajectory_builder_3d.lua\n'}
+[3.975143] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/configuration_files/trajectory_builder_2d.lua\n'}
+[3.976053] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/configuration_files/map_builder.lua\n'}
+[3.976835] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/configuration_files/trajectory_builder.lua\n'}
+[3.977747] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/configuration_files/fly.lua\n'}
+[3.978567] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/ament_index/resource_index/package_run_dependencies/my_carto_pkg\n'}
+[3.979411] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/ament_index/resource_index/parent_prefix_path/my_carto_pkg\n'}
+[3.980195] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/environment/ament_prefix_path.sh\n'}
+[3.981035] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/environment/ament_prefix_path.dsv\n'}
+[3.982070] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/environment/path.sh\n'}
+[3.993103] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/environment/path.dsv\n'}
+[3.999767] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/local_setup.bash\n'}
+[4.008092] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/local_setup.sh\n'}
+[4.009206] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/local_setup.zsh\n'}
+[4.010092] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/local_setup.dsv\n'}
+[4.010949] (my_carto_pkg) StdoutLine: {'line': b'-- Installing: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.dsv\n'}
+[4.011730] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/ament_index/resource_index/packages/my_carto_pkg\n'}
+[4.012472] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/cmake/my_carto_pkgConfig.cmake\n'}
+[4.038477] (-) TimerEvent: {}
+[4.039460] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/cmake/my_carto_pkgConfig-version.cmake\n'}
+[4.045702] (my_carto_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.xml\n'}
+[4.046446] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/share/ament_index/resource_index/packages/com_pkg\n'}
+[4.047194] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/cmake/com_pkgConfig.cmake\n'}
+[4.049406] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/cmake/com_pkgConfig-version.cmake\n'}
+[4.050201] (com_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.xml\n'}
+[4.050923] (camera_pkg) CommandEnded: {'returncode': 0}
+[4.139853] (-) TimerEvent: {}
+[4.161992] (camera_pkg) JobEnded: {'identifier': 'camera_pkg', 'rc': 0}
+[4.173160] (com_pkg) CommandEnded: {'returncode': 0}
+[4.205863] (base_lidar) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_base_lidar_egg\n'}
+[4.240403] (-) TimerEvent: {}
+[4.291030] (com_pkg) JobEnded: {'identifier': 'com_pkg', 'rc': 0}
+[4.296367] (my_carto_pkg) CommandEnded: {'returncode': 0}
+[4.341558] (-) TimerEvent: {}
+[4.413274] (my_carto_pkg) JobEnded: {'identifier': 'my_carto_pkg', 'rc': 0}
+[4.419200] (base_lidar) CommandEnded: {'returncode': 0}
+[4.423869] (base_lidar) JobProgress: {'identifier': 'base_lidar', 'progress': 'install'}
+[4.434077] (base_lidar) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/sunrise/amphibious_ws/build/base_lidar'], 'cwd': '/home/sunrise/amphibious_ws/build/base_lidar', 'env': OrderedDict([('LANGUAGE', 'zh_CN'), ('USER', 'sunrise'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1441'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib:'), ('HOME', '/home/sunrise'), ('OLDPWD', '/home/sunrise'), ('DESKTOP_SESSION', 'xfce'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('TROS_DISTRO', 'humble'), ('COLCON_PREFIX_PATH', '/home/sunrise/amphibious_ws/install:/home/sunrise/fly_ws/install:/home/sunrise/cartographer_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'sunrise'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/sunrise/cartographer_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/sunrise/cartographer_ws/install/cartographer/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', 'c1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sunrise/cartographer_ws/install/cartographer/bin:/opt/tros/humble/bin:/opt/ros/humble/bin:/home/sunrise/.local/bin:/usr/hobot/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1305,unix/ubuntu:/tmp/.ICE-unix/1305'), ('GDM_LANG', 'zh_CN'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'xfce'), ('XAUTHORITY', '/home/sunrise/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXqCtY6e/agent.1440'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/sunrise'), ('AMENT_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/tros/humble:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c04b6926-7e1d-4165-bff6-8392a4698012'), ('GDMSESSION', 'xfce'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '7'), ('PWD', '/home/sunrise/amphibious_ws/build/base_lidar'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xfce:/etc/xdg:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share'), ('PYTHONPATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages:/home/sunrise/amphibious_ws/install/base/local/lib/python3.10/dist-packages:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages:/home/sunrise/fly_ws/install/base/local/lib/python3.10/dist-packages:/opt/tros/humble/lib/python3.10/site-packages:/opt/tros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble')]), 'shell': False}
+[4.443205] (-) TimerEvent: {}
+[4.483645] (base_lidar) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[4.485026] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/ament_index/resource_index/rosidl_interfaces/base_lidar\n'}
+[4.487178] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar\n'}
+[4.488716] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/msg\n'}
+[4.490773] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/msg/rosidl_generator_c__visibility_control.h\n'}
+[4.492478] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv\n'}
+[4.496120] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/control.h\n'}
+[4.497541] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail\n'}
+[4.498804] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/control__struct.h\n'}
+[4.499919] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/control__type_support.h\n'}
+[4.501021] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/control__functions.c\n'}
+[4.502103] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/control__functions.h\n'}
+[4.503132] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/environment/library_path.sh\n'}
+[4.504990] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/environment/library_path.dsv\n'}
+[4.506558] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/lib/libbase_lidar__rosidl_generator_c.so\n'}
+[4.508353] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar\n'}
+[4.509419] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/msg\n'}
+[4.510720] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[4.512232] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv\n'}
+[4.513411] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail\n'}
+[4.514212] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/control__rosidl_typesupport_fastrtps_c.h\n'}
+[4.515087] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/lib/libbase_lidar__rosidl_typesupport_fastrtps_c.so\n'}
+[4.516178] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar\n'}
+[4.520267] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/msg\n'}
+[4.521087] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[4.521814] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv\n'}
+[4.522560] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail\n'}
+[4.524661] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/control__struct.hpp\n'}
+[4.525643] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/control__traits.hpp\n'}
+[4.526392] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/control__type_support.hpp\n'}
+[4.527091] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/control__builder.hpp\n'}
+[4.527786] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/control.hpp\n'}
+[4.528533] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar\n'}
+[4.529314] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/msg\n'}
+[4.530008] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[4.530758] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv\n'}
+[4.540155] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail\n'}
+[4.541171] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/dds_fastrtps\n'}
+[4.541963] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/control__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[4.542721] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/lib/libbase_lidar__rosidl_typesupport_fastrtps_cpp.so\n'}
+[4.543552] (-) TimerEvent: {}
+[4.544317] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar\n'}
+[4.545144] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/msg\n'}
+[4.553385] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[4.554317] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv\n'}
+[4.555097] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail\n'}
+[4.555995] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/control__type_support.c\n'}
+[4.556768] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/control__rosidl_typesupport_introspection_c.h\n'}
+[4.557514] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/lib/libbase_lidar__rosidl_typesupport_introspection_c.so\n'}
+[4.558212] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/lib/libbase_lidar__rosidl_typesupport_c.so\n'}
+[4.566281] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar\n'}
+[4.567251] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv\n'}
+[4.568034] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail\n'}
+[4.569025] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/control__rosidl_typesupport_introspection_cpp.hpp\n'}
+[4.569896] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/include/base_lidar/base_lidar/srv/detail/control__type_support.cpp\n'}
+[4.571298] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/lib/libbase_lidar__rosidl_typesupport_introspection_cpp.so\n'}
+[4.572084] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/lib/libbase_lidar__rosidl_typesupport_cpp.so\n'}
+[4.572829] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/environment/pythonpath.sh\n'}
+[4.573960] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/environment/pythonpath.dsv\n'}
+[4.574974] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar-0.0.0-py3.10.egg-info\n'}
+[4.575792] (base_lidar) StdoutLine: {'line': b'-- Installing: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[4.576636] (base_lidar) StdoutLine: {'line': b'-- Installing: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[4.577730] (base_lidar) StdoutLine: {'line': b'-- Installing: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[4.578573] (base_lidar) StdoutLine: {'line': b'-- Installing: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[4.579341] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar\n'}
+[4.580135] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/libbase_lidar__rosidl_generator_py.so\n'}
+[4.580959] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/base_lidar_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so\n'}
+[4.581897] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/srv\n'}
+[4.583238] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/srv/_control_s.c\n'}
+[4.584404] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/srv/__init__.py\n'}
+[4.585256] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/srv/_control.py\n'}
+[4.586031] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/_base_lidar_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[4.586840] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/base_lidar_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so\n'}
+[4.587607] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/_base_lidar_s.ep.rosidl_typesupport_c.c\n'}
+[4.588383] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/__init__.py\n'}
+[4.589200] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/base_lidar_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so\n'}
+[4.590045] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/_base_lidar_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[4.643844] (-) TimerEvent: {}
+[4.747222] (-) TimerEvent: {}
+[4.848925] (-) TimerEvent: {}
+[4.887990] (base_lidar) StdoutLine: {'line': b"Listing '/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar'...\n"}
+[4.889163] (base_lidar) StdoutLine: {'line': b"Listing '/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/srv'...\n"}
+[4.947150] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/base_lidar_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so\n'}
+[4.951100] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/base_lidar_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so\n'}
+[4.952129] (-) TimerEvent: {}
+[4.955561] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages/base_lidar/base_lidar_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so\n'}
+[4.961406] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/lib/libbase_lidar__rosidl_generator_py.so\n'}
+[4.962782] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/srv/Control.idl\n'}
+[4.966739] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/srv/Control.srv\n'}
+[4.967566] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/srv/Control_Request.msg\n'}
+[4.968546] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/srv/Control_Response.msg\n'}
+[4.969511] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/ament_index/resource_index/package_run_dependencies/base_lidar\n'}
+[4.970440] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/ament_index/resource_index/parent_prefix_path/base_lidar\n'}
+[4.971429] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/environment/ament_prefix_path.sh\n'}
+[4.972257] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/environment/ament_prefix_path.dsv\n'}
+[4.973318] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/environment/path.sh\n'}
+[4.974675] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/environment/path.dsv\n'}
+[4.975666] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/local_setup.bash\n'}
+[4.976739] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/local_setup.sh\n'}
+[4.977723] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/local_setup.zsh\n'}
+[4.978669] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/local_setup.dsv\n'}
+[4.979580] (base_lidar) StdoutLine: {'line': b'-- Installing: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/package.dsv\n'}
+[4.984347] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/ament_index/resource_index/packages/base_lidar\n'}
+[4.985230] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/export_base_lidar__rosidl_generator_cExport.cmake\n'}
+[4.986009] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/export_base_lidar__rosidl_generator_cExport-noconfig.cmake\n'}
+[4.990143] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/export_base_lidar__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[4.991452] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/export_base_lidar__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[4.996637] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/export_base_lidar__rosidl_generator_cppExport.cmake\n'}
+[5.004619] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/export_base_lidar__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[5.005460] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/export_base_lidar__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[5.006462] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/base_lidar__rosidl_typesupport_introspection_cExport.cmake\n'}
+[5.008050] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/base_lidar__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[5.008938] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/base_lidar__rosidl_typesupport_cExport.cmake\n'}
+[5.009899] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/base_lidar__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[5.011198] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/base_lidar__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[5.012360] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/base_lidar__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[5.017248] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/base_lidar__rosidl_typesupport_cppExport.cmake\n'}
+[5.018466] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/base_lidar__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[5.023795] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/export_base_lidar__rosidl_generator_pyExport.cmake\n'}
+[5.026027] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/export_base_lidar__rosidl_generator_pyExport-noconfig.cmake\n'}
+[5.028131] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/rosidl_cmake-extras.cmake\n'}
+[5.030915] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[5.031843] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[5.032649] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[5.033651] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[5.034534] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[5.035314] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[5.036107] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/base_lidarConfig.cmake\n'}
+[5.036970] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/cmake/base_lidarConfig-version.cmake\n'}
+[5.037793] (base_lidar) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/package.xml\n'}
+[5.063279] (base_lidar) CommandEnded: {'returncode': 0}
+[5.066330] (-) TimerEvent: {}
+[5.168772] (-) TimerEvent: {}
+[5.203757] (base_lidar) JobEnded: {'identifier': 'base_lidar', 'rc': 0}
+[5.208027] (bluesea2) JobStarted: {'identifier': 'bluesea2'}
+[5.272718] (-) TimerEvent: {}
+[5.286624] (bluesea2) JobProgress: {'identifier': 'bluesea2', 'progress': 'cmake'}
+[5.295689] (bluesea2) JobProgress: {'identifier': 'bluesea2', 'progress': 'build'}
+[5.298108] (bluesea2) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/sunrise/amphibious_ws/build/bluesea2', '--', '-j8', '-l8'], 'cwd': '/home/sunrise/amphibious_ws/build/bluesea2', 'env': OrderedDict([('LANGUAGE', 'zh_CN'), ('USER', 'sunrise'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1441'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib'), ('HOME', '/home/sunrise'), ('OLDPWD', '/home/sunrise'), ('DESKTOP_SESSION', 'xfce'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('TROS_DISTRO', 'humble'), ('COLCON_PREFIX_PATH', '/home/sunrise/amphibious_ws/install:/home/sunrise/fly_ws/install:/home/sunrise/cartographer_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'sunrise'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/sunrise/cartographer_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/sunrise/cartographer_ws/install/cartographer/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', 'c1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sunrise/cartographer_ws/install/cartographer/bin:/opt/tros/humble/bin:/opt/ros/humble/bin:/home/sunrise/.local/bin:/usr/hobot/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1305,unix/ubuntu:/tmp/.ICE-unix/1305'), ('GDM_LANG', 'zh_CN'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'xfce'), ('XAUTHORITY', '/home/sunrise/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXqCtY6e/agent.1440'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/sunrise'), ('AMENT_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/tros/humble:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c04b6926-7e1d-4165-bff6-8392a4698012'), ('GDMSESSION', 'xfce'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '7'), ('PWD', '/home/sunrise/amphibious_ws/build/bluesea2'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xfce:/etc/xdg:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share'), ('PYTHONPATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages:/home/sunrise/amphibious_ws/install/base/local/lib/python3.10/dist-packages:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages:/home/sunrise/fly_ws/install/base/local/lib/python3.10/dist-packages:/opt/tros/humble/lib/python3.10/site-packages:/opt/tros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble')]), 'shell': False}
+[5.373145] (-) TimerEvent: {}
+[5.474439] (-) TimerEvent: {}
+[5.575644] (-) TimerEvent: {}
+[5.676874] (-) TimerEvent: {}
+[5.779039] (-) TimerEvent: {}
+[5.866169] (bluesea2) StdoutLine: {'line': b'[ 15%] Built target bluesea2_client\n'}
+[5.883099] (-) TimerEvent: {}
+[5.896520] (bluesea2) StdoutLine: {'line': b'[ 30%] Built target bluesea2_heart_check\n'}
+[5.920449] (bluesea2) StdoutLine: {'line': b'[100%] Built target bluesea2_node\n'}
+[5.987063] (-) TimerEvent: {}
+[5.999506] (bluesea2) CommandEnded: {'returncode': 0}
+[6.002847] (bluesea2) JobProgress: {'identifier': 'bluesea2', 'progress': 'install'}
+[6.003621] (bluesea2) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/sunrise/amphibious_ws/build/bluesea2'], 'cwd': '/home/sunrise/amphibious_ws/build/bluesea2', 'env': OrderedDict([('LANGUAGE', 'zh_CN'), ('USER', 'sunrise'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1441'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib'), ('HOME', '/home/sunrise'), ('OLDPWD', '/home/sunrise'), ('DESKTOP_SESSION', 'xfce'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('TROS_DISTRO', 'humble'), ('COLCON_PREFIX_PATH', '/home/sunrise/amphibious_ws/install:/home/sunrise/fly_ws/install:/home/sunrise/cartographer_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'sunrise'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/sunrise/cartographer_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/sunrise/cartographer_ws/install/cartographer/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', 'c1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sunrise/cartographer_ws/install/cartographer/bin:/opt/tros/humble/bin:/opt/ros/humble/bin:/home/sunrise/.local/bin:/usr/hobot/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1305,unix/ubuntu:/tmp/.ICE-unix/1305'), ('GDM_LANG', 'zh_CN'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'xfce'), ('XAUTHORITY', '/home/sunrise/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXqCtY6e/agent.1440'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/sunrise'), ('AMENT_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/tros/humble:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c04b6926-7e1d-4165-bff6-8392a4698012'), ('GDMSESSION', 'xfce'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '7'), ('PWD', '/home/sunrise/amphibious_ws/build/bluesea2'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xfce:/etc/xdg:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share'), ('PYTHONPATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages:/home/sunrise/amphibious_ws/install/base/local/lib/python3.10/dist-packages:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages:/home/sunrise/fly_ws/install/base/local/lib/python3.10/dist-packages:/opt/tros/humble/lib/python3.10/site-packages:/opt/tros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble')]), 'shell': False}
+[6.073362] (bluesea2) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[6.074429] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/lib/bluesea2/bluesea2_node\n'}
+[6.075598] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/lib/bluesea2/bluesea2_client\n'}
+[6.083829] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/lib/bluesea2/bluesea2_heart_check\n'}
+[6.084896] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/launch\n'}
+[6.085661] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/launch/heart_check.launch\n'}
+[6.086387] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/launch/uart_lidar.launch\n'}
+[6.087040] (-) TimerEvent: {}
+[6.087793] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/launch/vpc_lidar.launch\n'}
+[6.088620] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/launch/udp_lidar.launch\n'}
+[6.089346] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/launch/LDS-U80C-S.launch\n'}
+[6.090065] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/launch/dual_udp_lidar.launch\n'}
+[6.090785] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/launch/LDS-U50C-S.launch\n'}
+[6.091523] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/params\n'}
+[6.092277] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/params/udp_lidar.yaml\n'}
+[6.093139] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/params/vpc_lidar.yaml\n'}
+[6.093965] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/params/LDS-U80C-S.yaml\n'}
+[6.094718] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/params/LDS-U50C-S.yaml\n'}
+[6.095513] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/params/uart_lidar.yaml\n'}
+[6.096400] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/params/other\n'}
+[6.097194] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/params/dual_udp_lidar.yaml\n'}
+[6.098021] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/ament_index/resource_index/package_run_dependencies/bluesea2\n'}
+[6.098927] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/ament_index/resource_index/parent_prefix_path/bluesea2\n'}
+[6.099791] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/environment/ament_prefix_path.sh\n'}
+[6.114043] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/environment/ament_prefix_path.dsv\n'}
+[6.114974] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/environment/path.sh\n'}
+[6.115846] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/environment/path.dsv\n'}
+[6.138792] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/local_setup.bash\n'}
+[6.139809] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/local_setup.sh\n'}
+[6.140670] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/local_setup.zsh\n'}
+[6.141541] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/local_setup.dsv\n'}
+[6.142358] (bluesea2) StdoutLine: {'line': b'-- Installing: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.dsv\n'}
+[6.143193] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/ament_index/resource_index/packages/bluesea2\n'}
+[6.144026] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/cmake/bluesea2Config.cmake\n'}
+[6.144882] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/cmake/bluesea2Config-version.cmake\n'}
+[6.145685] (bluesea2) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.xml\n'}
+[6.146430] (bluesea2) CommandEnded: {'returncode': 0}
+[6.187594] (-) TimerEvent: {}
+[6.253598] (bluesea2) JobEnded: {'identifier': 'bluesea2', 'rc': 0}
+[6.289227] (-) TimerEvent: {}
+[6.393129] (-) TimerEvent: {}
+[6.494397] (-) TimerEvent: {}
+[6.603148] (-) TimerEvent: {}
+[6.713121] (-) TimerEvent: {}
+[6.815658] (-) TimerEvent: {}
+[6.917718] (-) TimerEvent: {}
+[7.020924] (-) TimerEvent: {}
+[7.122070] (-) TimerEvent: {}
+[7.223162] (-) TimerEvent: {}
+[7.324791] (-) TimerEvent: {}
+[7.427103] (-) TimerEvent: {}
+[7.528260] (-) TimerEvent: {}
+[7.632545] (-) TimerEvent: {}
+[7.733736] (-) TimerEvent: {}
+[7.835914] (-) TimerEvent: {}
+[7.936945] (-) TimerEvent: {}
+[8.043115] (-) TimerEvent: {}
+[8.148773] (-) TimerEvent: {}
+[8.250565] (-) TimerEvent: {}
+[8.353201] (-) TimerEvent: {}
+[8.463159] (-) TimerEvent: {}
+[8.566172] (-) TimerEvent: {}
+[8.598300] (yolo_detect_pkg) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/yolo_detect_pkg', 'build', '--build-base', '/home/sunrise/amphibious_ws/build/yolo_detect_pkg/build', 'install', '--record', '/home/sunrise/amphibious_ws/build/yolo_detect_pkg/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/sunrise/amphibious_ws/src/yolo_detect_pkg', 'env': {'LANGUAGE': 'zh_CN', 'USER': 'sunrise', 'XDG_SEAT': 'seat0', 'SSH_AGENT_PID': '1441', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib:', 'HOME': '/home/sunrise', 'OLDPWD': '/home/sunrise', 'DESKTOP_SESSION': 'xfce', 'ROS_PYTHON_VERSION': '3', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873', 'TROS_DISTRO': 'humble', 'COLCON_PREFIX_PATH': '/home/sunrise/amphibious_ws/install:/home/sunrise/fly_ws/install:/home/sunrise/cartographer_ws/install', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'sunrise', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/sunrise/cartographer_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/sunrise/cartographer_ws/install/cartographer/lib/pkgconfig', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': 'c1', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/sunrise/cartographer_ws/install/cartographer/bin:/opt/tros/humble/bin:/opt/ros/humble/bin:/home/sunrise/.local/bin:/usr/hobot/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/ubuntu:@/tmp/.ICE-unix/1305,unix/ubuntu:/tmp/.ICE-unix/1305', 'GDM_LANG': 'zh_CN', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'XDG_MENU_PREFIX': 'xfce-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0.0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'XFCE', 'IBUS_DISABLE_SNOOPER': '1', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'xfce', 'XAUTHORITY': '/home/sunrise/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AUTH_SOCK': '/tmp/ssh-XXXXXXqCtY6e/agent.1440', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/sunrise', 'AMENT_PREFIX_PATH': '/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/tros/humble:/opt/ros/humble', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:c04b6926-7e1d-4165-bff6-8392a4698012', 'GDMSESSION': 'xfce', 'QT_IM_MODULE': 'ibus', 'XDG_VTNR': '7', 'PWD': '/home/sunrise/amphibious_ws/build/yolo_detect_pkg', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-xfce:/etc/xdg:/etc/xdg', 'CLUTTER_IM_MODULE': 'ibus', 'XDG_DATA_DIRS': '/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share', 'PYTHONPATH': '/home/sunrise/amphibious_ws/build/yolo_detect_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages:/home/sunrise/amphibious_ws/install/base/local/lib/python3.10/dist-packages:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages:/home/sunrise/fly_ws/install/base/local/lib/python3.10/dist-packages:/opt/tros/humble/lib/python3.10/site-packages:/opt/tros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base'}, 'shell': False}
+[8.668175] (-) TimerEvent: {}
+[8.769953] (-) TimerEvent: {}
+[8.873029] (-) TimerEvent: {}
+[8.975230] (-) TimerEvent: {}
+[9.076557] (-) TimerEvent: {}
+[9.178338] (-) TimerEvent: {}
+[9.280464] (-) TimerEvent: {}
+[9.382690] (-) TimerEvent: {}
+[9.483911] (-) TimerEvent: {}
+[9.593142] (-) TimerEvent: {}
+[9.694225] (-) TimerEvent: {}
+[9.796434] (-) TimerEvent: {}
+[9.899335] (-) TimerEvent: {}
+[10.000763] (-) TimerEvent: {}
+[10.102713] (-) TimerEvent: {}
+[10.203884] (-) TimerEvent: {}
+[10.304944] (-) TimerEvent: {}
+[10.407199] (-) TimerEvent: {}
+[10.508301] (-) TimerEvent: {}
+[10.609351] (-) TimerEvent: {}
+[10.710459] (-) TimerEvent: {}
+[10.811589] (-) TimerEvent: {}
+[10.912726] (-) TimerEvent: {}
+[11.013825] (-) TimerEvent: {}
+[11.114975] (-) TimerEvent: {}
+[11.216086] (-) TimerEvent: {}
+[11.305163] (yolo_detect_pkg) StdoutLine: {'line': b'running egg_info\n'}
+[11.316371] (-) TimerEvent: {}
+[11.323370] (yolo_detect_pkg) StdoutLine: {'line': b'writing ../../build/yolo_detect_pkg/yolo_detect_pkg.egg-info/PKG-INFO\n'}
+[11.325039] (yolo_detect_pkg) StdoutLine: {'line': b'writing dependency_links to ../../build/yolo_detect_pkg/yolo_detect_pkg.egg-info/dependency_links.txt\n'}
+[11.326686] (yolo_detect_pkg) StdoutLine: {'line': b'writing entry points to ../../build/yolo_detect_pkg/yolo_detect_pkg.egg-info/entry_points.txt\n'}
+[11.329672] (yolo_detect_pkg) StdoutLine: {'line': b'writing requirements to ../../build/yolo_detect_pkg/yolo_detect_pkg.egg-info/requires.txt\n'}
+[11.332574] (yolo_detect_pkg) StdoutLine: {'line': b'writing top-level names to ../../build/yolo_detect_pkg/yolo_detect_pkg.egg-info/top_level.txt\n'}
+[11.343542] (yolo_detect_pkg) StdoutLine: {'line': b"reading manifest file '../../build/yolo_detect_pkg/yolo_detect_pkg.egg-info/SOURCES.txt'\n"}
+[11.347102] (yolo_detect_pkg) StdoutLine: {'line': b"adding license file 'LICENSE'\n"}
+[11.354314] (yolo_detect_pkg) StdoutLine: {'line': b"writing manifest file '../../build/yolo_detect_pkg/yolo_detect_pkg.egg-info/SOURCES.txt'\n"}
+[11.355545] (yolo_detect_pkg) StdoutLine: {'line': b'running build\n'}
+[11.356355] (yolo_detect_pkg) StdoutLine: {'line': b'running build_py\n'}
+[11.357061] (yolo_detect_pkg) StdoutLine: {'line': b'running install\n'}
+[11.358148] (yolo_detect_pkg) StdoutLine: {'line': b'running install_lib\n'}
+[11.367258] (yolo_detect_pkg) StdoutLine: {'line': b'running install_data\n'}
+[11.368423] (yolo_detect_pkg) StdoutLine: {'line': b'running install_egg_info\n'}
+[11.382654] (yolo_detect_pkg) StdoutLine: {'line': b"removing '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages/yolo_detect_pkg-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[11.384806] (yolo_detect_pkg) StdoutLine: {'line': b'Copying ../../build/yolo_detect_pkg/yolo_detect_pkg.egg-info to /home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages/yolo_detect_pkg-0.0.0-py3.10.egg-info\n'}
+[11.396201] (yolo_detect_pkg) StdoutLine: {'line': b'running install_scripts\n'}
+[11.416612] (-) TimerEvent: {}
+[11.522748] (-) TimerEvent: {}
+[11.545512] (yolo_detect_pkg) StdoutLine: {'line': b'Installing yolo11_detect script to /home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/yolo_detect_pkg\n'}
+[11.548089] (yolo_detect_pkg) StdoutLine: {'line': b"writing list of installed files to '/home/sunrise/amphibious_ws/build/yolo_detect_pkg/install.log'\n"}
+[11.623154] (-) TimerEvent: {}
+[11.724599] (-) TimerEvent: {}
+[11.825797] (-) TimerEvent: {}
+[11.831448] (yolo_detect_pkg) CommandEnded: {'returncode': 0}
+[11.882392] (yolo_detect_pkg) JobEnded: {'identifier': 'yolo_detect_pkg', 'rc': 0}
+[11.926140] (-) TimerEvent: {}
+[12.027306] (-) TimerEvent: {}
+[12.128486] (-) TimerEvent: {}
+[12.229698] (-) TimerEvent: {}
+[12.330811] (-) TimerEvent: {}
+[12.432193] (-) TimerEvent: {}
+[12.533278] (-) TimerEvent: {}
+[12.634406] (-) TimerEvent: {}
+[12.735492] (-) TimerEvent: {}
+[12.836574] (-) TimerEvent: {}
+[12.937617] (-) TimerEvent: {}
+[13.038650] (-) TimerEvent: {}
+[13.139685] (-) TimerEvent: {}
+[13.240708] (-) TimerEvent: {}
+[13.341741] (-) TimerEvent: {}
+[13.442780] (-) TimerEvent: {}
+[13.543907] (-) TimerEvent: {}
+[13.645100] (-) TimerEvent: {}
+[13.746260] (-) TimerEvent: {}
+[13.847371] (-) TimerEvent: {}
+[13.948675] (-) TimerEvent: {}
+[14.049908] (-) TimerEvent: {}
+[14.151155] (-) TimerEvent: {}
+[14.252139] (-) TimerEvent: {}
+[14.353181] (-) TimerEvent: {}
+[14.454197] (-) TimerEvent: {}
+[14.555234] (-) TimerEvent: {}
+[14.656246] (-) TimerEvent: {}
+[14.757250] (-) TimerEvent: {}
+[14.858290] (-) TimerEvent: {}
+[14.959381] (-) TimerEvent: {}
+[15.060471] (-) TimerEvent: {}
+[15.161585] (-) TimerEvent: {}
+[15.262640] (-) TimerEvent: {}
+[15.363699] (-) TimerEvent: {}
+[15.464821] (-) TimerEvent: {}
+[15.565924] (-) TimerEvent: {}
+[15.667022] (-) TimerEvent: {}
+[15.768144] (-) TimerEvent: {}
+[15.869238] (-) TimerEvent: {}
+[15.970269] (-) TimerEvent: {}
+[16.071310] (-) TimerEvent: {}
+[16.172328] (-) TimerEvent: {}
+[16.273388] (-) TimerEvent: {}
+[16.374413] (-) TimerEvent: {}
+[16.475494] (-) TimerEvent: {}
+[16.576619] (-) TimerEvent: {}
+[16.677713] (-) TimerEvent: {}
+[16.778810] (-) TimerEvent: {}
+[16.879832] (-) TimerEvent: {}
+[16.980870] (-) TimerEvent: {}
+[17.082047] (-) TimerEvent: {}
+[17.183225] (-) TimerEvent: {}
+[17.284357] (-) TimerEvent: {}
+[17.385351] (-) TimerEvent: {}
+[17.486338] (-) TimerEvent: {}
+[17.587342] (-) TimerEvent: {}
+[17.688360] (-) TimerEvent: {}
+[17.789350] (-) TimerEvent: {}
+[17.890345] (-) TimerEvent: {}
+[17.991321] (-) TimerEvent: {}
+[18.092385] (-) TimerEvent: {}
+[18.193478] (-) TimerEvent: {}
+[18.294509] (-) TimerEvent: {}
+[18.395568] (-) TimerEvent: {}
+[18.496566] (-) TimerEvent: {}
+[18.597598] (-) TimerEvent: {}
+[18.698718] (-) TimerEvent: {}
+[18.799763] (-) TimerEvent: {}
+[18.900873] (-) TimerEvent: {}
+[19.001983] (-) TimerEvent: {}
+[19.103066] (-) TimerEvent: {}
+[19.204094] (-) TimerEvent: {}
+[19.305112] (-) TimerEvent: {}
+[19.406142] (-) TimerEvent: {}
+[19.507169] (-) TimerEvent: {}
+[19.608204] (-) TimerEvent: {}
+[19.709271] (-) TimerEvent: {}
+[19.810350] (-) TimerEvent: {}
+[19.911437] (-) TimerEvent: {}
+[20.012429] (-) TimerEvent: {}
+[20.113507] (-) TimerEvent: {}
+[20.214586] (-) TimerEvent: {}
+[20.315727] (-) TimerEvent: {}
+[20.416880] (-) TimerEvent: {}
+[20.517967] (-) TimerEvent: {}
+[20.618980] (-) TimerEvent: {}
+[20.719985] (-) TimerEvent: {}
+[20.821004] (-) TimerEvent: {}
+[20.922022] (-) TimerEvent: {}
+[21.023062] (-) TimerEvent: {}
+[21.124094] (-) TimerEvent: {}
+[21.225219] (-) TimerEvent: {}
+[21.326284] (-) TimerEvent: {}
+[21.427423] (-) TimerEvent: {}
+[21.528432] (-) TimerEvent: {}
+[21.629491] (-) TimerEvent: {}
+[21.730523] (-) TimerEvent: {}
+[21.831661] (-) TimerEvent: {}
+[21.932729] (-) TimerEvent: {}
+[22.033908] (-) TimerEvent: {}
+[22.135006] (-) TimerEvent: {}
+[22.236044] (-) TimerEvent: {}
+[22.337122] (-) TimerEvent: {}
+[22.438167] (-) TimerEvent: {}
+[22.539170] (-) TimerEvent: {}
+[22.640175] (-) TimerEvent: {}
+[22.741176] (-) TimerEvent: {}
+[22.842247] (-) TimerEvent: {}
+[22.943351] (-) TimerEvent: {}
+[23.044343] (-) TimerEvent: {}
+[23.145345] (-) TimerEvent: {}
+[23.246346] (-) TimerEvent: {}
+[23.347357] (-) TimerEvent: {}
+[23.448343] (-) TimerEvent: {}
+[23.549342] (-) TimerEvent: {}
+[23.650385] (-) TimerEvent: {}
+[23.753172] (-) TimerEvent: {}
+[23.863144] (-) TimerEvent: {}
+[23.964642] (-) TimerEvent: {}
+[24.065789] (-) TimerEvent: {}
+[24.166834] (-) TimerEvent: {}
+[24.267821] (-) TimerEvent: {}
+[24.368815] (-) TimerEvent: {}
+[24.469799] (-) TimerEvent: {}
+[24.570787] (-) TimerEvent: {}
+[24.671772] (-) TimerEvent: {}
+[24.772747] (-) TimerEvent: {}
+[24.873752] (-) TimerEvent: {}
+[24.974714] (-) TimerEvent: {}
+[25.075698] (-) TimerEvent: {}
+[25.176665] (-) TimerEvent: {}
+[25.277643] (-) TimerEvent: {}
+[25.378626] (-) TimerEvent: {}
+[25.479590] (-) TimerEvent: {}
+[25.580581] (-) TimerEvent: {}
+[25.681583] (-) TimerEvent: {}
+[25.782569] (-) TimerEvent: {}
+[25.883587] (-) TimerEvent: {}
+[25.984563] (-) TimerEvent: {}
+[26.085539] (-) TimerEvent: {}
+[26.186517] (-) TimerEvent: {}
+[26.287504] (-) TimerEvent: {}
+[26.388484] (-) TimerEvent: {}
+[26.489465] (-) TimerEvent: {}
+[26.590449] (-) TimerEvent: {}
+[26.691428] (-) TimerEvent: {}
+[26.792420] (-) TimerEvent: {}
+[26.893502] (-) TimerEvent: {}
+[26.994487] (-) TimerEvent: {}
+[27.095465] (-) TimerEvent: {}
+[27.196445] (-) TimerEvent: {}
+[27.297420] (-) TimerEvent: {}
+[27.398380] (-) TimerEvent: {}
+[27.499344] (-) TimerEvent: {}
+[27.600310] (-) TimerEvent: {}
+[27.701301] (-) TimerEvent: {}
+[27.802376] (-) TimerEvent: {}
+[27.903532] (-) TimerEvent: {}
+[28.004575] (-) TimerEvent: {}
+[28.105643] (-) TimerEvent: {}
+[28.206683] (-) TimerEvent: {}
+[28.307748] (-) TimerEvent: {}
+[28.408824] (-) TimerEvent: {}
+[28.509906] (-) TimerEvent: {}
+[28.610975] (-) TimerEvent: {}
+[28.712037] (-) TimerEvent: {}
+[28.813096] (-) TimerEvent: {}
+[28.914144] (-) TimerEvent: {}
+[29.015240] (-) TimerEvent: {}
+[29.116313] (-) TimerEvent: {}
+[29.217380] (-) TimerEvent: {}
+[29.318442] (-) TimerEvent: {}
+[29.419520] (-) TimerEvent: {}
+[29.520560] (-) TimerEvent: {}
+[29.621585] (-) TimerEvent: {}
+[29.722644] (-) TimerEvent: {}
+[29.823716] (-) TimerEvent: {}
+[29.924815] (-) TimerEvent: {}
+[30.025860] (-) TimerEvent: {}
+[30.126910] (-) TimerEvent: {}
+[30.227959] (-) TimerEvent: {}
+[30.328999] (-) TimerEvent: {}
+[30.430037] (-) TimerEvent: {}
+[30.531134] (-) TimerEvent: {}
+[30.632291] (-) TimerEvent: {}
+[30.733396] (-) TimerEvent: {}
+[30.834470] (-) TimerEvent: {}
+[30.935547] (-) TimerEvent: {}
+[31.036596] (-) TimerEvent: {}
+[31.137654] (-) TimerEvent: {}
+[31.238717] (-) TimerEvent: {}
+[31.339794] (-) TimerEvent: {}
+[31.440892] (-) TimerEvent: {}
+[31.541963] (-) TimerEvent: {}
+[31.643065] (-) TimerEvent: {}
+[31.744143] (-) TimerEvent: {}
+[31.845219] (-) TimerEvent: {}
+[31.946283] (-) TimerEvent: {}
+[32.047349] (-) TimerEvent: {}
+[32.153169] (-) TimerEvent: {}
+[32.263143] (-) TimerEvent: {}
+[32.372526] (-) TimerEvent: {}
+[32.473780] (-) TimerEvent: {}
+[32.574932] (-) TimerEvent: {}
+[32.676045] (-) TimerEvent: {}
+[32.777068] (-) TimerEvent: {}
+[32.878094] (-) TimerEvent: {}
+[32.979097] (-) TimerEvent: {}
+[33.080121] (-) TimerEvent: {}
+[33.181125] (-) TimerEvent: {}
+[33.283137] (-) TimerEvent: {}
+[33.385339] (-) TimerEvent: {}
+[33.493166] (-) TimerEvent: {}
+[33.602332] (-) TimerEvent: {}
+[33.703537] (-) TimerEvent: {}
+[33.804593] (-) TimerEvent: {}
+[33.905603] (-) TimerEvent: {}
+[34.006593] (-) TimerEvent: {}
+[34.107589] (-) TimerEvent: {}
+[34.208634] (-) TimerEvent: {}
+[34.309710] (-) TimerEvent: {}
+[34.410726] (-) TimerEvent: {}
+[34.511732] (-) TimerEvent: {}
+[34.612835] (-) TimerEvent: {}
+[34.713974] (-) TimerEvent: {}
+[34.814968] (-) TimerEvent: {}
+[34.915978] (-) TimerEvent: {}
+[35.016979] (-) TimerEvent: {}
+[35.117975] (-) TimerEvent: {}
+[35.218975] (-) TimerEvent: {}
+[35.319973] (-) TimerEvent: {}
+[35.420983] (-) TimerEvent: {}
+[35.522013] (-) TimerEvent: {}
+[35.623091] (-) TimerEvent: {}
+[35.724081] (-) TimerEvent: {}
+[35.825085] (-) TimerEvent: {}
+[35.926174] (-) TimerEvent: {}
+[36.027358] (-) TimerEvent: {}
+[36.128422] (-) TimerEvent: {}
+[36.229427] (-) TimerEvent: {}
+[36.330420] (-) TimerEvent: {}
+[36.431415] (-) TimerEvent: {}
+[36.532409] (-) TimerEvent: {}
+[36.633374] (-) TimerEvent: {}
+[36.734347] (-) TimerEvent: {}
+[36.835331] (-) TimerEvent: {}
+[36.936376] (-) TimerEvent: {}
+[37.037420] (-) TimerEvent: {}
+[37.138444] (-) TimerEvent: {}
+[37.239481] (-) TimerEvent: {}
+[37.340528] (-) TimerEvent: {}
+[37.441586] (-) TimerEvent: {}
+[37.542632] (-) TimerEvent: {}
+[37.643720] (-) TimerEvent: {}
+[37.744800] (-) TimerEvent: {}
+[37.845859] (-) TimerEvent: {}
+[37.946913] (-) TimerEvent: {}
+[38.047928] (-) TimerEvent: {}
+[38.148967] (-) TimerEvent: {}
+[38.250008] (-) TimerEvent: {}
+[38.351101] (-) TimerEvent: {}
+[38.452247] (-) TimerEvent: {}
+[38.553374] (-) TimerEvent: {}
+[38.654453] (-) TimerEvent: {}
+[38.755514] (-) TimerEvent: {}
+[38.856583] (-) TimerEvent: {}
+[38.957648] (-) TimerEvent: {}
+[39.058731] (-) TimerEvent: {}
+[39.159811] (-) TimerEvent: {}
+[39.260915] (-) TimerEvent: {}
+[39.365385] (-) TimerEvent: {}
+[39.466545] (-) TimerEvent: {}
+[39.567694] (-) TimerEvent: {}
+[39.668837] (-) TimerEvent: {}
+[39.769984] (-) TimerEvent: {}
+[39.871132] (-) TimerEvent: {}
+[39.972959] (-) TimerEvent: {}
+[40.073980] (-) TimerEvent: {}
+[40.175000] (-) TimerEvent: {}
+[40.276074] (-) TimerEvent: {}
+[40.383152] (-) TimerEvent: {}
+[40.484331] (-) TimerEvent: {}
+[40.585413] (-) TimerEvent: {}
+[40.686380] (-) TimerEvent: {}
+[40.787333] (-) TimerEvent: {}
+[40.888264] (-) TimerEvent: {}
+[40.989254] (-) TimerEvent: {}
+[41.090247] (-) TimerEvent: {}
+[41.191202] (-) TimerEvent: {}
+[41.292180] (-) TimerEvent: {}
+[41.393160] (-) TimerEvent: {}
+[41.494152] (-) TimerEvent: {}
+[41.595133] (-) TimerEvent: {}
+[41.696106] (-) TimerEvent: {}
+[41.797079] (-) TimerEvent: {}
+[41.898012] (-) TimerEvent: {}
+[41.999242] (-) TimerEvent: {}
+[42.100266] (-) TimerEvent: {}
+[42.201263] (-) TimerEvent: {}
+[42.302269] (-) TimerEvent: {}
+[42.403298] (-) TimerEvent: {}
+[42.504284] (-) TimerEvent: {}
+[42.605267] (-) TimerEvent: {}
+[42.706264] (-) TimerEvent: {}
+[42.807279] (-) TimerEvent: {}
+[42.908410] (-) TimerEvent: {}
+[43.009401] (-) TimerEvent: {}
+[43.110402] (-) TimerEvent: {}
+[43.211412] (-) TimerEvent: {}
+[43.312465] (-) TimerEvent: {}
+[43.413497] (-) TimerEvent: {}
+[43.514517] (-) TimerEvent: {}
+[43.615513] (-) TimerEvent: {}
+[43.716500] (-) TimerEvent: {}
+[43.817499] (-) TimerEvent: {}
+[43.918494] (-) TimerEvent: {}
+[44.019462] (-) TimerEvent: {}
+[44.120426] (-) TimerEvent: {}
+[44.221420] (-) TimerEvent: {}
+[44.322404] (-) TimerEvent: {}
+[44.423425] (-) TimerEvent: {}
+[44.524424] (-) TimerEvent: {}
+[44.625432] (-) TimerEvent: {}
+[44.726414] (-) TimerEvent: {}
+[44.827417] (-) TimerEvent: {}
+[44.928368] (-) TimerEvent: {}
+[45.029349] (-) TimerEvent: {}
+[45.130308] (-) TimerEvent: {}
+[45.231270] (-) TimerEvent: {}
+[45.332247] (-) TimerEvent: {}
+[45.433219] (-) TimerEvent: {}
+[45.534180] (-) TimerEvent: {}
+[45.635155] (-) TimerEvent: {}
+[45.736137] (-) TimerEvent: {}
+[45.837109] (-) TimerEvent: {}
+[45.938073] (-) TimerEvent: {}
+[46.039071] (-) TimerEvent: {}
+[46.140022] (-) TimerEvent: {}
+[46.241010] (-) TimerEvent: {}
+[46.341994] (-) TimerEvent: {}
+[46.442986] (-) TimerEvent: {}
+[46.543942] (-) TimerEvent: {}
+[46.644888] (-) TimerEvent: {}
+[46.745911] (-) TimerEvent: {}
+[46.846857] (-) TimerEvent: {}
+[46.947818] (-) TimerEvent: {}
+[47.048798] (-) TimerEvent: {}
+[47.149763] (-) TimerEvent: {}
+[47.250749] (-) TimerEvent: {}
+[47.351766] (-) TimerEvent: {}
+[47.452774] (-) TimerEvent: {}
+[47.553783] (-) TimerEvent: {}
+[47.654772] (-) TimerEvent: {}
+[47.755766] (-) TimerEvent: {}
+[47.856762] (-) TimerEvent: {}
+[47.957738] (-) TimerEvent: {}
+[48.058708] (-) TimerEvent: {}
+[48.159709] (-) TimerEvent: {}
+[48.260682] (-) TimerEvent: {}
+[48.361694] (-) TimerEvent: {}
+[48.462667] (-) TimerEvent: {}
+[48.563654] (-) TimerEvent: {}
+[48.664620] (-) TimerEvent: {}
+[48.765613] (-) TimerEvent: {}
+[48.866589] (-) TimerEvent: {}
+[48.967599] (-) TimerEvent: {}
+[49.068594] (-) TimerEvent: {}
+[49.169580] (-) TimerEvent: {}
+[49.270573] (-) TimerEvent: {}
+[49.371570] (-) TimerEvent: {}
+[49.472554] (-) TimerEvent: {}
+[49.573593] (-) TimerEvent: {}
+[49.674567] (-) TimerEvent: {}
+[49.775537] (-) TimerEvent: {}
+[49.876553] (-) TimerEvent: {}
+[49.977523] (-) TimerEvent: {}
+[50.078505] (-) TimerEvent: {}
+[50.179492] (-) TimerEvent: {}
+[50.280480] (-) TimerEvent: {}
+[50.381448] (-) TimerEvent: {}
+[50.482450] (-) TimerEvent: {}
+[50.583472] (-) TimerEvent: {}
+[50.684417] (-) TimerEvent: {}
+[50.785376] (-) TimerEvent: {}
+[50.886351] (-) TimerEvent: {}
+[50.987332] (-) TimerEvent: {}
+[51.088306] (-) TimerEvent: {}
+[51.189271] (-) TimerEvent: {}
+[51.290252] (-) TimerEvent: {}
+[51.391239] (-) TimerEvent: {}
+[51.492221] (-) TimerEvent: {}
+[51.593219] (-) TimerEvent: {}
+[51.694178] (-) TimerEvent: {}
+[51.795168] (-) TimerEvent: {}
+[51.896128] (-) TimerEvent: {}
+[51.997102] (-) TimerEvent: {}
+[52.098081] (-) TimerEvent: {}
+[52.199062] (-) TimerEvent: {}
+[52.300018] (-) TimerEvent: {}
+[52.401005] (-) TimerEvent: {}
+[52.501979] (-) TimerEvent: {}
+[52.602971] (-) TimerEvent: {}
+[52.703940] (-) TimerEvent: {}
+[52.804915] (-) TimerEvent: {}
+[52.905866] (-) TimerEvent: {}
+[53.006840] (-) TimerEvent: {}
+[53.107823] (-) TimerEvent: {}
+[53.208796] (-) TimerEvent: {}
+[53.313156] (-) TimerEvent: {}
+[53.423148] (-) TimerEvent: {}
+[53.524265] (-) TimerEvent: {}
+[53.625280] (-) TimerEvent: {}
+[53.726293] (-) TimerEvent: {}
+[53.827266] (-) TimerEvent: {}
+[53.928243] (-) TimerEvent: {}
+[54.029214] (-) TimerEvent: {}
+[54.130149] (-) TimerEvent: {}
+[54.231116] (-) TimerEvent: {}
+[54.332075] (-) TimerEvent: {}
+[54.433070] (-) TimerEvent: {}
+[54.534049] (-) TimerEvent: {}
+[54.635009] (-) TimerEvent: {}
+[54.735982] (-) TimerEvent: {}
+[54.836945] (-) TimerEvent: {}
+[54.937959] (-) TimerEvent: {}
+[55.038914] (-) TimerEvent: {}
+[55.139863] (-) TimerEvent: {}
+[55.240823] (-) TimerEvent: {}
+[55.341837] (-) TimerEvent: {}
+[55.442810] (-) TimerEvent: {}
+[55.543791] (-) TimerEvent: {}
+[55.644759] (-) TimerEvent: {}
+[55.745721] (-) TimerEvent: {}
+[55.846677] (-) TimerEvent: {}
+[55.947656] (-) TimerEvent: {}
+[56.048648] (-) TimerEvent: {}
+[56.149615] (-) TimerEvent: {}
+[56.250601] (-) TimerEvent: {}
+[56.351592] (-) TimerEvent: {}
+[56.452550] (-) TimerEvent: {}
+[56.553586] (-) TimerEvent: {}
+[56.654583] (-) TimerEvent: {}
+[56.755553] (-) TimerEvent: {}
+[56.856511] (-) TimerEvent: {}
+[56.957479] (-) TimerEvent: {}
+[57.058448] (-) TimerEvent: {}
+[57.159416] (-) TimerEvent: {}
+[57.260349] (-) TimerEvent: {}
+[57.361306] (-) TimerEvent: {}
+[57.462268] (-) TimerEvent: {}
+[57.563258] (-) TimerEvent: {}
+[57.664207] (-) TimerEvent: {}
+[57.765135] (-) TimerEvent: {}
+[57.866094] (-) TimerEvent: {}
+[57.967048] (-) TimerEvent: {}
+[58.068012] (-) TimerEvent: {}
+[58.168954] (-) TimerEvent: {}
+[58.269887] (-) TimerEvent: {}
+[58.370861] (-) TimerEvent: {}
+[58.471809] (-) TimerEvent: {}
+[58.572770] (-) TimerEvent: {}
+[58.673754] (-) TimerEvent: {}
+[58.774679] (-) TimerEvent: {}
+[58.875616] (-) TimerEvent: {}
+[58.976598] (-) TimerEvent: {}
+[59.077546] (-) TimerEvent: {}
+[59.178495] (-) TimerEvent: {}
+[59.279444] (-) TimerEvent: {}
+[59.380419] (-) TimerEvent: {}
+[59.481387] (-) TimerEvent: {}
+[59.582332] (-) TimerEvent: {}
+[59.683341] (-) TimerEvent: {}
+[59.784284] (-) TimerEvent: {}
+[59.885225] (-) TimerEvent: {}
+[59.986168] (-) TimerEvent: {}
+[60.087108] (-) TimerEvent: {}
+[60.188058] (-) TimerEvent: {}
+[60.289011] (-) TimerEvent: {}
+[60.389972] (-) TimerEvent: {}
+[60.490910] (-) TimerEvent: {}
+[60.591838] (-) TimerEvent: {}
+[60.692763] (-) TimerEvent: {}
+[60.793737] (-) TimerEvent: {}
+[60.894655] (-) TimerEvent: {}
+[60.995573] (-) TimerEvent: {}
+[61.096486] (-) TimerEvent: {}
+[61.197397] (-) TimerEvent: {}
+[61.298333] (-) TimerEvent: {}
+[61.399314] (-) TimerEvent: {}
+[61.500355] (-) TimerEvent: {}
+[61.601334] (-) TimerEvent: {}
+[61.702315] (-) TimerEvent: {}
+[61.803318] (-) TimerEvent: {}
+[61.904268] (-) TimerEvent: {}
+[62.005214] (-) TimerEvent: {}
+[62.106167] (-) TimerEvent: {}
+[62.207181] (-) TimerEvent: {}
+[62.308179] (-) TimerEvent: {}
+[62.409165] (-) TimerEvent: {}
+[62.510180] (-) TimerEvent: {}
+[62.611164] (-) TimerEvent: {}
+[62.712126] (-) TimerEvent: {}
+[62.813077] (-) TimerEvent: {}
+[62.874974] (i2c_pkg) StdoutLine: {'line': b'[ 94%] \x1b[32m\x1b[1mLinking CXX executable pid_lifecycle\x1b[0m\n'}
+[62.913283] (-) TimerEvent: {}
+[63.014241] (-) TimerEvent: {}
+[63.115239] (-) TimerEvent: {}
+[63.216232] (-) TimerEvent: {}
+[63.317327] (-) TimerEvent: {}
+[63.418715] (-) TimerEvent: {}
+[63.521051] (-) TimerEvent: {}
+[63.622273] (-) TimerEvent: {}
+[63.723456] (-) TimerEvent: {}
+[63.824565] (-) TimerEvent: {}
+[63.925733] (-) TimerEvent: {}
+[64.026827] (-) TimerEvent: {}
+[64.127892] (-) TimerEvent: {}
+[64.228931] (-) TimerEvent: {}
+[64.329993] (-) TimerEvent: {}
+[64.431036] (-) TimerEvent: {}
+[64.532149] (-) TimerEvent: {}
+[64.633233] (-) TimerEvent: {}
+[64.734391] (-) TimerEvent: {}
+[64.835502] (-) TimerEvent: {}
+[64.936671] (-) TimerEvent: {}
+[65.037776] (-) TimerEvent: {}
+[65.138899] (-) TimerEvent: {}
+[65.240000] (-) TimerEvent: {}
+[65.341119] (-) TimerEvent: {}
+[65.442168] (-) TimerEvent: {}
+[65.545115] (-) TimerEvent: {}
+[65.646142] (-) TimerEvent: {}
+[65.747217] (-) TimerEvent: {}
+[65.848316] (-) TimerEvent: {}
+[65.949316] (-) TimerEvent: {}
+[66.050339] (-) TimerEvent: {}
+[66.151337] (-) TimerEvent: {}
+[66.252294] (-) TimerEvent: {}
+[66.353289] (-) TimerEvent: {}
+[66.454272] (-) TimerEvent: {}
+[66.555255] (-) TimerEvent: {}
+[66.656270] (-) TimerEvent: {}
+[66.757242] (-) TimerEvent: {}
+[66.858189] (-) TimerEvent: {}
+[66.959159] (-) TimerEvent: {}
+[67.060193] (-) TimerEvent: {}
+[67.148436] (i2c_pkg) StdoutLine: {'line': b'[ 94%] Built target pid_lifecycle\n'}
+[67.160371] (-) TimerEvent: {}
+[67.261283] (-) TimerEvent: {}
+[67.362263] (-) TimerEvent: {}
+[67.463266] (-) TimerEvent: {}
+[67.564206] (-) TimerEvent: {}
+[67.665169] (-) TimerEvent: {}
+[67.766129] (-) TimerEvent: {}
+[67.867080] (-) TimerEvent: {}
+[67.968044] (-) TimerEvent: {}
+[68.068991] (-) TimerEvent: {}
+[68.169947] (-) TimerEvent: {}
+[68.270923] (-) TimerEvent: {}
+[68.371908] (-) TimerEvent: {}
+[68.472861] (-) TimerEvent: {}
+[68.573867] (-) TimerEvent: {}
+[68.674847] (-) TimerEvent: {}
+[68.775808] (-) TimerEvent: {}
+[68.876745] (-) TimerEvent: {}
+[68.977696] (-) TimerEvent: {}
+[69.078646] (-) TimerEvent: {}
+[69.179593] (-) TimerEvent: {}
+[69.280520] (-) TimerEvent: {}
+[69.381513] (-) TimerEvent: {}
+[69.482509] (-) TimerEvent: {}
+[69.583565] (-) TimerEvent: {}
+[69.684598] (-) TimerEvent: {}
+[69.785823] (-) TimerEvent: {}
+[69.886958] (-) TimerEvent: {}
+[69.987931] (-) TimerEvent: {}
+[70.088883] (-) TimerEvent: {}
+[70.189836] (-) TimerEvent: {}
+[70.290732] (-) TimerEvent: {}
+[70.391634] (-) TimerEvent: {}
+[70.492580] (-) TimerEvent: {}
+[70.593562] (-) TimerEvent: {}
+[70.694476] (-) TimerEvent: {}
+[70.795423] (-) TimerEvent: {}
+[70.896351] (-) TimerEvent: {}
+[70.997283] (-) TimerEvent: {}
+[71.098199] (-) TimerEvent: {}
+[71.199140] (-) TimerEvent: {}
+[71.300089] (-) TimerEvent: {}
+[71.401023] (-) TimerEvent: {}
+[71.501951] (-) TimerEvent: {}
+[71.602938] (-) TimerEvent: {}
+[71.703871] (-) TimerEvent: {}
+[71.804809] (-) TimerEvent: {}
+[71.905740] (-) TimerEvent: {}
+[72.006979] (-) TimerEvent: {}
+[72.107927] (-) TimerEvent: {}
+[72.208873] (-) TimerEvent: {}
+[72.309816] (-) TimerEvent: {}
+[72.410771] (-) TimerEvent: {}
+[72.511699] (-) TimerEvent: {}
+[72.612649] (-) TimerEvent: {}
+[72.713605] (-) TimerEvent: {}
+[72.814520] (-) TimerEvent: {}
+[72.915454] (-) TimerEvent: {}
+[73.016385] (-) TimerEvent: {}
+[73.117318] (-) TimerEvent: {}
+[73.218239] (-) TimerEvent: {}
+[73.319161] (-) TimerEvent: {}
+[73.420090] (-) TimerEvent: {}
+[73.521028] (-) TimerEvent: {}
+[73.621957] (-) TimerEvent: {}
+[73.722960] (-) TimerEvent: {}
+[73.823983] (-) TimerEvent: {}
+[73.924906] (-) TimerEvent: {}
+[74.025830] (-) TimerEvent: {}
+[74.126762] (-) TimerEvent: {}
+[74.227693] (-) TimerEvent: {}
+[74.328600] (-) TimerEvent: {}
+[74.429559] (-) TimerEvent: {}
+[74.530510] (-) TimerEvent: {}
+[74.631489] (-) TimerEvent: {}
+[74.732483] (-) TimerEvent: {}
+[74.833552] (-) TimerEvent: {}
+[74.934550] (-) TimerEvent: {}
+[75.035542] (-) TimerEvent: {}
+[75.136518] (-) TimerEvent: {}
+[75.237506] (-) TimerEvent: {}
+[75.338492] (-) TimerEvent: {}
+[75.439489] (-) TimerEvent: {}
+[75.540487] (-) TimerEvent: {}
+[75.641471] (-) TimerEvent: {}
+[75.742466] (-) TimerEvent: {}
+[75.843499] (-) TimerEvent: {}
+[75.944487] (-) TimerEvent: {}
+[76.045460] (-) TimerEvent: {}
+[76.146446] (-) TimerEvent: {}
+[76.247426] (-) TimerEvent: {}
+[76.348397] (-) TimerEvent: {}
+[76.449366] (-) TimerEvent: {}
+[76.550346] (-) TimerEvent: {}
+[76.651328] (-) TimerEvent: {}
+[76.752327] (-) TimerEvent: {}
+[76.853371] (-) TimerEvent: {}
+[76.954360] (-) TimerEvent: {}
+[77.055293] (-) TimerEvent: {}
+[77.156219] (-) TimerEvent: {}
+[77.257144] (-) TimerEvent: {}
+[77.358062] (-) TimerEvent: {}
+[77.458975] (-) TimerEvent: {}
+[77.559898] (-) TimerEvent: {}
+[77.660818] (-) TimerEvent: {}
+[77.761748] (-) TimerEvent: {}
+[77.862702] (-) TimerEvent: {}
+[77.963706] (-) TimerEvent: {}
+[78.064664] (-) TimerEvent: {}
+[78.165617] (-) TimerEvent: {}
+[78.266547] (-) TimerEvent: {}
+[78.367488] (-) TimerEvent: {}
+[78.468418] (-) TimerEvent: {}
+[78.569331] (-) TimerEvent: {}
+[78.670221] (-) TimerEvent: {}
+[78.771126] (-) TimerEvent: {}
+[78.872030] (-) TimerEvent: {}
+[78.973018] (-) TimerEvent: {}
+[79.073992] (-) TimerEvent: {}
+[79.174956] (-) TimerEvent: {}
+[79.275895] (-) TimerEvent: {}
+[79.376834] (-) TimerEvent: {}
+[79.477783] (-) TimerEvent: {}
+[79.578727] (-) TimerEvent: {}
+[79.679599] (-) TimerEvent: {}
+[79.780544] (-) TimerEvent: {}
+[79.881599] (-) TimerEvent: {}
+[79.983371] (-) TimerEvent: {}
+[79.985228] (i2c_pkg) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable pid_velocity_lifecycle\x1b[0m\n'}
+[80.083596] (-) TimerEvent: {}
+[80.184609] (-) TimerEvent: {}
+[80.285763] (-) TimerEvent: {}
+[80.386784] (-) TimerEvent: {}
+[80.487800] (-) TimerEvent: {}
+[80.588999] (-) TimerEvent: {}
+[80.690386] (-) TimerEvent: {}
+[80.791734] (-) TimerEvent: {}
+[80.892772] (-) TimerEvent: {}
+[80.993825] (-) TimerEvent: {}
+[81.094855] (-) TimerEvent: {}
+[81.195852] (-) TimerEvent: {}
+[81.296910] (-) TimerEvent: {}
+[81.397884] (-) TimerEvent: {}
+[81.498835] (-) TimerEvent: {}
+[81.599765] (-) TimerEvent: {}
+[81.700720] (-) TimerEvent: {}
+[81.801636] (-) TimerEvent: {}
+[81.902594] (-) TimerEvent: {}
+[82.003530] (-) TimerEvent: {}
+[82.104475] (-) TimerEvent: {}
+[82.205395] (-) TimerEvent: {}
+[82.306393] (-) TimerEvent: {}
+[82.407271] (-) TimerEvent: {}
+[82.508153] (-) TimerEvent: {}
+[82.609046] (-) TimerEvent: {}
+[82.709944] (-) TimerEvent: {}
+[82.810825] (-) TimerEvent: {}
+[82.911716] (-) TimerEvent: {}
+[83.012619] (-) TimerEvent: {}
+[83.113578] (-) TimerEvent: {}
+[83.214496] (-) TimerEvent: {}
+[83.315441] (-) TimerEvent: {}
+[83.416339] (-) TimerEvent: {}
+[83.517245] (-) TimerEvent: {}
+[83.618141] (-) TimerEvent: {}
+[83.719067] (-) TimerEvent: {}
+[83.820071] (-) TimerEvent: {}
+[83.921208] (-) TimerEvent: {}
+[84.022546] (-) TimerEvent: {}
+[84.123920] (-) TimerEvent: {}
+[84.224914] (-) TimerEvent: {}
+[84.325822] (-) TimerEvent: {}
+[84.426632] (-) TimerEvent: {}
+[84.527448] (-) TimerEvent: {}
+[84.628351] (-) TimerEvent: {}
+[84.729330] (-) TimerEvent: {}
+[84.827073] (i2c_pkg) StdoutLine: {'line': b'[100%] Built target pid_velocity_lifecycle\n'}
+[84.829446] (-) TimerEvent: {}
+[84.879622] (i2c_pkg) CommandEnded: {'returncode': 0}
+[84.883621] (i2c_pkg) JobProgress: {'identifier': 'i2c_pkg', 'progress': 'install'}
+[84.885372] (i2c_pkg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/sunrise/amphibious_ws/build/i2c_pkg'], 'cwd': '/home/sunrise/amphibious_ws/build/i2c_pkg', 'env': OrderedDict([('LANGUAGE', 'zh_CN'), ('USER', 'sunrise'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1441'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib:'), ('HOME', '/home/sunrise'), ('OLDPWD', '/home/sunrise'), ('DESKTOP_SESSION', 'xfce'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('TROS_DISTRO', 'humble'), ('COLCON_PREFIX_PATH', '/home/sunrise/amphibious_ws/install:/home/sunrise/fly_ws/install:/home/sunrise/cartographer_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'sunrise'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/sunrise/cartographer_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/sunrise/cartographer_ws/install/cartographer/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', 'c1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/sunrise/cartographer_ws/install/cartographer/bin:/opt/tros/humble/bin:/opt/ros/humble/bin:/home/sunrise/.local/bin:/usr/hobot/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/1305,unix/ubuntu:/tmp/.ICE-unix/1305'), ('GDM_LANG', 'zh_CN'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('IBUS_DISABLE_SNOOPER', '1'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'xfce'), ('XAUTHORITY', '/home/sunrise/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/tmp/ssh-XXXXXXqCtY6e/agent.1440'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/sunrise'), ('AMENT_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/tros/humble:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:c04b6926-7e1d-4165-bff6-8392a4698012'), ('GDMSESSION', 'xfce'), ('QT_IM_MODULE', 'ibus'), ('XDG_VTNR', '7'), ('PWD', '/home/sunrise/amphibious_ws/build/i2c_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xfce:/etc/xdg:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('XDG_DATA_DIRS', '/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share'), ('PYTHONPATH', '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:/home/sunrise/amphibious_ws/install/base_lidar/local/lib/python3.10/dist-packages:/home/sunrise/amphibious_ws/install/base/local/lib/python3.10/dist-packages:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/local/lib/python3.10/dist-packages:/home/sunrise/fly_ws/install/base/local/lib/python3.10/dist-packages:/opt/tros/humble/lib/python3.10/site-packages:/opt/tros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble')]), 'shell': False}
+[84.923312] (i2c_pkg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[84.924195] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/car_drive\n'}
+[84.925352] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/pid\n'}
+[84.926584] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/car_drive_pid\n'}
+[84.927796] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/target_pub\n'}
+[84.929023] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/pid_velocity\n'}
+[84.929454] (-) TimerEvent: {}
+[84.930283] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/car_drive_pid_pwm\n'}
+[84.931549] (i2c_pkg) StdoutLine: {'line': b'-- Installing: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/pid_lifecycle\n'}
+[84.964669] (i2c_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/pid_lifecycle" to ""\n'}
+[84.965650] (i2c_pkg) StdoutLine: {'line': b'-- Installing: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/pid_velocity_lifecycle\n'}
+[85.013117] (i2c_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/pid_velocity_lifecycle" to ""\n'}
+[85.013929] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/car_drive_pid_pwm_lifecycle\n'}
+[85.014606] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/ament_index/resource_index/package_run_dependencies/i2c_pkg\n'}
+[85.015168] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/ament_index/resource_index/parent_prefix_path/i2c_pkg\n'}
+[85.015761] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/environment/ament_prefix_path.sh\n'}
+[85.016442] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/environment/ament_prefix_path.dsv\n'}
+[85.017032] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/environment/path.sh\n'}
+[85.017490] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/environment/path.dsv\n'}
+[85.018166] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/local_setup.bash\n'}
+[85.018629] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/local_setup.sh\n'}
+[85.019102] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/local_setup.zsh\n'}
+[85.019596] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/local_setup.dsv\n'}
+[85.020042] (i2c_pkg) StdoutLine: {'line': b'-- Installing: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.dsv\n'}
+[85.020479] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/ament_index/resource_index/packages/i2c_pkg\n'}
+[85.020909] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/cmake/i2c_pkgConfig.cmake\n'}
+[85.021341] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/cmake/i2c_pkgConfig-version.cmake\n'}
+[85.021780] (i2c_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.xml\n'}
+[85.025827] (i2c_pkg) CommandEnded: {'returncode': 0}
+[85.031326] (-) TimerEvent: {}
+[85.104908] (i2c_pkg) JobEnded: {'identifier': 'i2c_pkg', 'rc': 0}
+[85.108702] (-) EventReactorShutdown: {}

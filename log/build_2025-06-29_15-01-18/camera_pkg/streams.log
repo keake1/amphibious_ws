@@ -1,0 +1,61 @@
+[0.211s] Invoking command in '/home/sunrise/amphibious_ws/build/camera_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake /home/sunrise/amphibious_ws/src/camera_pkg -DCMAKE_INSTALL_PREFIX=/home/sunrise/amphibious_ws/install/camera_pkg
+[1.313s] -- The C compiler identification is GNU 11.2.0
+[1.937s] -- The CXX compiler identification is GNU 11.2.0
+[1.990s] -- Detecting C compiler ABI info
+[2.446s] -- Detecting C compiler ABI info - done
+[2.496s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.500s] -- Detecting C compile features
+[2.507s] -- Detecting C compile features - done
+[2.523s] -- Detecting CXX compiler ABI info
+[2.993s] -- Detecting CXX compiler ABI info - done
+[3.047s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[3.048s] -- Detecting CXX compile features
+[3.051s] -- Detecting CXX compile features - done
+[3.074s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[4.503s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[5.369s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[5.744s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[5.792s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[5.870s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[5.984s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[6.134s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[6.538s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[6.566s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[7.175s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[7.328s] -- Found FastRTPS: /opt/ros/humble/include  
+[7.556s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[7.635s] -- Looking for pthread.h
+[8.073s] -- Looking for pthread.h - found
+[8.076s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[8.507s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[8.512s] -- Found Threads: TRUE  
+[8.900s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[9.130s] -- Found cv_bridge: 3.2.1 (/opt/ros/humble/share/cv_bridge/cmake)
+[9.232s] -- Found OpenCV: /usr (found version "4.5.4") 
+[9.258s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[9.835s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[9.836s] -- Configured cppcheck include dirs: 
+[9.837s] -- Configured cppcheck exclude dirs and/or files: 
+[9.841s] -- Added test 'lint_cmake' to check CMake code style
+[9.848s] -- Added test 'uncrustify' to check C / C++ code style
+[9.849s] -- Configured uncrustify additional arguments: 
+[9.852s] -- Added test 'xmllint' to check XML markup files
+[9.862s] -- Configuring done
+[9.939s] -- Generating done
+[9.966s] -- Build files have been written to: /home/sunrise/amphibious_ws/build/camera_pkg
+[10.046s] Invoked command in '/home/sunrise/amphibious_ws/build/camera_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake /home/sunrise/amphibious_ws/src/camera_pkg -DCMAKE_INSTALL_PREFIX=/home/sunrise/amphibious_ws/install/camera_pkg
+[10.053s] Invoking command in '/home/sunrise/amphibious_ws/build/camera_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/camera_pkg -- -j8 -l8
+[10.298s] [ 50%] [32mBuilding CXX object CMakeFiles/camera_pub.dir/src/camera_pub.cpp.o[0m
+[32.846s] [01m[K/home/sunrise/amphibious_ws/src/camera_pkg/src/camera_pub.cpp:47:19:[m[K [01;31m[Kerror: [m[Kexpected identifier at end of input
+[32.846s]    47 | int main(int argc,
+[32.847s]       |                   [01;31m[K^[m[K
+[32.848s] [01m[K/home/sunrise/amphibious_ws/src/camera_pkg/src/camera_pub.cpp:47:19:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K...[m[K’ at end of input
+[32.848s] [01m[K/home/sunrise/amphibious_ws/src/camera_pkg/src/camera_pub.cpp:47:19:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ at end of input
+[32.849s]    47 | int main[34m[K([m[Kint argc,
+[32.849s]       |         [34m[K~[m[K         [01;31m[K^[m[K
+[32.850s]       |                   [32m[K)[m[K
+[32.851s] [01m[K/home/sunrise/amphibious_ws/src/camera_pkg/src/camera_pub.cpp:47:19:[m[K [01;31m[Kerror: [m[Kexpected initializer at end of input
+[39.462s] gmake[2]: *** [CMakeFiles/camera_pub.dir/build.make:76：CMakeFiles/camera_pub.dir/src/camera_pub.cpp.o] 错误 1
+[39.462s] gmake[1]: *** [CMakeFiles/Makefile2:137：CMakeFiles/camera_pub.dir/all] 错误 2
+[39.463s] gmake: *** [Makefile:146：all] 错误 2
+[39.472s] Invoked command in '/home/sunrise/amphibious_ws/build/camera_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/camera_pkg -- -j8 -l8

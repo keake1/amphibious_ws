@@ -1,0 +1,56 @@
+[0.215s] Invoking command in '/home/sunrise/amphibious_ws/build/item_locate_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake /home/sunrise/amphibious_ws/src/item_locate_pkg -DCMAKE_INSTALL_PREFIX=/home/sunrise/amphibious_ws/install/item_locate_pkg
+[3.598s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[3.599s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[3.599s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[3.600s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[3.601s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[3.601s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.602s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.603s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[3.603s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[3.604s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.691s] -- Found tf2_ros: 0.25.9 (/opt/ros/humble/share/tf2_ros/cmake)
+[4.412s] -- Found vision_msgs: 4.1.1 (/opt/ros/humble/share/vision_msgs/cmake)
+[4.529s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[5.241s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[5.242s] -- Configured cppcheck include dirs: 
+[5.243s] -- Configured cppcheck exclude dirs and/or files: 
+[5.250s] -- Added test 'lint_cmake' to check CMake code style
+[5.256s] -- Added test 'uncrustify' to check C / C++ code style
+[5.257s] -- Configured uncrustify additional arguments: 
+[5.264s] -- Added test 'xmllint' to check XML markup files
+[5.281s] -- Configuring done
+[5.354s] -- Generating done
+[5.391s] -- Build files have been written to: /home/sunrise/amphibious_ws/build/item_locate_pkg
+[5.459s] Invoked command in '/home/sunrise/amphibious_ws/build/item_locate_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake /home/sunrise/amphibious_ws/src/item_locate_pkg -DCMAKE_INSTALL_PREFIX=/home/sunrise/amphibious_ws/install/item_locate_pkg
+[5.468s] Invoking command in '/home/sunrise/amphibious_ws/build/item_locate_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/item_locate_pkg -- -j8 -l8
+[5.749s] [ 50%] [32mBuilding CXX object CMakeFiles/item_locate_node.dir/src/item_locate_node.cpp.o[0m
+[25.328s] [01m[K/home/sunrise/amphibious_ws/src/item_locate_pkg/src/item_locate_node.cpp:[m[K In member function ‘[01m[Kvoid ItemLocateNode::detection_callback(vision_msgs::msg::Detection2DArray_<std::allocator<void> >::SharedPtr)[m[K’:
+[25.332s] [01m[K/home/sunrise/amphibious_ws/src/item_locate_pkg/src/item_locate_node.cpp:81:57:[m[K [01;31m[Kerror: [m[K‘[01m[Kconst _center_type[m[K’ {aka ‘[01m[Kconst struct vision_msgs::msg::Pose2D_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kx[m[K’
+[25.334s]    81 |                 double center_x = detection.bbox.center.[01;31m[Kx[m[K;
+[25.334s]       |                                                         [01;31m[K^[m[K
+[25.335s] [01m[K/home/sunrise/amphibious_ws/src/item_locate_pkg/src/item_locate_node.cpp:82:57:[m[K [01;31m[Kerror: [m[K‘[01m[Kconst _center_type[m[K’ {aka ‘[01m[Kconst struct vision_msgs::msg::Pose2D_<std::allocator<void> >[m[K’} has no member named ‘[01m[Ky[m[K’
+[25.336s]    82 |                 double center_y = detection.bbox.center.[01;31m[Ky[m[K;
+[25.337s]       |                                                         [01;31m[K^[m[K
+[25.338s] [01m[K/home/sunrise/amphibious_ws/src/item_locate_pkg/src/item_locate_node.cpp:90:57:[m[K [01;31m[Kerror: [m[K‘[01m[Kconst _pose_type[m[K’ {aka ‘[01m[Kconst struct geometry_msgs::msg::Pose_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kx[m[K’
+[25.339s]    90 |                     x1 = detection.results[0].pose.pose.[01;31m[Kx[m[K;
+[25.340s]       |                                                         [01;31m[K^[m[K
+[25.341s] [01m[K/home/sunrise/amphibious_ws/src/item_locate_pkg/src/item_locate_node.cpp:91:57:[m[K [01;31m[Kerror: [m[K‘[01m[Kconst _pose_type[m[K’ {aka ‘[01m[Kconst struct geometry_msgs::msg::Pose_<std::allocator<void> >[m[K’} has no member named ‘[01m[Ky[m[K’
+[25.342s]    91 |                     y1 = detection.results[0].pose.pose.[01;31m[Ky[m[K;
+[25.343s]       |                                                         [01;31m[K^[m[K
+[25.351s] [01m[K/home/sunrise/amphibious_ws/src/item_locate_pkg/src/item_locate_node.cpp:94:36:[m[K [01;31m[Kerror: [m[K‘[01m[Kconst struct vision_msgs::msg::Detection2D_<std::allocator<void> >[m[K’ has no member named ‘[01m[Ksource_img[m[K’
+[25.352s]    94 |                     x2 = detection.[01;31m[Ksource_img[m[K.x;
+[25.352s]       |                                    [01;31m[K^~~~~~~~~~[m[K
+[25.354s] [01m[K/home/sunrise/amphibious_ws/src/item_locate_pkg/src/item_locate_node.cpp:95:36:[m[K [01;31m[Kerror: [m[K‘[01m[Kconst struct vision_msgs::msg::Detection2D_<std::allocator<void> >[m[K’ has no member named ‘[01m[Ksource_img[m[K’
+[25.355s]    95 |                     y2 = detection.[01;31m[Ksource_img[m[K.y;
+[25.355s]       |                                    [01;31m[K^~~~~~~~~~[m[K
+[25.357s] [01m[K/home/sunrise/amphibious_ws/src/item_locate_pkg/src/item_locate_node.cpp:99:63:[m[K [01;31m[Kerror: [m[K‘[01m[Kconst value_type[m[K’ {aka ‘[01m[Kconst struct vision_msgs::msg::ObjectHypothesisWithPose_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kid[m[K’
+[25.358s]    99 |                 int class_id = std::stoi(detection.results[0].[01;31m[Kid[m[K);
+[25.359s]       |                                                               [01;31m[K^~[m[K
+[25.360s] [01m[K/home/sunrise/amphibious_ws/src/item_locate_pkg/src/item_locate_node.cpp:100:53:[m[K [01;31m[Kerror: [m[K‘[01m[Kconst value_type[m[K’ {aka ‘[01m[Kconst struct vision_msgs::msg::ObjectHypothesisWithPose_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kscore[m[K’
+[25.361s]   100 |                 double score = detection.results[0].[01;31m[Kscore[m[K;
+[25.361s]       |                                                     [01;31m[K^~~~~[m[K
+[40.878s] gmake[2]: *** [CMakeFiles/item_locate_node.dir/build.make:76：CMakeFiles/item_locate_node.dir/src/item_locate_node.cpp.o] 错误 1
+[40.879s] gmake[1]: *** [CMakeFiles/Makefile2:137：CMakeFiles/item_locate_node.dir/all] 错误 2
+[40.881s] gmake: *** [Makefile:146：all] 错误 2
+[40.892s] Invoked command in '/home/sunrise/amphibious_ws/build/item_locate_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/item_locate_pkg -- -j8 -l8

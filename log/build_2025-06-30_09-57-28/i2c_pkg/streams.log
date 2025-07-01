@@ -1,0 +1,114 @@
+[0.219s] Invoking command in '/home/sunrise/amphibious_ws/build/i2c_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/i2c_pkg -- -j8 -l8
+[3.098s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[3.098s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[3.099s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[3.099s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[3.100s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[3.101s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.101s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.102s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[3.103s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[3.106s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.513s] -- Found tf2_ros: 0.25.9 (/opt/ros/humble/share/tf2_ros/cmake)
+[4.438s] -- Found rclcpp_lifecycle: 16.0.11 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[4.760s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[5.380s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[5.383s] -- Configured cppcheck include dirs: 
+[5.384s] -- Configured cppcheck exclude dirs and/or files: 
+[5.386s] -- Added test 'flake8' to check Python code syntax and style conventions
+[5.389s] -- Added test 'lint_cmake' to check CMake code style
+[5.392s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[5.397s] -- Added test 'uncrustify' to check C / C++ code style
+[5.398s] -- Configured uncrustify additional arguments: 
+[5.400s] -- Added test 'xmllint' to check XML markup files
+[5.408s] -- Configuring done
+[5.675s] -- Generating done
+[5.780s] -- Build files have been written to: /home/sunrise/amphibious_ws/build/i2c_pkg
+[5.981s] [35m[1mConsolidate compiler generated dependencies of target pid[0m
+[5.986s] [35m[1mConsolidate compiler generated dependencies of target pid_velocity[0m
+[5.996s] [35m[1mConsolidate compiler generated dependencies of target car_drive[0m
+[5.998s] [35m[1mConsolidate compiler generated dependencies of target target_pub[0m
+[6.031s] [35m[1mConsolidate compiler generated dependencies of target car_drive_pid[0m
+[6.066s] [35m[1mConsolidate compiler generated dependencies of target car_drive_pid_pwm[0m
+[6.108s] [  5%] [32mBuilding CXX object CMakeFiles/pid_lifecycle.dir/src/pid_lifecycle.cpp.o[0m
+[6.116s] [ 11%] [32mBuilding CXX object CMakeFiles/pid_velocity_lifecycle.dir/src/pid_velocity_lifecycle.cpp.o[0m
+[6.166s] [ 22%] Built target pid_velocity
+[6.207s] [ 33%] Built target target_pub
+[6.208s] [ 44%] Built target pid
+[6.218s] [ 55%] Built target car_drive_pid
+[6.234s] [ 61%] [32mBuilding CXX object CMakeFiles/car_drive_pid_pwm.dir/src/car_drive_pid_pwm.cpp.o[0m
+[6.248s] [ 72%] Built target car_drive
+[6.294s] [ 77%] [32mBuilding CXX object CMakeFiles/car_drive_pid_pwm_lifecycle.dir/src/car_drive_pid_pwm.cpp.o[0m
+[25.194s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_velocity_lifecycle.cpp:[m[K In member function ‘[01m[Kvoid VelocityPIDLifecycleNode::control_loop()[m[K’:
+[25.195s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_velocity_lifecycle.cpp:250:45:[m[K [01;35m[Kwarning: [m[Klogical not is only applied to the left hand side of comparison [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wlogical-not-parentheses-Wlogical-not-parentheses]8;;[m[K]
+[25.196s]   250 |         if (!this->get_current_state().id() [01;35m[K==[m[K lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE) {
+[25.197s]       |                                             [01;35m[K^~[m[K
+[25.198s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_velocity_lifecycle.cpp:250:13:[m[K [01;36m[Knote: [m[Kadd parentheses around left hand side expression to silence this warning
+[25.199s]   250 |         if ([01;36m[K!this->get_current_state().id()[m[K == lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE) {
+[25.200s]       |             [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[25.201s]       |             [32m[K([m[K                              [32m[K)[m[K
+[25.202s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_velocity_lifecycle.cpp:250:45:[m[K [01;35m[Kwarning: [m[Kcomparison of constant ‘[01m[K3[m[K’ with boolean expression is always false [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wbool-compare-Wbool-compare]8;;[m[K]
+[25.203s]   250 |         if ([01;35m[K!this->get_current_state().id() == lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE[m[K) {
+[25.204s]       |             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[25.857s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_lifecycle.cpp:[m[K In member function ‘[01m[Kvoid CarPIDLifecycleNode::target_callback(geometry_msgs::msg::PoseStamped_<std::allocator<void> >::SharedPtr)[m[K’:
+[25.858s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_lifecycle.cpp:312:45:[m[K [01;35m[Kwarning: [m[Klogical not is only applied to the left hand side of comparison [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wlogical-not-parentheses-Wlogical-not-parentheses]8;;[m[K]
+[25.859s]   312 |         if (!this->get_current_state().id() [01;35m[K==[m[K lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE) {
+[25.860s]       |                                             [01;35m[K^~[m[K
+[25.860s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_lifecycle.cpp:312:13:[m[K [01;36m[Knote: [m[Kadd parentheses around left hand side expression to silence this warning
+[25.861s]   312 |         if ([01;36m[K!this->get_current_state().id()[m[K == lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE) {
+[25.862s]       |             [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[25.862s]       |             [32m[K([m[K                              [32m[K)[m[K
+[25.864s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_lifecycle.cpp:312:45:[m[K [01;35m[Kwarning: [m[Kcomparison of constant ‘[01m[K3[m[K’ with boolean expression is always false [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wbool-compare-Wbool-compare]8;;[m[K]
+[25.864s]   312 |         if ([01;35m[K!this->get_current_state().id() == lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE[m[K) {
+[25.865s]       |             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[25.866s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_lifecycle.cpp:[m[K In member function ‘[01m[Kvoid CarPIDLifecycleNode::control_loop()[m[K’:
+[25.866s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_lifecycle.cpp:344:45:[m[K [01;35m[Kwarning: [m[Klogical not is only applied to the left hand side of comparison [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wlogical-not-parentheses-Wlogical-not-parentheses]8;;[m[K]
+[25.867s]   344 |         if (!this->get_current_state().id() [01;35m[K==[m[K lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE) {
+[25.868s]       |                                             [01;35m[K^~[m[K
+[25.868s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_lifecycle.cpp:344:13:[m[K [01;36m[Knote: [m[Kadd parentheses around left hand side expression to silence this warning
+[25.869s]   344 |         if ([01;36m[K!this->get_current_state().id()[m[K == lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE) {
+[25.870s]       |             [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[25.870s]       |             [32m[K([m[K                              [32m[K)[m[K
+[25.871s] [01m[K/home/sunrise/amphibious_ws/src/i2c_pkg/src/pid_lifecycle.cpp:344:45:[m[K [01;35m[Kwarning: [m[Kcomparison of constant ‘[01m[K3[m[K’ with boolean expression is always false [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wbool-compare-Wbool-compare]8;;[m[K]
+[25.872s]   344 |         if ([01;35m[K!this->get_current_state().id() == lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE[m[K) {
+[25.872s]       |             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[63.988s] [ 83%] [32m[1mLinking CXX executable car_drive_pid_pwm[0m
+[63.991s] [ 88%] [32m[1mLinking CXX executable car_drive_pid_pwm_lifecycle[0m
+[67.654s] [ 88%] Built target car_drive_pid_pwm
+[67.693s] [ 88%] Built target car_drive_pid_pwm_lifecycle
+[68.521s] [ 94%] [32m[1mLinking CXX executable pid_lifecycle[0m
+[72.754s] [ 94%] Built target pid_lifecycle
+[86.325s] [100%] [32m[1mLinking CXX executable pid_velocity_lifecycle[0m
+[91.060s] [100%] Built target pid_velocity_lifecycle
+[91.135s] Invoked command in '/home/sunrise/amphibious_ws/build/i2c_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/i2c_pkg -- -j8 -l8
+[91.159s] Invoking command in '/home/sunrise/amphibious_ws/build/i2c_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/i2c_pkg
+[91.197s] -- Install configuration: ""
+[91.199s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/car_drive
+[91.202s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/pid
+[91.205s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/car_drive_pid
+[91.207s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/target_pub
+[91.209s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/pid_velocity
+[91.214s] -- Installing: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/car_drive_pid_pwm
+[91.244s] -- Set runtime path of "/home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/car_drive_pid_pwm" to ""
+[91.245s] -- Installing: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/pid_lifecycle
+[91.278s] -- Set runtime path of "/home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/pid_lifecycle" to ""
+[91.278s] -- Installing: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/pid_velocity_lifecycle
+[91.321s] -- Set runtime path of "/home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/pid_velocity_lifecycle" to ""
+[91.322s] -- Installing: /home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/car_drive_pid_pwm_lifecycle
+[91.349s] -- Set runtime path of "/home/sunrise/amphibious_ws/install/i2c_pkg/lib/i2c_pkg/car_drive_pid_pwm_lifecycle" to ""
+[91.350s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/ament_index/resource_index/package_run_dependencies/i2c_pkg
+[91.351s] -- Installing: /home/sunrise/amphibious_ws/install/i2c_pkg/share/ament_index/resource_index/parent_prefix_path/i2c_pkg
+[91.351s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/environment/ament_prefix_path.sh
+[91.351s] -- Installing: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/environment/ament_prefix_path.dsv
+[91.352s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/environment/path.sh
+[91.353s] -- Installing: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/environment/path.dsv
+[91.353s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/local_setup.bash
+[91.354s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/local_setup.sh
+[91.354s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/local_setup.zsh
+[91.355s] -- Installing: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/local_setup.dsv
+[91.355s] -- Installing: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.dsv
+[91.356s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/ament_index/resource_index/packages/i2c_pkg
+[91.356s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/cmake/i2c_pkgConfig.cmake
+[91.357s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/cmake/i2c_pkgConfig-version.cmake
+[91.357s] -- Up-to-date: /home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.xml
+[91.367s] Invoked command in '/home/sunrise/amphibious_ws/build/i2c_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/i2c_pkg

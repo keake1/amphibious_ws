@@ -1,0 +1,434 @@
+[0.657s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.658s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffffa872cfd0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffa8812e30>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffa8812e30>>)
+[1.949s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.950s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.950s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.950s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.951s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.951s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.951s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/sunrise/amphibious_ws'
+[1.952s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.953s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.953s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.954s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.954s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.954s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.955s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.955s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.956s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[2.037s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[2.038s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[2.038s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[2.039s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[2.039s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[2.040s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[2.040s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[2.040s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[2.041s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[2.042s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[2.042s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[2.043s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[2.044s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[2.044s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[2.045s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[2.045s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[2.045s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[2.046s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[2.046s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[2.046s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[2.046s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[2.047s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[2.047s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[2.047s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[2.048s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[2.048s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[2.048s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[2.048s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[2.049s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2) by extensions ['ignore', 'ignore_ament_install']
+[2.049s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2) by extension 'ignore'
+[2.050s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2) by extension 'ignore_ament_install'
+[2.050s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2) by extensions ['colcon_pkg']
+[2.050s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2) by extension 'colcon_pkg'
+[2.051s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2) by extensions ['colcon_meta']
+[2.051s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2) by extension 'colcon_meta'
+[2.051s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2) by extensions ['ros']
+[2.051s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2) by extension 'ros'
+[2.052s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2) by extensions ['cmake', 'python']
+[2.052s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2) by extension 'cmake'
+[2.052s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2) by extension 'python'
+[2.052s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2) by extensions ['python_setup_py']
+[2.053s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2) by extension 'python_setup_py'
+[2.053s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src) by extensions ['ignore', 'ignore_ament_install']
+[2.054s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src) by extension 'ignore'
+[2.054s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src) by extension 'ignore_ament_install'
+[2.054s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src) by extensions ['colcon_pkg']
+[2.055s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src) by extension 'colcon_pkg'
+[2.055s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src) by extensions ['colcon_meta']
+[2.055s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src) by extension 'colcon_meta'
+[2.056s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src) by extensions ['ros']
+[2.056s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src) by extension 'ros'
+[2.057s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src) by extensions ['cmake', 'python']
+[2.057s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src) by extension 'cmake'
+[2.057s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src) by extension 'python'
+[2.058s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src) by extensions ['python_setup_py']
+[2.058s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src) by extension 'python_setup_py'
+[2.058s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/base) by extensions ['ignore', 'ignore_ament_install']
+[2.059s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/base) by extension 'ignore'
+[2.059s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/base) by extension 'ignore_ament_install'
+[2.060s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/base) by extensions ['colcon_pkg']
+[2.060s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/base) by extension 'colcon_pkg'
+[2.060s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/base) by extensions ['colcon_meta']
+[2.060s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/base) by extension 'colcon_meta'
+[2.061s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/base) by extensions ['ros']
+[2.061s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/base) by extension 'ros'
+[2.075s] DEBUG:colcon.colcon_core.package_identification:Package 'src/bluesea2/src/base' with type 'ros.ament_cmake' and name 'base'
+[2.076s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/bluesea-ros2) by extensions ['ignore', 'ignore_ament_install']
+[2.077s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/bluesea-ros2) by extension 'ignore'
+[2.077s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/bluesea-ros2) by extension 'ignore_ament_install'
+[2.077s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/bluesea-ros2) by extensions ['colcon_pkg']
+[2.078s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/bluesea-ros2) by extension 'colcon_pkg'
+[2.078s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/bluesea-ros2) by extensions ['colcon_meta']
+[2.078s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/bluesea-ros2) by extension 'colcon_meta'
+[2.079s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/bluesea-ros2) by extensions ['ros']
+[2.079s] Level 1:colcon.colcon_core.package_identification:_identify(src/bluesea2/src/bluesea-ros2) by extension 'ros'
+[2.085s] DEBUG:colcon.colcon_core.package_identification:Package 'src/bluesea2/src/bluesea-ros2' with type 'ros.ament_cmake' and name 'bluesea2'
+[2.086s] Level 1:colcon.colcon_core.package_identification:_identify(src/com_pkg) by extensions ['ignore', 'ignore_ament_install']
+[2.086s] Level 1:colcon.colcon_core.package_identification:_identify(src/com_pkg) by extension 'ignore'
+[2.086s] Level 1:colcon.colcon_core.package_identification:_identify(src/com_pkg) by extension 'ignore_ament_install'
+[2.087s] Level 1:colcon.colcon_core.package_identification:_identify(src/com_pkg) by extensions ['colcon_pkg']
+[2.087s] Level 1:colcon.colcon_core.package_identification:_identify(src/com_pkg) by extension 'colcon_pkg'
+[2.087s] Level 1:colcon.colcon_core.package_identification:_identify(src/com_pkg) by extensions ['colcon_meta']
+[2.088s] Level 1:colcon.colcon_core.package_identification:_identify(src/com_pkg) by extension 'colcon_meta'
+[2.088s] Level 1:colcon.colcon_core.package_identification:_identify(src/com_pkg) by extensions ['ros']
+[2.088s] Level 1:colcon.colcon_core.package_identification:_identify(src/com_pkg) by extension 'ros'
+[2.095s] DEBUG:colcon.colcon_core.package_identification:Package 'src/com_pkg' with type 'ros.ament_cmake' and name 'com_pkg'
+[2.096s] Level 1:colcon.colcon_core.package_identification:_identify(src/i2c_pkg) by extensions ['ignore', 'ignore_ament_install']
+[2.096s] Level 1:colcon.colcon_core.package_identification:_identify(src/i2c_pkg) by extension 'ignore'
+[2.096s] Level 1:colcon.colcon_core.package_identification:_identify(src/i2c_pkg) by extension 'ignore_ament_install'
+[2.097s] Level 1:colcon.colcon_core.package_identification:_identify(src/i2c_pkg) by extensions ['colcon_pkg']
+[2.097s] Level 1:colcon.colcon_core.package_identification:_identify(src/i2c_pkg) by extension 'colcon_pkg'
+[2.097s] Level 1:colcon.colcon_core.package_identification:_identify(src/i2c_pkg) by extensions ['colcon_meta']
+[2.098s] Level 1:colcon.colcon_core.package_identification:_identify(src/i2c_pkg) by extension 'colcon_meta'
+[2.098s] Level 1:colcon.colcon_core.package_identification:_identify(src/i2c_pkg) by extensions ['ros']
+[2.098s] Level 1:colcon.colcon_core.package_identification:_identify(src/i2c_pkg) by extension 'ros'
+[2.102s] DEBUG:colcon.colcon_core.package_identification:Package 'src/i2c_pkg' with type 'ros.ament_cmake' and name 'i2c_pkg'
+[2.102s] Level 1:colcon.colcon_core.package_identification:_identify(src/my_carto_pkg) by extensions ['ignore', 'ignore_ament_install']
+[2.103s] Level 1:colcon.colcon_core.package_identification:_identify(src/my_carto_pkg) by extension 'ignore'
+[2.103s] Level 1:colcon.colcon_core.package_identification:_identify(src/my_carto_pkg) by extension 'ignore_ament_install'
+[2.103s] Level 1:colcon.colcon_core.package_identification:_identify(src/my_carto_pkg) by extensions ['colcon_pkg']
+[2.104s] Level 1:colcon.colcon_core.package_identification:_identify(src/my_carto_pkg) by extension 'colcon_pkg'
+[2.104s] Level 1:colcon.colcon_core.package_identification:_identify(src/my_carto_pkg) by extensions ['colcon_meta']
+[2.104s] Level 1:colcon.colcon_core.package_identification:_identify(src/my_carto_pkg) by extension 'colcon_meta'
+[2.104s] Level 1:colcon.colcon_core.package_identification:_identify(src/my_carto_pkg) by extensions ['ros']
+[2.105s] Level 1:colcon.colcon_core.package_identification:_identify(src/my_carto_pkg) by extension 'ros'
+[2.109s] DEBUG:colcon.colcon_core.package_identification:Package 'src/my_carto_pkg' with type 'ros.ament_cmake' and name 'my_carto_pkg'
+[2.109s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[2.110s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[2.110s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[2.110s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[2.110s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[2.247s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[2.248s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[2.264s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 5 installed packages in /home/sunrise/amphibious_ws/install
+[2.268s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 5 installed packages in /home/sunrise/fly_ws/install
+[2.273s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 4 installed packages in /home/sunrise/cartographer_ws/install
+[2.282s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 299 installed packages in /opt/ros/humble
+[2.376s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[2.703s] Level 5:colcon.colcon_core.verb:set package 'base' build argument 'cmake_args' from command line to 'None'
+[2.704s] Level 5:colcon.colcon_core.verb:set package 'base' build argument 'cmake_target' from command line to 'None'
+[2.704s] Level 5:colcon.colcon_core.verb:set package 'base' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.705s] Level 5:colcon.colcon_core.verb:set package 'base' build argument 'cmake_clean_cache' from command line to 'False'
+[2.705s] Level 5:colcon.colcon_core.verb:set package 'base' build argument 'cmake_clean_first' from command line to 'False'
+[2.705s] Level 5:colcon.colcon_core.verb:set package 'base' build argument 'cmake_force_configure' from command line to 'False'
+[2.705s] Level 5:colcon.colcon_core.verb:set package 'base' build argument 'ament_cmake_args' from command line to 'None'
+[2.705s] Level 5:colcon.colcon_core.verb:set package 'base' build argument 'catkin_cmake_args' from command line to 'None'
+[2.706s] Level 5:colcon.colcon_core.verb:set package 'base' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.706s] DEBUG:colcon.colcon_core.verb:Building package 'base' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunrise/amphibious_ws/build/base', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunrise/amphibious_ws/install/base', 'merge_install': False, 'path': '/home/sunrise/amphibious_ws/src/bluesea2/src/base', 'symlink_install': False, 'test_result_base': None}
+[2.709s] Level 5:colcon.colcon_core.verb:set package 'com_pkg' build argument 'cmake_args' from command line to 'None'
+[2.710s] Level 5:colcon.colcon_core.verb:set package 'com_pkg' build argument 'cmake_target' from command line to 'None'
+[2.710s] Level 5:colcon.colcon_core.verb:set package 'com_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.710s] Level 5:colcon.colcon_core.verb:set package 'com_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[2.711s] Level 5:colcon.colcon_core.verb:set package 'com_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[2.711s] Level 5:colcon.colcon_core.verb:set package 'com_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[2.711s] Level 5:colcon.colcon_core.verb:set package 'com_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[2.711s] Level 5:colcon.colcon_core.verb:set package 'com_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[2.711s] Level 5:colcon.colcon_core.verb:set package 'com_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.712s] DEBUG:colcon.colcon_core.verb:Building package 'com_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunrise/amphibious_ws/build/com_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunrise/amphibious_ws/install/com_pkg', 'merge_install': False, 'path': '/home/sunrise/amphibious_ws/src/com_pkg', 'symlink_install': False, 'test_result_base': None}
+[2.715s] Level 5:colcon.colcon_core.verb:set package 'i2c_pkg' build argument 'cmake_args' from command line to 'None'
+[2.715s] Level 5:colcon.colcon_core.verb:set package 'i2c_pkg' build argument 'cmake_target' from command line to 'None'
+[2.715s] Level 5:colcon.colcon_core.verb:set package 'i2c_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.716s] Level 5:colcon.colcon_core.verb:set package 'i2c_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[2.716s] Level 5:colcon.colcon_core.verb:set package 'i2c_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[2.716s] Level 5:colcon.colcon_core.verb:set package 'i2c_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[2.716s] Level 5:colcon.colcon_core.verb:set package 'i2c_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[2.717s] Level 5:colcon.colcon_core.verb:set package 'i2c_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[2.717s] Level 5:colcon.colcon_core.verb:set package 'i2c_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.717s] DEBUG:colcon.colcon_core.verb:Building package 'i2c_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunrise/amphibious_ws/build/i2c_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunrise/amphibious_ws/install/i2c_pkg', 'merge_install': False, 'path': '/home/sunrise/amphibious_ws/src/i2c_pkg', 'symlink_install': False, 'test_result_base': None}
+[2.720s] Level 5:colcon.colcon_core.verb:set package 'my_carto_pkg' build argument 'cmake_args' from command line to 'None'
+[2.720s] Level 5:colcon.colcon_core.verb:set package 'my_carto_pkg' build argument 'cmake_target' from command line to 'None'
+[2.721s] Level 5:colcon.colcon_core.verb:set package 'my_carto_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.721s] Level 5:colcon.colcon_core.verb:set package 'my_carto_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[2.721s] Level 5:colcon.colcon_core.verb:set package 'my_carto_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[2.722s] Level 5:colcon.colcon_core.verb:set package 'my_carto_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[2.722s] Level 5:colcon.colcon_core.verb:set package 'my_carto_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[2.722s] Level 5:colcon.colcon_core.verb:set package 'my_carto_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[2.722s] Level 5:colcon.colcon_core.verb:set package 'my_carto_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.722s] DEBUG:colcon.colcon_core.verb:Building package 'my_carto_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunrise/amphibious_ws/build/my_carto_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunrise/amphibious_ws/install/my_carto_pkg', 'merge_install': False, 'path': '/home/sunrise/amphibious_ws/src/my_carto_pkg', 'symlink_install': False, 'test_result_base': None}
+[2.725s] Level 5:colcon.colcon_core.verb:set package 'bluesea2' build argument 'cmake_args' from command line to 'None'
+[2.726s] Level 5:colcon.colcon_core.verb:set package 'bluesea2' build argument 'cmake_target' from command line to 'None'
+[2.726s] Level 5:colcon.colcon_core.verb:set package 'bluesea2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[2.726s] Level 5:colcon.colcon_core.verb:set package 'bluesea2' build argument 'cmake_clean_cache' from command line to 'False'
+[2.726s] Level 5:colcon.colcon_core.verb:set package 'bluesea2' build argument 'cmake_clean_first' from command line to 'False'
+[2.726s] Level 5:colcon.colcon_core.verb:set package 'bluesea2' build argument 'cmake_force_configure' from command line to 'False'
+[2.727s] Level 5:colcon.colcon_core.verb:set package 'bluesea2' build argument 'ament_cmake_args' from command line to 'None'
+[2.727s] Level 5:colcon.colcon_core.verb:set package 'bluesea2' build argument 'catkin_cmake_args' from command line to 'None'
+[2.727s] Level 5:colcon.colcon_core.verb:set package 'bluesea2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[2.727s] DEBUG:colcon.colcon_core.verb:Building package 'bluesea2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunrise/amphibious_ws/build/bluesea2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunrise/amphibious_ws/install/bluesea2', 'merge_install': False, 'path': '/home/sunrise/amphibious_ws/src/bluesea2/src/bluesea-ros2', 'symlink_install': False, 'test_result_base': None}
+[2.728s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[2.735s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[2.737s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/sunrise/amphibious_ws/src/bluesea2/src/base' with build type 'ament_cmake'
+[2.738s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/sunrise/amphibious_ws/src/bluesea2/src/base'
+[2.749s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[2.751s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.752s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.781s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/sunrise/amphibious_ws/src/com_pkg' with build type 'ament_cmake'
+[2.782s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/sunrise/amphibious_ws/src/com_pkg'
+[2.784s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.785s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.814s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/sunrise/amphibious_ws/src/i2c_pkg' with build type 'ament_cmake'
+[2.815s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/sunrise/amphibious_ws/src/i2c_pkg'
+[2.817s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.818s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.848s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/sunrise/amphibious_ws/src/my_carto_pkg' with build type 'ament_cmake'
+[2.849s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/sunrise/amphibious_ws/src/my_carto_pkg'
+[2.851s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.851s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.900s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunrise/amphibious_ws/build/base': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/base -- -j8 -l8
+[2.919s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunrise/amphibious_ws/build/com_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/com_pkg -- -j8 -l8
+[2.937s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunrise/amphibious_ws/build/i2c_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/i2c_pkg -- -j8 -l8
+[2.959s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunrise/amphibious_ws/build/my_carto_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/my_carto_pkg -- -j8 -l8
+[3.172s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunrise/amphibious_ws/build/my_carto_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/my_carto_pkg -- -j8 -l8
+[3.248s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunrise/amphibious_ws/build/my_carto_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/my_carto_pkg
+[3.377s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(my_carto_pkg)
+[3.398s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunrise/amphibious_ws/build/my_carto_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/my_carto_pkg
+[3.410s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/my_carto_pkg' for CMake module files
+[3.417s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/my_carto_pkg' for CMake config files
+[3.418s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_carto_pkg', 'cmake_prefix_path')
+[3.420s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/hook/cmake_prefix_path.ps1'
+[3.427s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/hook/cmake_prefix_path.dsv'
+[3.436s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/hook/cmake_prefix_path.sh'
+[3.444s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/bin'
+[3.445s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/lib/pkgconfig/my_carto_pkg.pc'
+[3.447s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/lib/python3.10/site-packages'
+[3.449s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/bin'
+[3.452s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.ps1'
+[3.486s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.dsv'
+[3.496s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.sh'
+[3.502s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.bash'
+[3.509s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.zsh'
+[3.516s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/my_carto_pkg/share/colcon-core/packages/my_carto_pkg)
+[3.521s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(my_carto_pkg)
+[3.523s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/my_carto_pkg' for CMake module files
+[3.532s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/my_carto_pkg' for CMake config files
+[3.533s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_carto_pkg', 'cmake_prefix_path')
+[3.536s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/hook/cmake_prefix_path.ps1'
+[3.540s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/hook/cmake_prefix_path.dsv'
+[3.544s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/hook/cmake_prefix_path.sh'
+[3.565s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/bin'
+[3.566s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/lib/pkgconfig/my_carto_pkg.pc'
+[3.568s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/lib/python3.10/site-packages'
+[3.570s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/bin'
+[3.574s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.ps1'
+[3.595s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.dsv'
+[3.600s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.sh'
+[3.606s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.bash'
+[3.611s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.zsh'
+[3.616s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/my_carto_pkg/share/colcon-core/packages/my_carto_pkg)
+[3.642s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunrise/amphibious_ws/build/i2c_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/i2c_pkg -- -j8 -l8
+[3.645s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunrise/amphibious_ws/build/i2c_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/i2c_pkg
+[3.663s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunrise/amphibious_ws/build/com_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/com_pkg -- -j8 -l8
+[3.667s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunrise/amphibious_ws/build/com_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/com_pkg
+[3.714s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(i2c_pkg)
+[3.717s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/i2c_pkg' for CMake module files
+[3.721s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/i2c_pkg' for CMake config files
+[3.726s] Level 1:colcon.colcon_core.shell:create_environment_hook('i2c_pkg', 'cmake_prefix_path')
+[3.728s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/hook/cmake_prefix_path.ps1'
+[3.732s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunrise/amphibious_ws/build/i2c_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/i2c_pkg
+[3.736s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/hook/cmake_prefix_path.dsv'
+[3.751s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/hook/cmake_prefix_path.sh'
+[3.757s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/i2c_pkg/lib'
+[3.760s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/i2c_pkg/bin'
+[3.761s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/i2c_pkg/lib/pkgconfig/i2c_pkg.pc'
+[3.763s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/i2c_pkg/lib/python3.10/site-packages'
+[3.765s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/i2c_pkg/bin'
+[3.767s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.ps1'
+[3.771s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.dsv'
+[3.777s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.sh'
+[3.782s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.bash'
+[3.785s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.zsh'
+[3.789s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/i2c_pkg/share/colcon-core/packages/i2c_pkg)
+[3.793s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(i2c_pkg)
+[3.795s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/i2c_pkg' for CMake module files
+[3.799s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/i2c_pkg' for CMake config files
+[3.801s] Level 1:colcon.colcon_core.shell:create_environment_hook('i2c_pkg', 'cmake_prefix_path')
+[3.803s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/hook/cmake_prefix_path.ps1'
+[3.806s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/hook/cmake_prefix_path.dsv'
+[3.809s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/hook/cmake_prefix_path.sh'
+[3.814s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/i2c_pkg/lib'
+[3.815s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/i2c_pkg/bin'
+[3.815s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/i2c_pkg/lib/pkgconfig/i2c_pkg.pc'
+[3.817s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/i2c_pkg/lib/python3.10/site-packages'
+[3.819s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/i2c_pkg/bin'
+[3.822s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.ps1'
+[3.825s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.dsv'
+[3.829s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.sh'
+[3.833s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.bash'
+[3.838s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.zsh'
+[3.842s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/i2c_pkg/share/colcon-core/packages/i2c_pkg)
+[3.853s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(com_pkg)
+[3.855s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/com_pkg' for CMake module files
+[3.859s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/com_pkg' for CMake config files
+[3.860s] Level 1:colcon.colcon_core.shell:create_environment_hook('com_pkg', 'cmake_prefix_path')
+[3.862s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/hook/cmake_prefix_path.ps1'
+[3.867s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/hook/cmake_prefix_path.dsv'
+[3.870s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/hook/cmake_prefix_path.sh'
+[3.877s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/com_pkg/lib'
+[3.877s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/com_pkg/bin'
+[3.878s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/com_pkg/lib/pkgconfig/com_pkg.pc'
+[3.879s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunrise/amphibious_ws/build/com_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/com_pkg
+[3.881s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/com_pkg/lib/python3.10/site-packages'
+[3.884s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/com_pkg/bin'
+[3.887s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.ps1'
+[3.892s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.dsv'
+[3.896s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.sh'
+[3.899s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.bash'
+[3.902s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.zsh'
+[3.906s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/com_pkg/share/colcon-core/packages/com_pkg)
+[3.910s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(com_pkg)
+[3.912s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/com_pkg' for CMake module files
+[3.916s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/com_pkg' for CMake config files
+[3.917s] Level 1:colcon.colcon_core.shell:create_environment_hook('com_pkg', 'cmake_prefix_path')
+[3.919s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/hook/cmake_prefix_path.ps1'
+[3.922s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/hook/cmake_prefix_path.dsv'
+[3.925s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/hook/cmake_prefix_path.sh'
+[3.930s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/com_pkg/lib'
+[3.931s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/com_pkg/bin'
+[3.931s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/com_pkg/lib/pkgconfig/com_pkg.pc'
+[3.933s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/com_pkg/lib/python3.10/site-packages'
+[3.935s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/com_pkg/bin'
+[3.937s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.ps1'
+[3.941s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.dsv'
+[3.945s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.sh'
+[3.951s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.bash'
+[3.954s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.zsh'
+[3.958s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/com_pkg/share/colcon-core/packages/com_pkg)
+[5.842s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunrise/amphibious_ws/build/base' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/base -- -j8 -l8
+[5.850s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunrise/amphibious_ws/build/base': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/base
+[6.227s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(base)
+[6.229s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/base' for CMake module files
+[6.245s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/base' for CMake config files
+[6.263s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunrise/amphibious_ws/build/base' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/base
+[6.265s] Level 1:colcon.colcon_core.shell:create_environment_hook('base', 'cmake_prefix_path')
+[6.267s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/base/share/base/hook/cmake_prefix_path.ps1'
+[6.271s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunrise/amphibious_ws/install/base/share/base/hook/cmake_prefix_path.dsv'
+[6.274s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/base/share/base/hook/cmake_prefix_path.sh'
+[6.278s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/base/lib'
+[6.279s] Level 1:colcon.colcon_core.shell:create_environment_hook('base', 'ld_library_path_lib')
+[6.282s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/base/share/base/hook/ld_library_path_lib.ps1'
+[6.285s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunrise/amphibious_ws/install/base/share/base/hook/ld_library_path_lib.dsv'
+[6.288s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/base/share/base/hook/ld_library_path_lib.sh'
+[6.291s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/base/bin'
+[6.292s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/base/lib/pkgconfig/base.pc'
+[6.294s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/base/lib/python3.10/site-packages'
+[6.296s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/base/bin'
+[6.299s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/base/share/base/package.ps1'
+[6.304s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunrise/amphibious_ws/install/base/share/base/package.dsv'
+[6.308s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/base/share/base/package.sh'
+[6.313s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/base/share/base/package.bash'
+[6.316s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/base/share/base/package.zsh'
+[6.319s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/base/share/colcon-core/packages/base)
+[6.324s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(base)
+[6.326s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/base' for CMake module files
+[6.331s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/base' for CMake config files
+[6.334s] Level 1:colcon.colcon_core.shell:create_environment_hook('base', 'cmake_prefix_path')
+[6.337s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/base/share/base/hook/cmake_prefix_path.ps1'
+[6.340s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunrise/amphibious_ws/install/base/share/base/hook/cmake_prefix_path.dsv'
+[6.343s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/base/share/base/hook/cmake_prefix_path.sh'
+[6.348s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/base/lib'
+[6.348s] Level 1:colcon.colcon_core.shell:create_environment_hook('base', 'ld_library_path_lib')
+[6.350s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/base/share/base/hook/ld_library_path_lib.ps1'
+[6.354s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunrise/amphibious_ws/install/base/share/base/hook/ld_library_path_lib.dsv'
+[6.357s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/base/share/base/hook/ld_library_path_lib.sh'
+[6.360s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/base/bin'
+[6.361s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/base/lib/pkgconfig/base.pc'
+[6.363s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/base/lib/python3.10/site-packages'
+[6.365s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/base/bin'
+[6.368s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/base/share/base/package.ps1'
+[6.372s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunrise/amphibious_ws/install/base/share/base/package.dsv'
+[6.377s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/base/share/base/package.sh'
+[6.381s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/base/share/base/package.bash'
+[6.386s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/base/share/base/package.zsh'
+[6.389s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/base/share/colcon-core/packages/base)
+[6.392s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/sunrise/amphibious_ws/src/bluesea2/src/bluesea-ros2' with build type 'ament_cmake'
+[6.393s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/sunrise/amphibious_ws/src/bluesea2/src/bluesea-ros2'
+[6.395s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.395s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.465s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunrise/amphibious_ws/build/bluesea2': CMAKE_PREFIX_PATH=/home/sunrise/amphibious_ws/install/base:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/ros/humble LD_LIBRARY_PATH=/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/bluesea2 -- -j8 -l8
+[6.833s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunrise/amphibious_ws/build/bluesea2' returned '0': CMAKE_PREFIX_PATH=/home/sunrise/amphibious_ws/install/base:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/ros/humble LD_LIBRARY_PATH=/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/bluesea2 -- -j8 -l8
+[6.837s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sunrise/amphibious_ws/build/bluesea2': CMAKE_PREFIX_PATH=/home/sunrise/amphibious_ws/install/base:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/ros/humble LD_LIBRARY_PATH=/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/bluesea2
+[6.897s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(bluesea2)
+[6.899s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/bluesea2' for CMake module files
+[6.905s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/bluesea2' for CMake config files
+[6.907s] Level 1:colcon.colcon_core.shell:create_environment_hook('bluesea2', 'cmake_prefix_path')
+[6.909s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/hook/cmake_prefix_path.ps1'
+[6.923s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sunrise/amphibious_ws/build/bluesea2' returned '0': CMAKE_PREFIX_PATH=/home/sunrise/amphibious_ws/install/base:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/opt/ros/humble LD_LIBRARY_PATH=/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/bluesea2
+[6.924s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/hook/cmake_prefix_path.dsv'
+[6.928s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/hook/cmake_prefix_path.sh'
+[6.933s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/bluesea2/lib'
+[6.934s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/bluesea2/bin'
+[6.934s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/bluesea2/lib/pkgconfig/bluesea2.pc'
+[6.936s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/bluesea2/lib/python3.10/site-packages'
+[6.938s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/bluesea2/bin'
+[6.941s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.ps1'
+[6.945s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.dsv'
+[6.949s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.sh'
+[6.953s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.bash'
+[6.957s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.zsh'
+[6.960s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/bluesea2/share/colcon-core/packages/bluesea2)
+[6.966s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(bluesea2)
+[6.968s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/bluesea2' for CMake module files
+[6.972s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/bluesea2' for CMake config files
+[6.974s] Level 1:colcon.colcon_core.shell:create_environment_hook('bluesea2', 'cmake_prefix_path')
+[6.976s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/hook/cmake_prefix_path.ps1'
+[6.980s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/hook/cmake_prefix_path.dsv'
+[6.984s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/hook/cmake_prefix_path.sh'
+[6.988s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/bluesea2/lib'
+[6.989s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/bluesea2/bin'
+[6.990s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/bluesea2/lib/pkgconfig/bluesea2.pc'
+[6.991s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/bluesea2/lib/python3.10/site-packages'
+[6.993s] Level 1:colcon.colcon_core.environment:checking '/home/sunrise/amphibious_ws/install/bluesea2/bin'
+[6.996s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.ps1'
+[7.000s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.dsv'
+[7.004s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.sh'
+[7.008s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.bash'
+[7.012s] INFO:colcon.colcon_core.shell:Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.zsh'
+[7.017s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/bluesea2/share/colcon-core/packages/bluesea2)
+[7.019s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[7.021s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[7.021s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[7.023s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[7.059s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[7.060s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[7.060s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[7.060s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[7.086s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[7.088s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sunrise/amphibious_ws/install/local_setup.ps1'
+[7.097s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/sunrise/amphibious_ws/install/_local_setup_util_ps1.py'
+[7.108s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sunrise/amphibious_ws/install/setup.ps1'
+[7.119s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sunrise/amphibious_ws/install/local_setup.sh'
+[7.123s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/sunrise/amphibious_ws/install/_local_setup_util_sh.py'
+[7.127s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sunrise/amphibious_ws/install/setup.sh'
+[7.138s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sunrise/amphibious_ws/install/local_setup.bash'
+[7.142s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sunrise/amphibious_ws/install/setup.bash'
+[7.153s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sunrise/amphibious_ws/install/local_setup.zsh'
+[7.157s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sunrise/amphibious_ws/install/setup.zsh'

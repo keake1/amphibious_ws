@@ -1,0 +1,677 @@
+[1.372s] [34mcolcon[0m [1;30mDEBUG[0m [32mCommand line arguments: ['/usr/bin/colcon', 'build'][0m
+[1.372s] [34mcolcon[0m [1;30mDEBUG[0m [32mParsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffff9b6b9750>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff9ba2fcd0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff9ba2fcd0>>)[0m
+[2.980s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) check parameters
+[2.980s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) check parameters
+[2.981s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) check parameters
+[2.981s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) check parameters
+[2.981s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) discover
+[2.982s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) discover
+[2.982s] [34mcolcon.colcon_core.package_discovery[0m [1;30mINFO[0m Crawling recursively for packages in '/home/sunrise/amphibious_ws'
+[2.983s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ignore', 'ignore_ament_install']
+[2.983s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore'
+[2.984s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore_ament_install'
+[2.984s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_pkg']
+[2.984s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_pkg'
+[2.985s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_meta']
+[2.985s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_meta'
+[2.985s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ros']
+[2.985s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ros'
+[3.066s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['cmake', 'python']
+[3.066s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'cmake'
+[3.067s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python'
+[3.067s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['python_setup_py']
+[3.068s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python_setup_py'
+[3.068s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extensions ['ignore', 'ignore_ament_install']
+[3.069s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extension 'ignore'
+[3.069s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) ignored
+[3.070s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extensions ['ignore', 'ignore_ament_install']
+[3.070s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extension 'ignore'
+[3.071s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) ignored
+[3.072s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extensions ['ignore', 'ignore_ament_install']
+[3.073s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extension 'ignore'
+[3.073s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) ignored
+[3.074s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['ignore', 'ignore_ament_install']
+[3.074s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ignore'
+[3.075s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ignore_ament_install'
+[3.075s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['colcon_pkg']
+[3.075s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'colcon_pkg'
+[3.075s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['colcon_meta']
+[3.076s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'colcon_meta'
+[3.076s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['ros']
+[3.076s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ros'
+[3.077s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['cmake', 'python']
+[3.077s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'cmake'
+[3.077s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'python'
+[3.078s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['python_setup_py']
+[3.078s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'python_setup_py'
+[3.078s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2) by extensions ['ignore', 'ignore_ament_install']
+[3.079s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2) by extension 'ignore'
+[3.079s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2) by extension 'ignore_ament_install'
+[3.080s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2) by extensions ['colcon_pkg']
+[3.080s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2) by extension 'colcon_pkg'
+[3.081s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2) by extensions ['colcon_meta']
+[3.081s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2) by extension 'colcon_meta'
+[3.082s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2) by extensions ['ros']
+[3.082s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2) by extension 'ros'
+[3.083s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2) by extensions ['cmake', 'python']
+[3.084s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2) by extension 'cmake'
+[3.084s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2) by extension 'python'
+[3.085s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2) by extensions ['python_setup_py']
+[3.085s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2) by extension 'python_setup_py'
+[3.086s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src) by extensions ['ignore', 'ignore_ament_install']
+[3.087s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src) by extension 'ignore'
+[3.088s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src) by extension 'ignore_ament_install'
+[3.088s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src) by extensions ['colcon_pkg']
+[3.089s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src) by extension 'colcon_pkg'
+[3.089s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src) by extensions ['colcon_meta']
+[3.090s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src) by extension 'colcon_meta'
+[3.090s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src) by extensions ['ros']
+[3.091s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src) by extension 'ros'
+[3.091s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src) by extensions ['cmake', 'python']
+[3.092s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src) by extension 'cmake'
+[3.092s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src) by extension 'python'
+[3.092s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src) by extensions ['python_setup_py']
+[3.092s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src) by extension 'python_setup_py'
+[3.093s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/base_lidar) by extensions ['ignore', 'ignore_ament_install']
+[3.094s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/base_lidar) by extension 'ignore'
+[3.094s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/base_lidar) by extension 'ignore_ament_install'
+[3.094s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/base_lidar) by extensions ['colcon_pkg']
+[3.094s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/base_lidar) by extension 'colcon_pkg'
+[3.095s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/base_lidar) by extensions ['colcon_meta']
+[3.095s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/base_lidar) by extension 'colcon_meta'
+[3.095s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/base_lidar) by extensions ['ros']
+[3.096s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/base_lidar) by extension 'ros'
+[3.124s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/bluesea2/src/base_lidar' with type 'ros.ament_cmake' and name 'base_lidar'[0m
+[3.125s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/bluesea-ros2) by extensions ['ignore', 'ignore_ament_install']
+[3.126s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/bluesea-ros2) by extension 'ignore'
+[3.126s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/bluesea-ros2) by extension 'ignore_ament_install'
+[3.127s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/bluesea-ros2) by extensions ['colcon_pkg']
+[3.127s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/bluesea-ros2) by extension 'colcon_pkg'
+[3.128s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/bluesea-ros2) by extensions ['colcon_meta']
+[3.128s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/bluesea-ros2) by extension 'colcon_meta'
+[3.129s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/bluesea-ros2) by extensions ['ros']
+[3.129s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/bluesea2/src/bluesea-ros2) by extension 'ros'
+[3.136s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/bluesea2/src/bluesea-ros2' with type 'ros.ament_cmake' and name 'bluesea2'[0m
+[3.137s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/camera_pkg) by extensions ['ignore', 'ignore_ament_install']
+[3.138s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/camera_pkg) by extension 'ignore'
+[3.139s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/camera_pkg) by extension 'ignore_ament_install'
+[3.139s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/camera_pkg) by extensions ['colcon_pkg']
+[3.140s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/camera_pkg) by extension 'colcon_pkg'
+[3.140s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/camera_pkg) by extensions ['colcon_meta']
+[3.140s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/camera_pkg) by extension 'colcon_meta'
+[3.141s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/camera_pkg) by extensions ['ros']
+[3.141s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/camera_pkg) by extension 'ros'
+[3.145s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/camera_pkg' with type 'ros.ament_cmake' and name 'camera_pkg'[0m
+[3.146s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/com_pkg) by extensions ['ignore', 'ignore_ament_install']
+[3.147s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/com_pkg) by extension 'ignore'
+[3.148s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/com_pkg) by extension 'ignore_ament_install'
+[3.148s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/com_pkg) by extensions ['colcon_pkg']
+[3.149s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/com_pkg) by extension 'colcon_pkg'
+[3.149s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/com_pkg) by extensions ['colcon_meta']
+[3.149s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/com_pkg) by extension 'colcon_meta'
+[3.150s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/com_pkg) by extensions ['ros']
+[3.150s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/com_pkg) by extension 'ros'
+[3.157s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/com_pkg' with type 'ros.ament_cmake' and name 'com_pkg'[0m
+[3.158s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/i2c_pkg) by extensions ['ignore', 'ignore_ament_install']
+[3.159s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/i2c_pkg) by extension 'ignore'
+[3.160s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/i2c_pkg) by extension 'ignore_ament_install'
+[3.160s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/i2c_pkg) by extensions ['colcon_pkg']
+[3.161s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/i2c_pkg) by extension 'colcon_pkg'
+[3.161s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/i2c_pkg) by extensions ['colcon_meta']
+[3.161s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/i2c_pkg) by extension 'colcon_meta'
+[3.162s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/i2c_pkg) by extensions ['ros']
+[3.162s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/i2c_pkg) by extension 'ros'
+[3.246s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/i2c_pkg' with type 'ros.ament_cmake' and name 'i2c_pkg'[0m
+[3.247s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/item_locate_pkg) by extensions ['ignore', 'ignore_ament_install']
+[3.247s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/item_locate_pkg) by extension 'ignore'
+[3.248s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/item_locate_pkg) by extension 'ignore_ament_install'
+[3.248s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/item_locate_pkg) by extensions ['colcon_pkg']
+[3.249s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/item_locate_pkg) by extension 'colcon_pkg'
+[3.249s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/item_locate_pkg) by extensions ['colcon_meta']
+[3.249s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/item_locate_pkg) by extension 'colcon_meta'
+[3.250s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/item_locate_pkg) by extensions ['ros']
+[3.250s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/item_locate_pkg) by extension 'ros'
+[3.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/item_locate_pkg' with type 'ros.ament_cmake' and name 'item_locate_pkg'[0m
+[3.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/lifecycle_control_pkg) by extensions ['ignore', 'ignore_ament_install']
+[3.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/lifecycle_control_pkg) by extension 'ignore'
+[3.256s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/lifecycle_control_pkg) by extension 'ignore_ament_install'
+[3.256s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/lifecycle_control_pkg) by extensions ['colcon_pkg']
+[3.256s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/lifecycle_control_pkg) by extension 'colcon_pkg'
+[3.257s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/lifecycle_control_pkg) by extensions ['colcon_meta']
+[3.257s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/lifecycle_control_pkg) by extension 'colcon_meta'
+[3.257s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/lifecycle_control_pkg) by extensions ['ros']
+[3.258s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/lifecycle_control_pkg) by extension 'ros'
+[3.261s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/lifecycle_control_pkg' with type 'ros.ament_cmake' and name 'lifecycle_control_pkg'[0m
+[3.262s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/my_carto_pkg) by extensions ['ignore', 'ignore_ament_install']
+[3.263s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/my_carto_pkg) by extension 'ignore'
+[3.263s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/my_carto_pkg) by extension 'ignore_ament_install'
+[3.264s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/my_carto_pkg) by extensions ['colcon_pkg']
+[3.264s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/my_carto_pkg) by extension 'colcon_pkg'
+[3.264s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/my_carto_pkg) by extensions ['colcon_meta']
+[3.265s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/my_carto_pkg) by extension 'colcon_meta'
+[3.265s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/my_carto_pkg) by extensions ['ros']
+[3.265s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/my_carto_pkg) by extension 'ros'
+[3.269s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/my_carto_pkg' with type 'ros.ament_cmake' and name 'my_carto_pkg'[0m
+[3.270s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/yolo_detect_pkg) by extensions ['ignore', 'ignore_ament_install']
+[3.270s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/yolo_detect_pkg) by extension 'ignore'
+[3.271s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/yolo_detect_pkg) by extension 'ignore_ament_install'
+[3.271s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/yolo_detect_pkg) by extensions ['colcon_pkg']
+[3.271s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/yolo_detect_pkg) by extension 'colcon_pkg'
+[3.272s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/yolo_detect_pkg) by extensions ['colcon_meta']
+[3.272s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/yolo_detect_pkg) by extension 'colcon_meta'
+[3.272s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/yolo_detect_pkg) by extensions ['ros']
+[3.272s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/yolo_detect_pkg) by extension 'ros'
+[3.276s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/yolo_detect_pkg' with type 'ros.ament_python' and name 'yolo_detect_pkg'[0m
+[3.276s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) using defaults
+[3.277s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) discover
+[3.277s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) using defaults
+[3.277s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) discover
+[3.277s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) using defaults
+[3.398s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) check parameters
+[3.398s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) discover
+[3.423s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 10 installed packages in /home/sunrise/amphibious_ws/install[0m
+[3.427s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 5 installed packages in /home/sunrise/fly_ws/install[0m
+[3.433s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 4 installed packages in /home/sunrise/cartographer_ws/install[0m
+[3.436s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 54 installed packages in /opt/tros/humble[0m
+[3.448s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 300 installed packages in /opt/ros/humble[0m
+[3.461s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) using defaults
+[3.813s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'base_lidar' build argument 'cmake_args' from command line to 'None'
+[3.813s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'base_lidar' build argument 'cmake_target' from command line to 'None'
+[3.813s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'base_lidar' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[3.814s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'base_lidar' build argument 'cmake_clean_cache' from command line to 'False'
+[3.814s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'base_lidar' build argument 'cmake_clean_first' from command line to 'False'
+[3.814s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'base_lidar' build argument 'cmake_force_configure' from command line to 'False'
+[3.814s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'base_lidar' build argument 'ament_cmake_args' from command line to 'None'
+[3.814s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'base_lidar' build argument 'catkin_cmake_args' from command line to 'None'
+[3.814s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'base_lidar' build argument 'catkin_skip_building_tests' from command line to 'False'
+[3.815s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'base_lidar' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunrise/amphibious_ws/build/base_lidar', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunrise/amphibious_ws/install/base_lidar', 'merge_install': False, 'path': '/home/sunrise/amphibious_ws/src/bluesea2/src/base_lidar', 'symlink_install': False, 'test_result_base': None}[0m
+[3.818s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'camera_pkg' build argument 'cmake_args' from command line to 'None'
+[3.818s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'camera_pkg' build argument 'cmake_target' from command line to 'None'
+[3.818s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'camera_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[3.818s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'camera_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[3.818s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'camera_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[3.819s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'camera_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[3.819s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'camera_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[3.819s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'camera_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[3.819s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'camera_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[3.819s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'camera_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunrise/amphibious_ws/build/camera_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunrise/amphibious_ws/install/camera_pkg', 'merge_install': False, 'path': '/home/sunrise/amphibious_ws/src/camera_pkg', 'symlink_install': False, 'test_result_base': None}[0m
+[3.822s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'com_pkg' build argument 'cmake_args' from command line to 'None'
+[3.822s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'com_pkg' build argument 'cmake_target' from command line to 'None'
+[3.823s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'com_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[3.823s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'com_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[3.823s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'com_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[3.823s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'com_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[3.823s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'com_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[3.823s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'com_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[3.824s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'com_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[3.824s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'com_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunrise/amphibious_ws/build/com_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunrise/amphibious_ws/install/com_pkg', 'merge_install': False, 'path': '/home/sunrise/amphibious_ws/src/com_pkg', 'symlink_install': False, 'test_result_base': None}[0m
+[3.826s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'i2c_pkg' build argument 'cmake_args' from command line to 'None'
+[3.827s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'i2c_pkg' build argument 'cmake_target' from command line to 'None'
+[3.827s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'i2c_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[3.827s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'i2c_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[3.827s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'i2c_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[3.827s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'i2c_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[3.828s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'i2c_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[3.828s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'i2c_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[3.828s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'i2c_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[3.828s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'i2c_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunrise/amphibious_ws/build/i2c_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunrise/amphibious_ws/install/i2c_pkg', 'merge_install': False, 'path': '/home/sunrise/amphibious_ws/src/i2c_pkg', 'symlink_install': False, 'test_result_base': None}[0m
+[3.831s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'item_locate_pkg' build argument 'cmake_args' from command line to 'None'
+[3.831s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'item_locate_pkg' build argument 'cmake_target' from command line to 'None'
+[3.831s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'item_locate_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[3.832s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'item_locate_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[3.832s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'item_locate_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[3.832s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'item_locate_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[3.832s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'item_locate_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[3.832s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'item_locate_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[3.832s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'item_locate_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[3.833s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'item_locate_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunrise/amphibious_ws/build/item_locate_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunrise/amphibious_ws/install/item_locate_pkg', 'merge_install': False, 'path': '/home/sunrise/amphibious_ws/src/item_locate_pkg', 'symlink_install': False, 'test_result_base': None}[0m
+[3.835s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'lifecycle_control_pkg' build argument 'cmake_args' from command line to 'None'
+[3.836s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'lifecycle_control_pkg' build argument 'cmake_target' from command line to 'None'
+[3.836s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'lifecycle_control_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[3.836s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'lifecycle_control_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[3.836s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'lifecycle_control_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[3.836s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'lifecycle_control_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[3.837s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'lifecycle_control_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[3.837s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'lifecycle_control_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[3.837s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'lifecycle_control_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[3.837s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'lifecycle_control_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunrise/amphibious_ws/build/lifecycle_control_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg', 'merge_install': False, 'path': '/home/sunrise/amphibious_ws/src/lifecycle_control_pkg', 'symlink_install': False, 'test_result_base': None}[0m
+[3.840s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'my_carto_pkg' build argument 'cmake_args' from command line to 'None'
+[3.840s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'my_carto_pkg' build argument 'cmake_target' from command line to 'None'
+[3.840s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'my_carto_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[3.841s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'my_carto_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[3.841s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'my_carto_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[3.841s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'my_carto_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[3.841s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'my_carto_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[3.841s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'my_carto_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[3.842s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'my_carto_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[3.842s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'my_carto_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunrise/amphibious_ws/build/my_carto_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunrise/amphibious_ws/install/my_carto_pkg', 'merge_install': False, 'path': '/home/sunrise/amphibious_ws/src/my_carto_pkg', 'symlink_install': False, 'test_result_base': None}[0m
+[3.845s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'yolo_detect_pkg' build argument 'cmake_args' from command line to 'None'
+[3.845s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'yolo_detect_pkg' build argument 'cmake_target' from command line to 'None'
+[3.845s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'yolo_detect_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[3.845s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'yolo_detect_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[3.846s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'yolo_detect_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[3.846s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'yolo_detect_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[3.846s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'yolo_detect_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[3.846s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'yolo_detect_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[3.846s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'yolo_detect_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[3.847s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'yolo_detect_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunrise/amphibious_ws/build/yolo_detect_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunrise/amphibious_ws/install/yolo_detect_pkg', 'merge_install': False, 'path': '/home/sunrise/amphibious_ws/src/yolo_detect_pkg', 'symlink_install': False, 'test_result_base': None}[0m
+[3.850s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'bluesea2' build argument 'cmake_args' from command line to 'None'
+[3.850s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'bluesea2' build argument 'cmake_target' from command line to 'None'
+[3.850s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'bluesea2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[3.850s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'bluesea2' build argument 'cmake_clean_cache' from command line to 'False'
+[3.850s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'bluesea2' build argument 'cmake_clean_first' from command line to 'False'
+[3.851s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'bluesea2' build argument 'cmake_force_configure' from command line to 'False'
+[3.851s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'bluesea2' build argument 'ament_cmake_args' from command line to 'None'
+[3.851s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'bluesea2' build argument 'catkin_cmake_args' from command line to 'None'
+[3.851s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'bluesea2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[3.851s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'bluesea2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sunrise/amphibious_ws/build/bluesea2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sunrise/amphibious_ws/install/bluesea2', 'merge_install': False, 'path': '/home/sunrise/amphibious_ws/src/bluesea2/src/bluesea-ros2', 'symlink_install': False, 'test_result_base': None}[0m
+[3.853s] [34mcolcon.colcon_core.executor[0m [1;30mINFO[0m Executing jobs using 'parallel' executor
+[3.858s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete[0m
+[3.860s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/sunrise/amphibious_ws/src/bluesea2/src/base_lidar' with build type 'ament_cmake'
+[3.861s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/sunrise/amphibious_ws/src/bluesea2/src/base_lidar'
+[3.884s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[3.886s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.886s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[3.923s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/sunrise/amphibious_ws/src/camera_pkg' with build type 'ament_cmake'
+[3.924s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/sunrise/amphibious_ws/src/camera_pkg'
+[3.926s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.927s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[3.965s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/sunrise/amphibious_ws/src/com_pkg' with build type 'ament_cmake'
+[3.966s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/sunrise/amphibious_ws/src/com_pkg'
+[3.968s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.969s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[4.005s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/sunrise/amphibious_ws/src/i2c_pkg' with build type 'ament_cmake'
+[4.006s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/sunrise/amphibious_ws/src/i2c_pkg'
+[4.008s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.009s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[4.044s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/sunrise/amphibious_ws/src/item_locate_pkg' with build type 'ament_cmake'
+[4.045s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/sunrise/amphibious_ws/src/item_locate_pkg'
+[4.047s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.048s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[4.088s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/sunrise/amphibious_ws/src/lifecycle_control_pkg' with build type 'ament_cmake'
+[4.091s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/sunrise/amphibious_ws/src/lifecycle_control_pkg'
+[4.094s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.095s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[4.134s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/sunrise/amphibious_ws/src/my_carto_pkg' with build type 'ament_cmake'
+[4.135s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/sunrise/amphibious_ws/src/my_carto_pkg'
+[4.138s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.138s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[4.178s] [34mcolcon.colcon_ros.task.ament_python.build[0m [1;30mINFO[0m Building ROS package in '/home/sunrise/amphibious_ws/src/yolo_detect_pkg' with build type 'ament_python'
+[4.180s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('yolo_detect_pkg', 'ament_prefix_path')
+[4.182s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/share/yolo_detect_pkg/hook/ament_prefix_path.ps1'
+[4.190s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/share/yolo_detect_pkg/hook/ament_prefix_path.dsv'
+[4.194s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/share/yolo_detect_pkg/hook/ament_prefix_path.sh'
+[4.201s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.202s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[4.279s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/base_lidar': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/base_lidar -- -j8 -l8[0m
+[4.311s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/camera_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/camera_pkg -- -j8 -l8[0m
+[4.328s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/com_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/com_pkg -- -j8 -l8[0m
+[4.350s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/i2c_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/i2c_pkg -- -j8 -l8[0m
+[4.374s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/item_locate_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/item_locate_pkg -- -j8 -l8[0m
+[4.399s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/lifecycle_control_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/lifecycle_control_pkg -- -j8 -l8[0m
+[4.417s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/my_carto_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/my_carto_pkg -- -j8 -l8[0m
+[7.400s] [34mcolcon.colcon_core.task.python.build[0m [1;30mINFO[0m Building Python package in '/home/sunrise/amphibious_ws/src/yolo_detect_pkg'
+[7.402s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[7.403s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[7.504s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/item_locate_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/item_locate_pkg -- -j8 -l8[0m
+[7.568s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/item_locate_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/item_locate_pkg[0m
+[7.572s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/my_carto_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/my_carto_pkg -- -j8 -l8[0m
+[7.583s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/my_carto_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/my_carto_pkg[0m
+[7.597s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/lifecycle_control_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/lifecycle_control_pkg -- -j8 -l8[0m
+[7.602s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/lifecycle_control_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/lifecycle_control_pkg[0m
+[7.623s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/camera_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/camera_pkg -- -j8 -l8[0m
+[7.626s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/camera_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/camera_pkg[0m
+[7.640s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/i2c_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/i2c_pkg -- -j8 -l8[0m
+[7.644s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/i2c_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/i2c_pkg[0m
+[7.684s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/com_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/com_pkg -- -j8 -l8[0m
+[7.755s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(my_carto_pkg)
+[7.798s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/com_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/com_pkg[0m
+[7.827s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/my_carto_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/my_carto_pkg[0m
+[7.871s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/my_carto_pkg' for CMake module files
+[7.874s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/my_carto_pkg' for CMake config files
+[7.875s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('my_carto_pkg', 'cmake_prefix_path')
+[7.877s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/hook/cmake_prefix_path.ps1'
+[7.881s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/hook/cmake_prefix_path.dsv'
+[7.883s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/hook/cmake_prefix_path.sh'
+[7.888s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/bin'
+[7.889s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/lib/pkgconfig/my_carto_pkg.pc'
+[7.891s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/lib/python3.10/site-packages'
+[7.893s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/bin'
+[7.895s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.ps1'
+[7.903s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.dsv'
+[7.908s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.sh'
+[7.916s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.bash'
+[7.924s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.zsh'
+[7.937s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/my_carto_pkg/share/colcon-core/packages/my_carto_pkg)
+[7.941s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(my_carto_pkg)
+[7.943s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/my_carto_pkg' for CMake module files
+[7.946s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/my_carto_pkg' for CMake config files
+[7.947s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('my_carto_pkg', 'cmake_prefix_path')
+[7.951s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/hook/cmake_prefix_path.ps1'
+[7.955s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/hook/cmake_prefix_path.dsv'
+[7.958s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/hook/cmake_prefix_path.sh'
+[7.964s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/bin'
+[7.964s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/lib/pkgconfig/my_carto_pkg.pc'
+[7.967s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/lib/python3.10/site-packages'
+[7.969s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/my_carto_pkg/bin'
+[7.972s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.ps1'
+[7.978s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.dsv'
+[7.983s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.sh'
+[7.987s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.bash'
+[7.993s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/my_carto_pkg/share/my_carto_pkg/package.zsh'
+[7.997s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/my_carto_pkg/share/colcon-core/packages/my_carto_pkg)
+[7.999s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(item_locate_pkg)
+[8.001s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/item_locate_pkg' for CMake module files
+[8.008s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/item_locate_pkg' for CMake config files
+[8.011s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/item_locate_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/item_locate_pkg[0m
+[8.013s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('item_locate_pkg', 'cmake_prefix_path')
+[8.015s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/hook/cmake_prefix_path.ps1'
+[8.019s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/hook/cmake_prefix_path.dsv'
+[8.023s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/hook/cmake_prefix_path.sh'
+[8.028s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/item_locate_pkg/lib'
+[8.029s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/item_locate_pkg/bin'
+[8.030s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/item_locate_pkg/lib/pkgconfig/item_locate_pkg.pc'
+[8.032s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/item_locate_pkg/lib/python3.10/site-packages'
+[8.034s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/item_locate_pkg/bin'
+[8.037s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/package.ps1'
+[8.042s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/package.dsv'
+[8.046s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/package.sh'
+[8.049s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/package.bash'
+[8.053s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/package.zsh'
+[8.056s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/item_locate_pkg/share/colcon-core/packages/item_locate_pkg)
+[8.060s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(item_locate_pkg)
+[8.063s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/item_locate_pkg' for CMake module files
+[8.067s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/item_locate_pkg' for CMake config files
+[8.069s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('item_locate_pkg', 'cmake_prefix_path')
+[8.071s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/hook/cmake_prefix_path.ps1'
+[8.075s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/hook/cmake_prefix_path.dsv'
+[8.078s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/hook/cmake_prefix_path.sh'
+[8.084s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/item_locate_pkg/lib'
+[8.085s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/item_locate_pkg/bin'
+[8.086s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/item_locate_pkg/lib/pkgconfig/item_locate_pkg.pc'
+[8.087s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/item_locate_pkg/lib/python3.10/site-packages'
+[8.089s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/item_locate_pkg/bin'
+[8.092s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/package.ps1'
+[8.096s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/package.dsv'
+[8.101s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/package.sh'
+[8.105s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/package.bash'
+[8.108s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/item_locate_pkg/share/item_locate_pkg/package.zsh'
+[8.112s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/item_locate_pkg/share/colcon-core/packages/item_locate_pkg)
+[8.118s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(lifecycle_control_pkg)
+[8.120s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg' for CMake module files
+[8.124s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/lifecycle_control_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/lifecycle_control_pkg[0m
+[8.127s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg' for CMake config files
+[8.129s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('lifecycle_control_pkg', 'cmake_prefix_path')
+[8.131s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/hook/cmake_prefix_path.ps1'
+[8.134s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/hook/cmake_prefix_path.dsv'
+[8.138s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/hook/cmake_prefix_path.sh'
+[8.144s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/lib'
+[8.145s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/bin'
+[8.146s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/lib/pkgconfig/lifecycle_control_pkg.pc'
+[8.148s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/lib/python3.10/site-packages'
+[8.150s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/bin'
+[8.153s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/package.ps1'
+[8.156s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/package.dsv'
+[8.160s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/package.sh'
+[8.164s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/package.bash'
+[8.168s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/package.zsh'
+[8.171s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/colcon-core/packages/lifecycle_control_pkg)
+[8.175s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(lifecycle_control_pkg)
+[8.177s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg' for CMake module files
+[8.181s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg' for CMake config files
+[8.183s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('lifecycle_control_pkg', 'cmake_prefix_path')
+[8.185s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/hook/cmake_prefix_path.ps1'
+[8.188s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/hook/cmake_prefix_path.dsv'
+[8.192s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/hook/cmake_prefix_path.sh'
+[8.197s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/lib'
+[8.198s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/bin'
+[8.199s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/lib/pkgconfig/lifecycle_control_pkg.pc'
+[8.201s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/lib/python3.10/site-packages'
+[8.203s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/bin'
+[8.205s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/package.ps1'
+[8.209s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/package.dsv'
+[8.213s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/package.sh'
+[8.216s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/package.bash'
+[8.220s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/lifecycle_control_pkg/package.zsh'
+[8.223s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/lifecycle_control_pkg/share/colcon-core/packages/lifecycle_control_pkg)
+[8.225s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(camera_pkg)
+[8.227s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/camera_pkg' for CMake module files
+[8.233s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/camera_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/camera_pkg[0m
+[8.235s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/camera_pkg' for CMake config files
+[8.237s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('camera_pkg', 'cmake_prefix_path')
+[8.239s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/hook/cmake_prefix_path.ps1'
+[8.243s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/hook/cmake_prefix_path.dsv'
+[8.246s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/hook/cmake_prefix_path.sh'
+[8.250s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/camera_pkg/lib'
+[8.251s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/camera_pkg/bin'
+[8.252s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/camera_pkg/lib/pkgconfig/camera_pkg.pc'
+[8.254s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/camera_pkg/lib/python3.10/site-packages'
+[8.256s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/camera_pkg/bin'
+[8.258s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/package.ps1'
+[8.262s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/package.dsv'
+[8.265s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/package.sh'
+[8.268s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/package.bash'
+[8.272s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/package.zsh'
+[8.275s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/camera_pkg/share/colcon-core/packages/camera_pkg)
+[8.279s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(camera_pkg)
+[8.282s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/camera_pkg' for CMake module files
+[8.285s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/camera_pkg' for CMake config files
+[8.287s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('camera_pkg', 'cmake_prefix_path')
+[8.289s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/hook/cmake_prefix_path.ps1'
+[8.292s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/hook/cmake_prefix_path.dsv'
+[8.295s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/hook/cmake_prefix_path.sh'
+[8.300s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/camera_pkg/lib'
+[8.301s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/camera_pkg/bin'
+[8.301s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/camera_pkg/lib/pkgconfig/camera_pkg.pc'
+[8.303s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/camera_pkg/lib/python3.10/site-packages'
+[8.305s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/camera_pkg/bin'
+[8.307s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/package.ps1'
+[8.311s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/package.dsv'
+[8.315s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/package.sh'
+[8.320s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/package.bash'
+[8.323s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/camera_pkg/share/camera_pkg/package.zsh'
+[8.327s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/camera_pkg/share/colcon-core/packages/camera_pkg)
+[8.336s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(com_pkg)
+[8.339s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/com_pkg' for CMake module files
+[8.346s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/com_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/com_pkg[0m
+[8.347s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/com_pkg' for CMake config files
+[8.349s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('com_pkg', 'cmake_prefix_path')
+[8.351s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/hook/cmake_prefix_path.ps1'
+[8.355s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/hook/cmake_prefix_path.dsv'
+[8.358s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/hook/cmake_prefix_path.sh'
+[8.362s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/com_pkg/lib'
+[8.363s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/com_pkg/bin'
+[8.364s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/com_pkg/lib/pkgconfig/com_pkg.pc'
+[8.366s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/com_pkg/lib/python3.10/site-packages'
+[8.368s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/com_pkg/bin'
+[8.370s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.ps1'
+[8.374s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.dsv'
+[8.377s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.sh'
+[8.380s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.bash'
+[8.383s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.zsh'
+[8.387s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/com_pkg/share/colcon-core/packages/com_pkg)
+[8.391s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(com_pkg)
+[8.393s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/com_pkg' for CMake module files
+[8.397s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/com_pkg' for CMake config files
+[8.398s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('com_pkg', 'cmake_prefix_path')
+[8.400s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/hook/cmake_prefix_path.ps1'
+[8.404s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/hook/cmake_prefix_path.dsv'
+[8.407s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/hook/cmake_prefix_path.sh'
+[8.412s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/com_pkg/lib'
+[8.413s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/com_pkg/bin'
+[8.413s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/com_pkg/lib/pkgconfig/com_pkg.pc'
+[8.415s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/com_pkg/lib/python3.10/site-packages'
+[8.417s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/com_pkg/bin'
+[8.419s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.ps1'
+[8.423s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.dsv'
+[8.428s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.sh'
+[8.432s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.bash'
+[8.436s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/com_pkg/share/com_pkg/package.zsh'
+[8.440s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/com_pkg/share/colcon-core/packages/com_pkg)
+[8.447s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/base_lidar' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/base_lidar -- -j8 -l8[0m
+[8.460s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/base_lidar': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/base_lidar[0m
+[8.463s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(i2c_pkg)
+[8.466s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/i2c_pkg' for CMake module files
+[8.468s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/i2c_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/i2c_pkg[0m
+[8.473s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/i2c_pkg' for CMake config files
+[8.476s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('i2c_pkg', 'cmake_prefix_path')
+[8.478s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/hook/cmake_prefix_path.ps1'
+[8.481s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/hook/cmake_prefix_path.dsv'
+[8.485s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/hook/cmake_prefix_path.sh'
+[8.491s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/i2c_pkg/lib'
+[8.492s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/i2c_pkg/bin'
+[8.493s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/i2c_pkg/lib/pkgconfig/i2c_pkg.pc'
+[8.495s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/i2c_pkg/lib/python3.10/site-packages'
+[8.498s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/i2c_pkg/bin'
+[8.501s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.ps1'
+[8.505s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.dsv'
+[8.508s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.sh'
+[8.512s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.bash'
+[8.515s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.zsh'
+[8.518s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/i2c_pkg/share/colcon-core/packages/i2c_pkg)
+[8.523s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(i2c_pkg)
+[8.525s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/i2c_pkg' for CMake module files
+[8.529s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/i2c_pkg' for CMake config files
+[8.531s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('i2c_pkg', 'cmake_prefix_path')
+[8.533s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/hook/cmake_prefix_path.ps1'
+[8.536s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/hook/cmake_prefix_path.dsv'
+[8.539s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/hook/cmake_prefix_path.sh'
+[8.543s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/i2c_pkg/lib'
+[8.544s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/i2c_pkg/bin'
+[8.545s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/i2c_pkg/lib/pkgconfig/i2c_pkg.pc'
+[8.547s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/i2c_pkg/lib/python3.10/site-packages'
+[8.549s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/i2c_pkg/bin'
+[8.553s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.ps1'
+[8.561s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.dsv'
+[8.568s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.sh'
+[8.571s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.bash'
+[8.575s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/i2c_pkg/share/i2c_pkg/package.zsh'
+[8.578s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/i2c_pkg/share/colcon-core/packages/i2c_pkg)
+[8.981s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(base_lidar)
+[8.983s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/base_lidar' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/base_lidar[0m
+[8.986s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/base_lidar' for CMake module files
+[8.992s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/base_lidar' for CMake config files
+[8.995s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('base_lidar', 'cmake_prefix_path')
+[8.997s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/hook/cmake_prefix_path.ps1'
+[9.001s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/hook/cmake_prefix_path.dsv'
+[9.004s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/hook/cmake_prefix_path.sh'
+[9.010s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/base_lidar/lib'
+[9.010s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('base_lidar', 'ld_library_path_lib')
+[9.012s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/hook/ld_library_path_lib.ps1'
+[9.016s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/hook/ld_library_path_lib.dsv'
+[9.019s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/hook/ld_library_path_lib.sh'
+[9.023s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/base_lidar/bin'
+[9.023s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/base_lidar/lib/pkgconfig/base_lidar.pc'
+[9.025s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/base_lidar/lib/python3.10/site-packages'
+[9.027s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/base_lidar/bin'
+[9.029s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/package.ps1'
+[9.033s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/package.dsv'
+[9.037s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/package.sh'
+[9.041s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/package.bash'
+[9.044s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/package.zsh'
+[9.047s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/base_lidar/share/colcon-core/packages/base_lidar)
+[9.052s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(base_lidar)
+[9.055s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/base_lidar' for CMake module files
+[9.060s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/base_lidar' for CMake config files
+[9.063s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('base_lidar', 'cmake_prefix_path')
+[9.065s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/hook/cmake_prefix_path.ps1'
+[9.069s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/hook/cmake_prefix_path.dsv'
+[9.071s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/hook/cmake_prefix_path.sh'
+[9.076s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/base_lidar/lib'
+[9.077s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('base_lidar', 'ld_library_path_lib')
+[9.079s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/hook/ld_library_path_lib.ps1'
+[9.085s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/hook/ld_library_path_lib.dsv'
+[9.088s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/hook/ld_library_path_lib.sh'
+[9.092s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/base_lidar/bin'
+[9.093s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/base_lidar/lib/pkgconfig/base_lidar.pc'
+[9.095s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/base_lidar/lib/python3.10/site-packages'
+[9.096s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/base_lidar/bin'
+[9.099s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/package.ps1'
+[9.104s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/package.dsv'
+[9.108s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/package.sh'
+[9.115s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/package.bash'
+[9.119s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/base_lidar/share/base_lidar/package.zsh'
+[9.122s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/base_lidar/share/colcon-core/packages/base_lidar)
+[9.127s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/sunrise/amphibious_ws/src/bluesea2/src/bluesea-ros2' with build type 'ament_cmake'
+[9.129s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/sunrise/amphibious_ws/src/bluesea2/src/bluesea-ros2'
+[9.131s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[9.131s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[9.213s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/bluesea2': CMAKE_PREFIX_PATH=/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/lifecycle_control_pkg:/home/sunrise/amphibious_ws/install/item_locate_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble LD_LIBRARY_PATH=/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/bluesea2 -- -j8 -l8[0m
+[9.653s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/bluesea2' returned '0': CMAKE_PREFIX_PATH=/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/lifecycle_control_pkg:/home/sunrise/amphibious_ws/install/item_locate_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble LD_LIBRARY_PATH=/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib /usr/bin/cmake --build /home/sunrise/amphibious_ws/build/bluesea2 -- -j8 -l8[0m
+[9.672s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/build/bluesea2': CMAKE_PREFIX_PATH=/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/lifecycle_control_pkg:/home/sunrise/amphibious_ws/install/item_locate_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble LD_LIBRARY_PATH=/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/bluesea2[0m
+[9.732s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(bluesea2)
+[9.734s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/bluesea2' for CMake module files
+[9.738s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/bluesea2' for CMake config files
+[9.739s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('bluesea2', 'cmake_prefix_path')
+[9.741s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/hook/cmake_prefix_path.ps1'
+[9.751s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/hook/cmake_prefix_path.dsv'
+[9.756s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/hook/cmake_prefix_path.sh'
+[9.769s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/bluesea2/lib'
+[9.770s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/bluesea2/bin'
+[9.771s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/bluesea2/lib/pkgconfig/bluesea2.pc'
+[9.773s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/bluesea2/lib/python3.10/site-packages'
+[9.774s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/bluesea2/bin'
+[9.777s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.ps1'
+[9.780s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.dsv'
+[9.785s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.sh'
+[9.786s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/build/bluesea2' returned '0': CMAKE_PREFIX_PATH=/home/sunrise/amphibious_ws/install/base_lidar:/home/sunrise/amphibious_ws/install/my_carto_pkg:/home/sunrise/amphibious_ws/install/lifecycle_control_pkg:/home/sunrise/amphibious_ws/install/item_locate_pkg:/home/sunrise/amphibious_ws/install/i2c_pkg:/home/sunrise/amphibious_ws/install/com_pkg:/home/sunrise/amphibious_ws/install/camera_pkg:/home/sunrise/amphibious_ws/install/bluesea2:/home/sunrise/amphibious_ws/install/base:/home/sunrise/cartographer_ws/install/cartographer_rviz:/home/sunrise/cartographer_ws/install/cartographer_ros:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs:/home/sunrise/cartographer_ws/install/cartographer:/home/sunrise/fly_ws/install/my_carto_pkg:/home/sunrise/fly_ws/install/com_pkg:/home/sunrise/fly_ws/install/bluesea2:/home/sunrise/fly_ws/install/base:/home/sunrise/amphibious_ws/install/yolo_detect_pkg:/opt/tros/humble:/opt/ros/humble LD_LIBRARY_PATH=/home/sunrise/amphibious_ws/install/base_lidar/lib:/home/sunrise/amphibious_ws/install/base/lib:/home/sunrise/cartographer_ws/install/cartographer_rviz/lib:/home/sunrise/cartographer_ws/install/cartographer_ros/lib:/home/sunrise/cartographer_ws/install/cartographer_ros_msgs/lib:/home/sunrise/fly_ws/install/base/lib:/opt/tros/humble/lib/aarch64-linux-gnu:/opt/tros/humble/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/hobot/lib:/app/lib:/app/pub/lib:/middleware/lib:/middleware/pub/lib:/usr/hobot/lib/sensor:/system/lib:/system/usr/lib:/lib /usr/bin/cmake --install /home/sunrise/amphibious_ws/build/bluesea2[0m
+[9.790s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.bash'
+[9.793s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.zsh'
+[9.796s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/bluesea2/share/colcon-core/packages/bluesea2)
+[9.801s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(bluesea2)
+[9.803s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/bluesea2' for CMake module files
+[9.807s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/bluesea2' for CMake config files
+[9.808s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('bluesea2', 'cmake_prefix_path')
+[9.811s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/hook/cmake_prefix_path.ps1'
+[9.814s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/hook/cmake_prefix_path.dsv'
+[9.819s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/hook/cmake_prefix_path.sh'
+[9.824s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/bluesea2/lib'
+[9.824s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/bluesea2/bin'
+[9.825s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/bluesea2/lib/pkgconfig/bluesea2.pc'
+[9.827s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/bluesea2/lib/python3.10/site-packages'
+[9.829s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/bluesea2/bin'
+[9.832s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.ps1'
+[9.835s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.dsv'
+[9.840s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.sh'
+[9.844s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.bash'
+[9.848s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/bluesea2/share/bluesea2/package.zsh'
+[9.851s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/bluesea2/share/colcon-core/packages/bluesea2)
+[11.998s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sunrise/amphibious_ws/src/yolo_detect_pkg': PYTHONPATH=/home/sunrise/amphibious_ws/build/yolo_detect_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/yolo_detect_pkg build --build-base /home/sunrise/amphibious_ws/build/yolo_detect_pkg/build install --record /home/sunrise/amphibious_ws/build/yolo_detect_pkg/install.log --single-version-externally-managed install_data[0m
+[14.739s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/yolo_detect_pkg' for CMake module files
+[14.742s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/yolo_detect_pkg' for CMake config files
+[14.746s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib'
+[14.747s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/bin'
+[14.748s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/pkgconfig/yolo_detect_pkg.pc'
+[14.750s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages'
+[14.751s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('yolo_detect_pkg', 'pythonpath')
+[14.753s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/share/yolo_detect_pkg/hook/pythonpath.ps1'
+[14.758s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sunrise/amphibious_ws/src/yolo_detect_pkg' returned '0': PYTHONPATH=/home/sunrise/amphibious_ws/build/yolo_detect_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sunrise/amphibious_ws/install/yolo_detect_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/yolo_detect_pkg build --build-base /home/sunrise/amphibious_ws/build/yolo_detect_pkg/build install --record /home/sunrise/amphibious_ws/build/yolo_detect_pkg/install.log --single-version-externally-managed install_data[0m
+[14.759s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/share/yolo_detect_pkg/hook/pythonpath.dsv'
+[14.762s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/share/yolo_detect_pkg/hook/pythonpath.sh'
+[14.768s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/bin'
+[14.769s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(yolo_detect_pkg)
+[14.772s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/share/yolo_detect_pkg/package.ps1'
+[14.776s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/share/yolo_detect_pkg/package.dsv'
+[14.781s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/share/yolo_detect_pkg/package.sh'
+[14.785s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/share/yolo_detect_pkg/package.bash'
+[14.789s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sunrise/amphibious_ws/install/yolo_detect_pkg/share/yolo_detect_pkg/package.zsh'
+[14.792s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sunrise/amphibious_ws/install/yolo_detect_pkg/share/colcon-core/packages/yolo_detect_pkg)
+[14.794s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mclosing loop[0m
+[14.796s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mloop closed[0m
+[14.799s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete finished with '0'[0m
+[14.800s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoining thread[0m
+[14.859s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[14.860s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[14.860s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[14.861s] [34mcolcon.colcon_notification.desktop_notification[0m [1;30mINFO[0m Sending desktop notification using 'notify2'
+[15.288s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoined thread[0m
+[15.291s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/sunrise/amphibious_ws/install/local_setup.ps1'
+[15.297s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/sunrise/amphibious_ws/install/_local_setup_util_ps1.py'
+[15.309s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/sunrise/amphibious_ws/install/setup.ps1'
+[15.322s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/sunrise/amphibious_ws/install/local_setup.sh'
+[15.326s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/sunrise/amphibious_ws/install/_local_setup_util_sh.py'
+[15.330s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/sunrise/amphibious_ws/install/setup.sh'
+[15.343s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/sunrise/amphibious_ws/install/local_setup.bash'
+[15.347s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/sunrise/amphibious_ws/install/setup.bash'
+[15.359s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/sunrise/amphibious_ws/install/local_setup.zsh'
+[15.364s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/sunrise/amphibious_ws/install/setup.zsh'

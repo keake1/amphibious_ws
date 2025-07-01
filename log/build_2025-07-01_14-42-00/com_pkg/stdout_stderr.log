@@ -1,0 +1,23 @@
+[ 33%] Built target com_node
+[ 50%] [32mBuilding CXX object CMakeFiles/com_amp.dir/src/com_amp.cpp.o[0m
+[ 83%] Built target com_node_without_imu
+[01m[K/home/sunrise/amphibious_ws/src/com_pkg/src/com_amp.cpp:[m[K In member function ‘[01m[Kvoid SerialComNode::process_mode_command(uint8_t)[m[K’:
+[01m[K/home/sunrise/amphibious_ws/src/com_pkg/src/com_amp.cpp:228:39:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kint[m[K’ to ‘[01m[Kconst std::vector<unsigned char, std::allocator<unsigned char> >&[m[K’
+  228 |                 send_serial_data(0x00,[01;31m[K0x01[m[K);
+      |                                       [01;31m[K^~~~[m[K
+      |                                       [01;31m[K|[m[K
+      |                                       [01;31m[Kint[m[K
+[01m[K/home/sunrise/amphibious_ws/src/com_pkg/src/com_amp.cpp:296:69:[m[K [01;36m[Knote: [m[K  initializing argument 2 of ‘[01m[Kvoid SerialComNode::send_serial_data(uint8_t, const std::vector<unsigned char, std::allocator<unsigned char> >&)[m[K’
+  296 |     void send_serial_data(uint8_t type, [01;36m[Kconst std::vector<uint8_t>& payload[m[K)
+      |                                         [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~[m[K
+[01m[K/home/sunrise/amphibious_ws/src/com_pkg/src/com_amp.cpp:234:39:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kint[m[K’ to ‘[01m[Kconst std::vector<unsigned char, std::allocator<unsigned char> >&[m[K’
+  234 |                 send_serial_data(0x00,[01;31m[K0x02[m[K);
+      |                                       [01;31m[K^~~~[m[K
+      |                                       [01;31m[K|[m[K
+      |                                       [01;31m[Kint[m[K
+[01m[K/home/sunrise/amphibious_ws/src/com_pkg/src/com_amp.cpp:296:69:[m[K [01;36m[Knote: [m[K  initializing argument 2 of ‘[01m[Kvoid SerialComNode::send_serial_data(uint8_t, const std::vector<unsigned char, std::allocator<unsigned char> >&)[m[K’
+  296 |     void send_serial_data(uint8_t type, [01;36m[Kconst std::vector<uint8_t>& payload[m[K)
+      |                                         [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/com_amp.dir/build.make:76：CMakeFiles/com_amp.dir/src/com_amp.cpp.o] 错误 1
+gmake[1]: *** [CMakeFiles/Makefile2:193：CMakeFiles/com_amp.dir/all] 错误 2
+gmake: *** [Makefile:146：all] 错误 2

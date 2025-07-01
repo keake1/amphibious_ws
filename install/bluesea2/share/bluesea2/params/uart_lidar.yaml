@@ -1,0 +1,38 @@
+bluesea_node:
+  ros__parameters:
+  #ROS2#
+    frame_id: "laser_link"
+    scan_topic: "scan"
+    cloud_topic: "cloud"
+  #DATA#
+    dev_id: 0
+    raw_bytes: 3
+    output_360: true
+    output_scan: true
+    output_cloud2: false
+    with_angle_filter: false
+    min_angle: -3.1415926
+    max_angle: 3.1415926
+    # mask1: "0,3.14"
+    # mask2: "-3,-2"
+    hard_resample: false
+    soft_resample: false
+    with_checksum: true
+    reversed: false
+    min_dist: 0.1
+    max_dist: 40.0
+    error_circle: 2
+    error_scale: 0.8
+#CONNECT#
+    type: "uart"
+    port: "/dev/ttyS3"
+    baud_rate: 921600
+  #GET#
+    uuid:  -1
+  #SET#
+    resample_res: 0.3
+    with_confidence: 1
+    with_smooth: 1
+    with_deshadow: 1
+    alarm_msg: 1
+    rpm: 900
