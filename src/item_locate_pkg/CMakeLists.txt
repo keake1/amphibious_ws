@@ -15,11 +15,27 @@ find_package(tf2_ros REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
+find_package(OpenCV REQUIRED)
+find_package(cv_bridge REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(ZBAR REQUIRED zbar)
 
 add_executable(item_locate_node src/item_locate_node.cpp)
 ament_target_dependencies(item_locate_node rclcpp tf2_ros tf2 geometry_msgs vision_msgs)
+add_executable(fov_measure src/fov_measure.cpp)
+ament_target_dependencies(fov_measure rclcpp cv_bridge sensor_msgs std_msgs)
+target_include_directories(fov_measure PRIVATE
+  ${OpenCV_INCLUDE_DIRS}
+  ${ZBAR_INCLUDE_DIRS}
+)
+target_link_libraries(fov_measure
+  ${OpenCV_LIBS}
+  ${ZBAR_LIBRARIES}
+)
 
-install(TARGETS item_locate_node
+install(TARGETS item_locate_node fov_measure
   DESTINATION lib/${PROJECT_NAME}) 
 
 if(BUILD_TESTING)

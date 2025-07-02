@@ -236,16 +236,16 @@ private:
         auto message = std::make_unique<std_msgs::msg::String>();
         
         switch (mode_command) {
-            case 0x01:  // 小车模式
+            case 0x02:  // 小车模式
                 message->data = "car_mode_on";
                 RCLCPP_INFO(this->get_logger(), "收到切换指令: 小车模式"); 
-                send_serial_data(0x00, std::vector<uint8_t>{0x01});
+                send_serial_data(0x00, std::vector<uint8_t>{0x02});
                 break;
                 
-            case 0x02:  // 飞行模式
+            case 0x01:  // 飞行模式
                 message->data = "fly_mode_on";
                 RCLCPP_INFO(this->get_logger(), "收到切换指令: 飞行模式");
-                send_serial_data(0x00, std::vector<uint8_t>{0x02});
+                send_serial_data(0x00, std::vector<uint8_t>{0x01});
                 break;
                 
             default:

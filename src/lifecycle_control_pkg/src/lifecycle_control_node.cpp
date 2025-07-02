@@ -237,48 +237,82 @@ private:
         
         get_and_handle_state(node_name, [this, node_name](uint8_t state) {
             if (state == lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE) {
-                // 活动状态：停用
+                // 活动状态：停用，但不清理
                 RCLCPP_INFO(this->get_logger(), "节点 %s 处于活动状态，开始停用", node_name.c_str());
                 change_state(node_name, lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE,
                     [this, node_name](bool success) {
                         if (success) {
                             RCLCPP_INFO(this->get_logger(), "节点 %s 成功停用", node_name.c_str());
-                            // 延迟200ms后执行清理
+                        } else {
+                            RCLCPP_ERROR(this->get_logger(), "节点 %s 停用失败", node_name.c_str());
+                        }
+                    });
+            } 
+            else if (state == lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE) {
+                // 非活动状态：已经是停用状态，无需操作
+                RCLCPP_INFO(this->get_logger(), "节点 %s 已处于非活动状态", node_name.c_str());
+            } 
+            else if (state == lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED) {
+                // 未配置状态：需要先配置再停用
+                RCLCPP_INFO(this->get_logger(), "节点 %s 处于未配置状态，先配置再停用", node_name.c_str());
+                change_state(node_name, lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE,
+                    [this, node_name](bool success) {
+                        if (success) {
+                            // 配置成功后停用
                             auto timer = this->create_wall_timer(200ms, 
                                 [this, node_name]() {
-                                    change_state(node_name, lifecycle_msgs::msg::Transition::TRANSITION_CLEANUP,
-                                        [this, node_name](bool cleanup_success) {
-                                            if (cleanup_success) {
-                                                RCLCPP_INFO(this->get_logger(), "节点 %s 成功清理", node_name.c_str());
+                                    change_state(node_name, lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE,
+                                        [this, node_name](bool deactivate_success) {
+                                            if (deactivate_success) {
+                                                RCLCPP_INFO(this->get_logger(), "节点 %s 成功停用", node_name.c_str());
                                             } else {
-                                                RCLCPP_ERROR(this->get_logger(), "节点 %s 清理失败", node_name.c_str());
+                                                RCLCPP_ERROR(this->get_logger(), "节点 %s 停用失败", node_name.c_str());
                                             }
                                         });
                                     return true;  // 一次性定时器
                                 });
                         } else {
-                            RCLCPP_ERROR(this->get_logger(), "节点 %s 停用失败", node_name.c_str());
+                            RCLCPP_ERROR(this->get_logger(), "节点 %s 配置失败，无法停用", node_name.c_str());
                         }
                     });
-            } else if (state == lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE) {
-                // 非活动状态：执行清理
-                RCLCPP_INFO(this->get_logger(), "节点 %s 处于非活动状态，开始清理", node_name.c_str());
+            } 
+            else if (state == lifecycle_msgs::msg::State::PRIMARY_STATE_FINALIZED) {
+                // 已终结状态：无法操作
+                RCLCPP_ERROR(this->get_logger(), "节点 %s 已终结，无法操作", node_name.c_str());
+            } 
+            else {
+                // 其他状态：先清理，再配置，然后停用
+                RCLCPP_INFO(this->get_logger(), "节点 %s 处于其他状态(%d)，尝试清理后配置并停用", node_name.c_str(), state);
                 change_state(node_name, lifecycle_msgs::msg::Transition::TRANSITION_CLEANUP,
                     [this, node_name](bool success) {
                         if (success) {
-                            RCLCPP_INFO(this->get_logger(), "节点 %s 成功清理", node_name.c_str());
+                            auto timer = this->create_wall_timer(200ms, 
+                                [this, node_name]() {
+                                    change_state(node_name, lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE,
+                                        [this, node_name](bool configure_success) {
+                                            if (configure_success) {
+                                                auto timer = this->create_wall_timer(200ms, 
+                                                    [this, node_name]() {
+                                                        change_state(node_name, lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE,
+                                                            [this, node_name](bool deactivate_success) {
+                                                                if (deactivate_success) {
+                                                                    RCLCPP_INFO(this->get_logger(), "节点 %s 成功停用", node_name.c_str());
+                                                                } else {
+                                                                    RCLCPP_ERROR(this->get_logger(), "节点 %s 停用失败", node_name.c_str());
+                                                                }
+                                                            });
+                                                        return true;  // 一次性定时器
+                                                    });
+                                            } else {
+                                                RCLCPP_ERROR(this->get_logger(), "节点 %s 配置失败", node_name.c_str());
+                                            }
+                                        });
+                                    return true;  // 一次性定时器
+                                });
                         } else {
                             RCLCPP_ERROR(this->get_logger(), "节点 %s 清理失败", node_name.c_str());
                         }
                     });
-            } else if (state == lifecycle_msgs::msg::State::PRIMARY_STATE_UNCONFIGURED) {
-                // 未配置状态：无需操作
-                RCLCPP_INFO(this->get_logger(), "节点 %s 已处于未配置状态", node_name.c_str());
-            } else if (state == lifecycle_msgs::msg::State::PRIMARY_STATE_FINALIZED) {
-                // 已终结状态：无法操作
-                RCLCPP_ERROR(this->get_logger(), "节点 %s 已终结，无法操作", node_name.c_str());
-            } else {
-                RCLCPP_INFO(this->get_logger(), "节点 %s 处于其他状态(%d)，无需停用", node_name.c_str(), state);
             }
         });
     }

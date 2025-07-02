@@ -6,6 +6,7 @@
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <vision_msgs/msg/detection2_d_array.hpp>
 #include <geometry_msgs/msg/pose2_d.hpp>
+#include <std_msgs/msg/int32.hpp>  // 添加高度消息头文件
 #include <memory>
 #include <cmath>
 #include <string>
@@ -21,17 +22,25 @@ public:
         tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
         
         // 参数配置
-        this->declare_parameter("camera_fov_degrees", 62.2);  // 摄像头水平视场角（度）
-        this->declare_parameter("camera_width", 640);         // 摄像头宽度（像素）
-        this->declare_parameter("camera_height", 640);        // 摄像头高度（像素）
-        this->declare_parameter("camera_offset_x", 0.0);      // 摄像头相对于base_link的X偏移（前方）
-        this->declare_parameter("camera_offset_y", 0.0);      // 摄像头相对于base_link的Y偏移（右侧）
+        this->declare_parameter("camera_fov_degrees", 59.5);   // 摄像头水平视场角（度）
+        this->declare_parameter("camera_width", 640);          // 摄像头宽度（像素）
+        this->declare_parameter("camera_height", 640);         // 摄像头高度（像素）
+        this->declare_parameter("camera_offset_x", 0.0);       // 摄像头相对于base_link的X偏移（前方）
+        this->declare_parameter("camera_offset_y", 0.0);       // 摄像头相对于base_link的Y偏移（右侧）
+        this->declare_parameter("default_height", 100.0);      // 默认高度（厘米）
+        this->declare_parameter("min_valid_height", 10.0);     // 最小有效高度（厘米）
         
         camera_fov_degrees_ = this->get_parameter("camera_fov_degrees").as_double();
         camera_width_ = this->get_parameter("camera_width").as_int();
         camera_height_ = this->get_parameter("camera_height").as_int();
         camera_offset_x_ = this->get_parameter("camera_offset_x").as_double();
         camera_offset_y_ = this->get_parameter("camera_offset_y").as_double();
+        default_height_ = this->get_parameter("default_height").as_double();
+        min_valid_height_ = this->get_parameter("min_valid_height").as_double();
+        
+        // 初始化高度数据
+        current_height_ = default_height_;
+        height_valid_ = false;
         
         // 计算像素到世界单位的比例（近似）
         double camera_fov_radians = camera_fov_degrees_ * M_PI / 180.0;
@@ -46,14 +55,35 @@ public:
             "/camera/detections", 10, 
             std::bind(&ItemLocateNode::detection_callback, this, std::placeholders::_1));
         
+        // 创建高度数据订阅者
+        height_sub_ = this->create_subscription<std_msgs::msg::Int32>(
+            "/vehicle_height", 10, 
+            std::bind(&ItemLocateNode::height_callback, this, std::placeholders::_1));
+        
         // 创建物体位置发布者
         item_pub_ = this->create_publisher<geometry_msgs::msg::PoseStamped>(
             "/detected_item", 10);
         
         RCLCPP_INFO(this->get_logger(), "物体定位节点已初始化");
+        RCLCPP_INFO(this->get_logger(), "订阅高度话题: /vehicle_height (单位: cm)");
     }
 
 private:
+    // 高度数据回调函数
+    void height_callback(const std_msgs::msg::Int32::SharedPtr msg)
+    {
+        int height = msg->data;
+        
+        if (height >= min_valid_height_) {
+            current_height_ = static_cast<double>(height);
+            height_valid_ = true;
+            RCLCPP_DEBUG(this->get_logger(), "接收到高度数据: %.1f cm", current_height_);
+        } else {
+            RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 2000, 
+                "接收到无效高度数据: %d cm，使用默认高度: %.1f cm", height, default_height_);
+        }
+    }
+
     void detection_callback(const vision_msgs::msg::Detection2DArray::SharedPtr msg)
     {
         try {
@@ -75,6 +105,11 @@ private:
             double roll, pitch, yaw;
             m.getRPY(roll, pitch, yaw);
             
+            // 使用当前高度计算距离比例因子
+            // 比例 = 高度 * tan(视场角/2) / (像素宽度/2)
+            double height_meters = current_height_ / 100.0; // 厘米转米
+            double scale_factor = camera_scale_ * height_meters;
+            
             // 处理每个检测结果
             for (const auto& detection : msg->detections) {
                 // 获取检测框中心点
@@ -94,8 +129,8 @@ private:
                 // 注意坐标系转换：
                 // 摄像头x正方向 → 世界坐标系y负方向
                 // 摄像头y正方向 → 世界坐标系x负方向
-                double world_dx = -pixel_dy * camera_scale_;
-                double world_dy = -pixel_dx * camera_scale_;
+                double world_dx = -pixel_dy * scale_factor;
+                double world_dy = -pixel_dx * scale_factor;
 
                 // 考虑机器人的朝向，计算物体在世界坐标系中的位置
                 double item_dx_rotated = world_dx * std::cos(yaw) - world_dy * std::sin(yaw);
@@ -111,8 +146,8 @@ private:
 
                 // 日志输出
                 RCLCPP_INFO(this->get_logger(), 
-                            "检测到物体: 类别=%d, 置信度=%.2f, 位置=(%.2f, %.2f)", 
-                            class_id, score, item_x, item_y);
+                            "检测到物体: 类别=%d, 置信度=%.2f, 位置=(%.2f, %.2f), 当前高度=%.1f cm", 
+                            class_id, score, item_x, item_y, current_height_);
 
                 // 创建并发布物体位置
                 geometry_msgs::msg::PoseStamped item_pose;
@@ -139,6 +174,7 @@ private:
     
     // 订阅和发布
     rclcpp::Subscription<vision_msgs::msg::Detection2DArray>::SharedPtr detection_sub_;
+    rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr height_sub_;
     rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr item_pub_;
     
     // 摄像头参数
@@ -148,6 +184,12 @@ private:
     double camera_scale_;
     double camera_offset_x_;
     double camera_offset_y_;
+    
+    // 高度参数
+    double current_height_;
+    double default_height_;
+    double min_valid_height_;
+    bool height_valid_;
 };
 
 int main(int argc, char** argv)

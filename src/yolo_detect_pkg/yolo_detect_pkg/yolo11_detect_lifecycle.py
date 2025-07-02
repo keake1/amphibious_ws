@@ -543,10 +543,10 @@ def main(args=None):
     except KeyboardInterrupt:
         pass
     finally:
-        # 清理资源
-        executor.shutdown()
+        # 清理资源 - 只需要调用一次关闭操作
         lifecycle_node.destroy_node()
         rclpy.shutdown()
+        # 移除 executor.shutdown() 调用，避免重复关闭
 
 if __name__ == "__main__":
     main()
