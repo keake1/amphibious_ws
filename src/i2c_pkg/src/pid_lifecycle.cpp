@@ -429,7 +429,7 @@ private:
     void calculate_wheel_velocities(double vx, double vy, double omega) {
         // 车体尺寸参数（单位：米）
         double wheel_base = 0.20;  // 轮距（左右轮之间的距离）
-        double wheel_track = 0.20; // 轴距（前后轮之间的距离）
+        double wheel_track = 0.21; // 轴距（前后轮之间的距离）
         
         // 计算轮中心到车体中心的距离
         double L = wheel_track / 2.0;  // 前后距离的一半
