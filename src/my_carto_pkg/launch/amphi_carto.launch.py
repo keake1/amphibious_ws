@@ -98,17 +98,19 @@ def generate_launch_description():
         executable='pid',
         output='screen',
         parameters=[{
-                'position_kp': 0.33,
-                'position_ki': 0.033,
+                'position_kp': 0.42,
+                'position_ki': 0.04,
                 'position_kd': 0.0,
-                'angle_kp': 1.5,
+                'angle_kp': 1.0,
                 'angle_ki': 0.01,
                 'angle_kd': 0.2,
                 'max_linear_speed': 2.0,
-                'max_angular_speed': 8.0,
+                'max_angular_speed': 4.0,
                 'integral_limit_factor': 0.2,
                 'position_integral_region': 0.3,
-                'angle_integral_region': 0.5
+                'angle_integral_region': 0.5,
+		'position_deadzone': 0.04,
+		'angle_deadzone': 0.01,
             }]
     )
 
@@ -117,12 +119,12 @@ def generate_launch_description():
         executable='pid_velocity',
         output='screen',
         parameters=[{
-                'kp': 1.2,
-                'ki': 12.0,
+                'kp': 10.0,
+                'ki': 0.5,
                 'kd': 0.0,
-                'pwm_limit': 70.0,
+                'pwm_limit': 80.0,
                 'deadzone': 0.03,
-                'startup_pwm': 34.0,
+                'startup_pwm': 40.0,
 		'wheel_base': 0.21,
 		'track_width': 0.20,
 		'wheel_radius': 0.04
