@@ -73,7 +73,7 @@ public:
                     pwm_copy = last_pwm_;
                 }
                 write_pwm(pwm_copy);
-                usleep(500); // 10ms
+                //usleep(500); // 10ms
             }
         });
 

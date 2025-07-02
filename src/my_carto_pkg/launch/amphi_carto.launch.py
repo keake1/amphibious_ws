@@ -87,7 +87,7 @@ def generate_launch_description():
         output='screen',
         parameters=[{
             'encoder_counts_per_rev': 43000,
-            'wheel_diameter': 0.097,
+            'wheel_diameter': 0.08,
             'i2c_bus': 0,
             'publish_counts': False,
         }]
@@ -98,15 +98,17 @@ def generate_launch_description():
         executable='pid',
         output='screen',
         parameters=[{
-                'position_kp': 0.27,
-                'position_ki': 0.027,
+                'position_kp': 0.30,
+                'position_ki': 0.0,
                 'position_kd': 0.0,
-                'angle_kp': 4.0,
-                'angle_ki': 0.4,
+                'angle_kp': 1.0,
+                'angle_ki': 0.1,
                 'angle_kd': 0.0,
                 'max_linear_speed': 2.0,
-                'max_angular_speed': 20.0,
-                'integral_limit_factor': 0.2
+                'max_angular_speed': 10.0,
+                'integral_limit_factor': 0.2,
+                'position_integral_region': 0.3,
+                'angle_integral_region': 0.5
             }]
     )
 
@@ -115,8 +117,8 @@ def generate_launch_description():
         executable='pid_velocity',
         output='screen',
         parameters=[{
-                'kp': 2.3,
-                'ki': 23.0,
+                'kp': 0.0,
+                'ki': 35.0,
                 'kd': 0.0,
                 'pwm_limit': 70.0,
                 'deadzone': 0.01,
@@ -153,10 +155,10 @@ def generate_launch_description():
             period=5.0,
             actions=[target_pub_node]
         ),
-        TimerAction(
-            period=5.0,
-            actions=[velocity_get_node]
-        ),
+        # TimerAction(
+        #     period=5.0,
+        #     actions=[velocity_get_node]
+        # ),
         TimerAction(
             period=6.0,
             actions=[pid_node]

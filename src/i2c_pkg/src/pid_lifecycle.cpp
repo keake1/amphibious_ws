@@ -21,11 +21,13 @@ using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface
 class PIDController {
 public:
     PIDController(double kp, double ki, double kd, double min_output, double max_output,
-                  double integral_limit = 0.0, double deadzone = 0.0, int derivative_filter_size = 3)
+                  double integral_limit = 0.0, double deadzone = 0.0, int derivative_filter_size = 3,
+                  double integral_region = 0.0)  // 添加积分区域参数
         : kp_(kp), ki_(ki), kd_(kd), 
           min_output_(min_output), max_output_(max_output),
           integral_limit_(integral_limit > 0 ? integral_limit : max_output),
           deadzone_(deadzone), derivative_filter_size_(derivative_filter_size),
+          integral_region_(integral_region),  // 初始化积分区域
           prev_error_(0.0), integral_(0.0), first_run_(true) {}
     
     // 重置PID状态
@@ -43,14 +45,20 @@ public:
             error = 0.0;
         }
         
-        // 积分项累加（带积分饱和）
-        integral_ += error * dt;
-        
-        // 积分饱和限制
-        if (integral_ > integral_limit_) {
-            integral_ = integral_limit_;
-        } else if (integral_ < -integral_limit_) {
-            integral_ = -integral_limit_;
+        // 只有在误差小于积分区域时才累加积分项
+        if (integral_region_ <= 0.0 || std::abs(error) < integral_region_) {
+            // 积分项累加（带积分饱和）
+            integral_ += error * dt;
+            
+            // 积分饱和限制
+            if (integral_ > integral_limit_) {
+                integral_ = integral_limit_;
+            } else if (integral_ < -integral_limit_) {
+                integral_ = -integral_limit_;
+            }
+        } else {
+            // 当误差超出积分区域时，逐渐减小积分项而不是直接清零
+            integral_ *= 0.95;  // 使用衰减因子
         }
         
         // 计算微分项（带滤波）
@@ -127,6 +135,7 @@ private:
     double integral_limit_;     // 积分限制
     double deadzone_;          // 死区
     int derivative_filter_size_; // 微分滤波器大小
+    double integral_region_;    // 积分区域，只有误差小于此值时才累加积分
     
     double prev_error_;
     double integral_;
@@ -152,6 +161,9 @@ public:
         this->declare_parameter("position_deadzone", 0.02);  // 2cm死区
         this->declare_parameter("angle_deadzone", 0.05);     // 约3度死区
         this->declare_parameter("integral_limit_factor", 0.5); // 积分限制因子
+        // 添加积分区域参数
+        this->declare_parameter("position_integral_region", 0.3);  // 默认30cm积分区域
+        this->declare_parameter("angle_integral_region", 0.5);     // 默认约28.6度积分区域
         
         RCLCPP_INFO(this->get_logger(), "小车PID生命周期节点已创建");
     }
@@ -173,6 +185,9 @@ public:
             double position_deadzone = this->get_parameter("position_deadzone").as_double();
             double angle_deadzone = this->get_parameter("angle_deadzone").as_double();
             double integral_limit_factor = this->get_parameter("integral_limit_factor").as_double();
+            // 读取积分区域参数
+            double position_integral_region = this->get_parameter("position_integral_region").as_double();
+            double angle_integral_region = this->get_parameter("angle_integral_region").as_double();
             
             // 初始化目标位置
             target_x_ = 0.0;
@@ -180,21 +195,24 @@ public:
             target_yaw_ = 0.0;
             has_target_ = false;
             
-            // 创建优化的PID控制器
+            // 创建优化的PID控制器，添加积分区域参数
             position_pid_x_ = std::make_unique<PIDController>(
                 position_kp, position_ki, position_kd, 
                 -max_linear_speed_, max_linear_speed_,
-                max_linear_speed_ * integral_limit_factor, position_deadzone, 5);
+                max_linear_speed_ * integral_limit_factor, position_deadzone, 5,
+                position_integral_region);
                 
             position_pid_y_ = std::make_unique<PIDController>(
                 position_kp, position_ki, position_kd, 
                 -max_linear_speed_, max_linear_speed_,
-                max_linear_speed_ * integral_limit_factor, position_deadzone, 5);
+                max_linear_speed_ * integral_limit_factor, position_deadzone, 5,
+                position_integral_region);
                 
             angle_pid_ = std::make_unique<PIDController>(
                 angle_kp, angle_ki, angle_kd, 
                 -max_angular_speed_, max_angular_speed_,
-                max_angular_speed_ * integral_limit_factor, angle_deadzone, 3);
+                max_angular_speed_ * integral_limit_factor, angle_deadzone, 3,
+                angle_integral_region);
             
             // 创建TF监听器
             tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
@@ -205,6 +223,9 @@ public:
                 "wheel_velocities", 10);
             
             RCLCPP_INFO(this->get_logger(), "小车PID生命周期节点配置完成");
+            RCLCPP_INFO(this->get_logger(), "位置积分区域: %.2f m, 角度积分区域: %.2f rad (%.2f°)", 
+                       position_integral_region, angle_integral_region, 
+                       angle_integral_region * 180.0 / M_PI);
             return CallbackReturn::SUCCESS;
         } catch (const std::exception &e) {
             RCLCPP_ERROR(this->get_logger(), "配置失败: %s", e.what());

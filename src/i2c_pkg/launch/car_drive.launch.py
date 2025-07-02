@@ -29,7 +29,9 @@ def generate_launch_description():
                 'angle_kd': 0.0,
                 'max_linear_speed': 2.0,
                 'max_angular_speed': 20.0,
-                'integral_limit_factor': 0.28
+                'integral_limit_factor': 0.28,
+                'position_integral_region': 0.4,  # 移动积分区域
+                'angle_integral_region': 0.5,  # 角度积分区域
         }],
         output='screen',
     )
@@ -142,7 +144,7 @@ def generate_launch_description():
         car_drive_pwm_node,
         car_pid_node,
         velocity_pid_node,
-        velocity_get_node,
+        # velocity_get_node,
         # 节点配置
         # configure_car_drive_pwm,
         # configure_car_pid,

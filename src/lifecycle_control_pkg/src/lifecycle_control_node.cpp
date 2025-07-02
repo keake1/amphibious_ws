@@ -20,8 +20,8 @@ public:
         car_nodes_ = {
             "car_drive_pid_pwm_lifecycle_node", 
             "pid_lifecycle", 
-            "velocity_pid_lifecycle_node", 
-            "encoder_velocity_lifecycle_node"
+            "velocity_pid_lifecycle_node"
+            // "encoder_velocity_lifecycle_node"
         };
         
         fly_nodes_ = {
