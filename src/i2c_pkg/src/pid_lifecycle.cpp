@@ -398,7 +398,7 @@ private:
             // PID计算
             double vx = position_pid_x_->compute(error_x, dt);
             double vy = position_pid_y_->compute(error_y, dt);
-            double omega = angle_pid_->compute(error_yaw, dt);
+            double omega = angle_pid_->compute(-error_yaw, dt);
             
             // 计算并发布轮速
             calculate_wheel_velocities(vx, vy, omega);

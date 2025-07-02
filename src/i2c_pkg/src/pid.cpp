@@ -152,7 +152,7 @@ public:
         this->declare_parameter("max_linear_speed", 50.0);
         this->declare_parameter("max_angular_speed", 2.0);
         this->declare_parameter("position_deadzone", 0.02);  // 2cm死区
-        this->declare_parameter("angle_deadzone", 0.05);     // 约3度死区
+        this->declare_parameter("angle_deadzone", 0.01);     // 约3度死区
         this->declare_parameter("integral_limit_factor", 0.5); // 积分限制因子
         // 添加积分区域参数
         this->declare_parameter("position_integral_region", 0.3);  // 默认30cm积分区域
@@ -263,6 +263,8 @@ private:
     // 主控制循环
     void control_loop() {
         if (!has_target_) {
+	    wheel_velocities_ = {0.0, 0.0, 0.0, 0.0}; // 停止轮速
+            publish_wheel_velocities();
             return;
         }
         
@@ -292,7 +294,7 @@ private:
             // PID计算
             double vx = position_pid_x_->compute(error_x, dt);
             double vy = position_pid_y_->compute(error_y, dt);
-            double omega = angle_pid_->compute(error_yaw, dt);
+            double omega = angle_pid_->compute(-error_yaw, dt);
             
             // 计算并发布轮速
             calculate_wheel_velocities(vx, vy, omega);
