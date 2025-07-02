@@ -439,10 +439,10 @@ private:
         double rotation_factor = (L + W) * omega;
         
         // 根据原代码中轮子的顺序调整（0: 右前, 1: 左前, 2: 左后, 3: 右后）
-        wheel_velocities_[0] = vx + vy + rotation_factor;  // 右前轮
-        wheel_velocities_[1] = vx - vy - rotation_factor;  // 左前轮
-        wheel_velocities_[2] = vx + vy - rotation_factor;  // 左后轮
-        wheel_velocities_[3] = vx - vy + rotation_factor;  // 右后轮
+        wheel_velocities_[0] = vx - vy - rotation_factor;  // 右前轮（0）
+        wheel_velocities_[1] = vx + vy + rotation_factor;  // 左前轮（1）
+        wheel_velocities_[2] = vx + vy - rotation_factor;  // 左后轮（2）
+        wheel_velocities_[3] = vx - vy + rotation_factor;  // 右后轮（3）
         
         // 轮速标准化（确保不超过最大速度限制）
         double max_wheel_speed = 0.0;
