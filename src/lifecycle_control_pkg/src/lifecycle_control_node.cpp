@@ -19,7 +19,7 @@ public:
         // 初始化节点列表
         car_nodes_ = {
             "car_drive_pid_pwm_lifecycle_node", 
-            "pid_lifecycle", 
+            "pid_lifecycle_node", 
             "velocity_pid_lifecycle_node"
             // "encoder_velocity_lifecycle_node"
         };

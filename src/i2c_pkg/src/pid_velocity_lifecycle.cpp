@@ -201,7 +201,7 @@ public:
             
         // 创建定时器（只在激活状态执行控制循环）
         timer_ = this->create_wall_timer(
-            std::chrono::milliseconds(10),
+            std::chrono::milliseconds(5),
             std::bind(&VelocityPIDLifecycleNode::control_loop, this));
         
         // 重置时间戳和PID控制器

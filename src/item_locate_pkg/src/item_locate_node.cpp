@@ -79,8 +79,8 @@ private:
             height_valid_ = true;
             RCLCPP_DEBUG(this->get_logger(), "接收到高度数据: %.1f cm", current_height_);
         } else {
-            RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 2000, 
-                "接收到无效高度数据: %d cm，使用默认高度: %.1f cm", height, default_height_);
+            // RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 2000, 
+            //     "接收到无效高度数据: %d cm，使用默认高度: %.1f cm", height, default_height_);
         }
     }
 

@@ -19,19 +19,21 @@ def generate_launch_description():
     car_pid_node = Node(
         package='i2c_pkg',
         executable='pid_lifecycle',
-        name='car_pid_lifecycle_node',
+        name='pid_lifecycle_node',
         parameters=[{
-            'position_kp': 0.31,
-                'position_ki': 0.031,
+            'position_kp': 0.36,
+                'position_ki': 0.07,
                 'position_kd': 0.0,
-                'angle_kp': 4.0,
-                'angle_ki': 0.4,
-                'angle_kd': 0.0,
+                'angle_kp': 3.6,
+                'angle_ki': 0.7,
+                'angle_kd': 1.0,
                 'max_linear_speed': 2.0,
                 'max_angular_speed': 20.0,
-                'integral_limit_factor': 0.28,
-                'position_integral_region': 0.4,  # 移动积分区域
-                'angle_integral_region': 0.5,  # 角度积分区域
+                'integral_limit_factor': 0.2,
+                'position_integral_region': 0.3,  # 移动积分区域
+                'angle_integral_region': 0.5, 
+                'position_deadzone': 0.04,
+                'angle_deadzone': 0.05
         }],
         output='screen',
     )
@@ -41,12 +43,16 @@ def generate_launch_description():
         executable='pid_velocity_lifecycle',
         name='velocity_pid_lifecycle_node',
         parameters=[{
-            'kp': 0.5,
-            'ki': 5.0,
+            'kp': 1.675,
+            'ki': 20.0,
             'kd': 0.0,
-            'pwm_limit': 70.0,
-            'deadzone': 0.01,
-            'startup_pwm': 20.0
+            'pwm_limit': 80.0,
+            'deadzone': 0.03,
+            'startup_pwm': 42.0,
+            'wheel_base': 0.21,
+            'track_width': 0.20,
+            'wheel_radius': 0.04,
+            'startup_pwm': 42.0
         }],
         output='screen',
     )
@@ -141,9 +147,18 @@ def generate_launch_description():
     # 返回LaunchDescription
     return LaunchDescription([
         # 节点启动
-        car_drive_pwm_node,
-        car_pid_node,
-        velocity_pid_node,
+        TimerAction(
+            period = 2.0,
+            actions = [car_drive_pwm_node]
+        ),
+        TimerAction(
+            period = 0.0,
+            actions = [car_pid_node]
+        ),
+        TimerAction(
+            period = 1.0,
+            actions = [velocity_pid_node]
+        ),
         # velocity_get_node,
         # 节点配置
         # configure_car_drive_pwm,

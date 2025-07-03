@@ -359,8 +359,8 @@ private:
         
         control_loop();  // 立即执行控制循环
 
-        RCLCPP_INFO(this->get_logger(), "新目标: x=%.2f, y=%.2f, yaw=%.2f°", 
-                   target_x_, target_y_, target_yaw_ * 180.0 / M_PI);
+        // RCLCPP_INFO(this->get_logger(), "新目标: x=%.2f, y=%.2f, yaw=%.2f°", 
+        //            target_x_, target_y_, target_yaw_ * 180.0 / M_PI);
     }
     
     // 主控制循环

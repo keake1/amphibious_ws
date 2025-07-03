@@ -43,6 +43,22 @@ def generate_launch_description():
         output='screen'
     )
 
+    target_pub_node = Node(
+    package='i2c_pkg',
+    executable='target_pub',
+    name='target_publisher_node',
+    output='screen',
+    parameters=[{
+            'publish_rate_ms': 5,
+            'waypoints': [
+                '0.0,1.88,0.0',
+                '0.0,0.0,0.0'
+            ],
+            'loop_waypoints': False,
+            'auto_start': True
+        }]
+    )
+
     return LaunchDescription([
         TimerAction(
             period=0.0, 
@@ -57,11 +73,15 @@ def generate_launch_description():
             actions=[lifecycle_control_node]
         ),
         TimerAction(
-            period=8.0,
+            period=4.0,
             actions=[car_drive_launch]
         ),
         TimerAction(
-            period=8.0,
+            period=6.0,
             actions=[item_locate_launch]
+        ),
+        TimerAction(
+            period=8.0,
+            actions=[target_pub_node]
         )
     ])
