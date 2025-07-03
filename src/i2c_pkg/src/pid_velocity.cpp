@@ -156,7 +156,7 @@ public:
         pwm_pub_ = this->create_publisher<std_msgs::msg::Float32MultiArray>("/wheel_pwms", 10);
 
 	timer_ = this->create_wall_timer(
-            std::chrono::milliseconds(10),
+            std::chrono::milliseconds(5),
             std::bind(&VelocityPIDNode::control_loop, this));
 
         last_time_ = this->now();
