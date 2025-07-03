@@ -5,6 +5,7 @@
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <geometry_msgs/msg/transform_stamped.hpp>
 #include <std_msgs/msg/float32_multi_array.hpp>
+#include <std_msgs/msg/bool.hpp>
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <chrono>
 #include <memory>
@@ -210,6 +211,9 @@ public:
             "target_position", 10, 
             std::bind(&CarPIDNode::target_callback, this, std::placeholders::_1));
         
+        // 添加目标到达信号发布者
+        target_reached_pub_ = this->create_publisher<std_msgs::msg::Bool>("target_reached", 10);
+
         RCLCPP_INFO(this->get_logger(), "优化的小车PID控制节点已初始化");
         RCLCPP_INFO(this->get_logger(), "位置积分区域: %.2f m, 角度积分区域: %.2f rad (%.2f°)", 
                     position_integral_region, angle_integral_region, 
@@ -246,11 +250,6 @@ private:
         target_yaw_ = yaw;
         
         has_target_ = true;
-        
-        // 重置PID控制器
-        position_pid_x_->reset();
-        position_pid_y_->reset();
-        angle_pid_->reset();
         
         control_loop();
         // RCLCPP_INFO(this->get_logger(), "新目标: x=%.2f, y=%.2f, yaw=%.2f°", 
@@ -304,6 +303,13 @@ private:
                 arrived_count++;
                 if (arrived_count > 50) {  // 持续0.5秒到达目标
                     RCLCPP_INFO(this->get_logger(), "已到达目标位置");
+
+                    // 发布目标到达信号
+                    auto reached_msg = std_msgs::msg::Bool();
+                    reached_msg.data = true;
+                    target_reached_pub_->publish(reached_msg);
+                    RCLCPP_INFO(this->get_logger(), "已发布目标到达信号");
+
                     has_target_ = false;  // 停止控制
                     arrived_count = 0;
                     position_pid_x_->reset();
@@ -392,6 +398,7 @@ private:
     std::unique_ptr<PIDController> position_pid_y_;
     std::unique_ptr<PIDController> angle_pid_;
     rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr wheel_velocity_pub_;
+    rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr target_reached_pub_;
     double target_x_, target_y_, target_yaw_;
     double max_linear_speed_, max_angular_speed_;
     std::array<double, 4> wheel_velocities_ = {0.0, 0.0, 0.0, 0.0};
