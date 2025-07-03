@@ -74,10 +74,10 @@ def generate_launch_description():
         name='target_publisher_node',
         output='screen',
         parameters=[{
-                'target_x': 1.2,
+                'target_x': 0.0,
                 'target_y': 0.0,
                 'target_yaw': 0.0,
-                'publish_rate_ms': 100
+                'publish_rate_ms': 10
             }]
     )
 
@@ -98,19 +98,19 @@ def generate_launch_description():
         executable='pid',
         output='screen',
         parameters=[{
-                'position_kp': 0.42,
+                'position_kp': 0.75,
                 'position_ki': 0.04,
-                'position_kd': 0.0,
-                'angle_kp': 1.0,
-                'angle_ki': 0.01,
-                'angle_kd': 0.2,
+                'position_kd': 0.005,
+                'angle_kp': 1.3,
+                'angle_ki': 20.0,
+                'angle_kd': 12.0,
                 'max_linear_speed': 2.0,
-                'max_angular_speed': 4.0,
+                'max_angular_speed': 14.0,
                 'integral_limit_factor': 0.2,
                 'position_integral_region': 0.3,
                 'angle_integral_region': 0.5,
 		'position_deadzone': 0.04,
-		'angle_deadzone': 0.01,
+		'angle_deadzone': 0.005,
             }]
     )
 
@@ -119,15 +119,15 @@ def generate_launch_description():
         executable='pid_velocity',
         output='screen',
         parameters=[{
-                'kp': 10.0,
-                'ki': 0.5,
+                'kp': 0.1,
+                'ki': 2.1,
                 'kd': 0.0,
                 'pwm_limit': 80.0,
                 'deadzone': 0.03,
-                'startup_pwm': 40.0,
 		'wheel_base': 0.21,
 		'track_width': 0.20,
-		'wheel_radius': 0.04
+		'wheel_radius': 0.04,
+		'startup_pwm': 42.0
             }]
     )
 

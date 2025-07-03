@@ -210,10 +210,6 @@ public:
             "target_position", 10, 
             std::bind(&CarPIDNode::target_callback, this, std::placeholders::_1));
         
-        // 创建定时器（提高频率到100Hz）
-        timer_ = this->create_wall_timer(
-            10ms, std::bind(&CarPIDNode::control_loop, this));
-        
         RCLCPP_INFO(this->get_logger(), "优化的小车PID控制节点已初始化");
         RCLCPP_INFO(this->get_logger(), "位置积分区域: %.2f m, 角度积分区域: %.2f rad (%.2f°)", 
                     position_integral_region, angle_integral_region, 
@@ -256,6 +252,7 @@ private:
         position_pid_y_->reset();
         angle_pid_->reset();
         
+        control_loop();
         // RCLCPP_INFO(this->get_logger(), "新目标: x=%.2f, y=%.2f, yaw=%.2f°", 
         //            target_x_, target_y_, target_yaw_ * 180.0 / M_PI);
     }
@@ -294,16 +291,16 @@ private:
             // PID计算
             double vx = position_pid_x_->compute(error_x, dt);
             double vy = position_pid_y_->compute(error_y, dt);
-            double omega = angle_pid_->compute(-error_yaw, dt);
+            double omega = angle_pid_->compute(error_yaw, dt);
             
             // 计算并发布轮速
             calculate_wheel_velocities(vx, vy, omega);
             publish_wheel_velocities();
             
+            static int arrived_count = 0;
             // 检查是否到达目标
             double distance_error = std::sqrt(error_x*error_x + error_y*error_y);
             if (distance_error < 0.05 && std::abs(error_yaw) < 0.1) {
-                static int arrived_count = 0;
                 arrived_count++;
                 if (arrived_count > 50) {  // 持续0.5秒到达目标
                     RCLCPP_INFO(this->get_logger(), "已到达目标位置");
@@ -313,6 +310,8 @@ private:
                     position_pid_y_->reset();
                     angle_pid_->reset();
                 }
+            } else {
+                arrived_count = 0;
             }
             
         } catch (const tf2::TransformException& ex) {
@@ -349,8 +348,8 @@ private:
         double rotation_factor = (L + W) * omega;
         
         // 根据原代码中轮子的顺序调整（0: 右前, 1: 左前, 2: 左后, 3: 右后）
-        wheel_velocities_[0] = vx - vy - rotation_factor;  // 右前轮（0）
-        wheel_velocities_[1] = vx + vy + rotation_factor;  // 左前轮（1）
+        wheel_velocities_[0] = vx + vy + rotation_factor;  // 右前轮（0）
+        wheel_velocities_[1] = vx - vy - rotation_factor;  // 左前轮（1）
         wheel_velocities_[2] = vx + vy - rotation_factor;  // 左后轮（2）
         wheel_velocities_[3] = vx - vy + rotation_factor;  // 右后轮（3）
         
@@ -393,7 +392,6 @@ private:
     std::unique_ptr<PIDController> position_pid_y_;
     std::unique_ptr<PIDController> angle_pid_;
     rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr wheel_velocity_pub_;
-    rclcpp::TimerBase::SharedPtr timer_;
     double target_x_, target_y_, target_yaw_;
     double max_linear_speed_, max_angular_speed_;
     std::array<double, 4> wheel_velocities_ = {0.0, 0.0, 0.0, 0.0};

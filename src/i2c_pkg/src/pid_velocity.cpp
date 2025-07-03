@@ -98,7 +98,7 @@ public:
         double kd = this->get_parameter("kd").as_double();
         double pwm_limit = this->get_parameter("pwm_limit").as_double();
         double deadzone = this->get_parameter("deadzone").as_double();
-        startup_pwm_ = this->get_parameter("startup_pwm").as_double();
+	startup_pwm_ = this->get_parameter("startup_pwm").as_double();
         velocity_source_ = this->get_parameter("velocity_source").as_string();
         
         // 读取机器人几何参数
@@ -155,8 +155,7 @@ public:
         // 发布PWM
         pwm_pub_ = this->create_publisher<std_msgs::msg::Float32MultiArray>("/wheel_pwms", 10);
 
-        // 定时器 - 50Hz
-        timer_ = this->create_wall_timer(
+	timer_ = this->create_wall_timer(
             std::chrono::milliseconds(10),
             std::bind(&VelocityPIDNode::control_loop, this));
 
@@ -246,7 +245,7 @@ private:
         for (int i = 0; i < 4; ++i) {
             double error = target_wheel_vel_[i] - actual_wheel_vel[i];
             double pwm = pid_vec_[i]->compute(error, dt);
-            if (std::abs(pwm) > 5.0 && std::abs(pwm) < startup_pwm_) {
+	    if (std::abs(pwm) > 5.0 && std::abs(pwm) < startup_pwm_) {
                 pwm = (pwm > 0) ? startup_pwm_ : -startup_pwm_;
             }
             pwm_msg.data[i] = pwm;
@@ -278,7 +277,6 @@ private:
     rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr wheel_vel_sub_;
     rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr pwm_pub_;
     rclcpp::TimerBase::SharedPtr timer_;
-    
     // PID控制器
     std::vector<std::unique_ptr<PIDController>> pid_vec_;
     
