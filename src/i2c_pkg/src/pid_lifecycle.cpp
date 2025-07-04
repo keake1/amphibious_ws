@@ -147,7 +147,7 @@ private:
 class CarPIDLifecycleNode : public rclcpp_lifecycle::LifecycleNode {
 public:
     CarPIDLifecycleNode()
-        : LifecycleNode("car_pid_lifecycle_node"), 
+        : LifecycleNode("pid_lifecycle_node"), 
           last_time_(this->get_clock()->now()) {
         
         // 只在构造函数中声明参数，不创建资源

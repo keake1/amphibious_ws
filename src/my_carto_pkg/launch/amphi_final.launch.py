@@ -65,7 +65,7 @@ def generate_launch_description():
             actions=[fly_carto_launch]
         ),
         TimerAction(
-            period=8.0,
+            period=12.0,
             actions=[com_node]
         ),
         TimerAction(

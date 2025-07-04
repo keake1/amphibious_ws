@@ -95,6 +95,9 @@ private:
         RCLCPP_INFO(this->get_logger(), "订阅话题: /tracked_pose");
         RCLCPP_INFO(this->get_logger(), "发布话题: /mode_switch");
         RCLCPP_INFO(this->get_logger(), "发布话题: /vehicle_height");
+        auto message = std::make_unique<std_msgs::msg::String>();
+        message->data = "car_mode_on";
+        mode_pub_->publish(*message);
     }
 
     // 初始化定时器，用于定时发送TF数据

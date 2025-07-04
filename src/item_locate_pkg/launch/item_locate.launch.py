@@ -45,29 +45,9 @@ def generate_launch_description():
         }]
     )
     
-    # 4. 在yolo_detect_lifecycle_node启动后，将其配置为configured状态
-    configure_yolo_detect = RegisterEventHandler(
-        OnProcessStart(
-            target_action=yolo_detect_node,
-            on_start=[
-                # 等待节点完全启动后再配置
-                TimerAction(
-                    period=3.0,
-                    actions=[
-                        ExecuteProcess(
-                            cmd=['ros2', 'lifecycle', 'set', 'yolo_detect_lifecycle_node', 'configure'],
-                            output='screen'
-                        )
-                    ]
-                )
-            ]
-        )
-    )
-    
     # 返回所有操作的组合
     return LaunchDescription([
         camera_pub_node,
         yolo_detect_node,
         item_locate_node,
-        # configure_yolo_detect
     ])

@@ -3,16 +3,19 @@ from launch.actions import RegisterEventHandler, TimerAction, ExecuteProcess
 from launch.event_handlers import OnProcessStart
 from launch_ros.actions import Node
 import os
+from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
+    # 获取参数文件路径
+    pkg_share = get_package_share_directory('i2c_pkg')
+    params_file = os.path.join(pkg_share, 'params', 'car_drive.yaml')
+    
     # 创建三个生命周期节点
     car_drive_pwm_node = Node(
         package='i2c_pkg',
         executable='car_drive_pid_pwm_lifecycle',
         name='car_drive_pid_pwm_lifecycle_node',
-        parameters=[{
-            'motor_addr': 52,  # 0x34 十六进制转十进制
-        }],
+        parameters=[params_file],
         output='screen',
     )
     
@@ -20,21 +23,7 @@ def generate_launch_description():
         package='i2c_pkg',
         executable='pid_lifecycle',
         name='pid_lifecycle_node',
-        parameters=[{
-            'position_kp': 0.36,
-                'position_ki': 0.07,
-                'position_kd': 0.0,
-                'angle_kp': 3.6,
-                'angle_ki': 0.7,
-                'angle_kd': 1.0,
-                'max_linear_speed': 2.0,
-                'max_angular_speed': 20.0,
-                'integral_limit_factor': 0.2,
-                'position_integral_region': 0.3,  # 移动积分区域
-                'angle_integral_region': 0.5, 
-                'position_deadzone': 0.04,
-                'angle_deadzone': 0.05
-        }],
+        parameters=[params_file],
         output='screen',
     )
     
@@ -42,18 +31,7 @@ def generate_launch_description():
         package='i2c_pkg',
         executable='pid_velocity_lifecycle',
         name='velocity_pid_lifecycle_node',
-        parameters=[{
-            'kp': 1.675,
-            'ki': 20.0,
-            'kd': 0.0,
-            'pwm_limit': 80.0,
-            'deadzone': 0.03,
-            'startup_pwm': 42.0,
-            'wheel_base': 0.21,
-            'track_width': 0.20,
-            'wheel_radius': 0.04,
-            'startup_pwm': 42.0
-        }],
+        parameters=[params_file],
         output='screen',
     )
     
@@ -69,80 +47,6 @@ def generate_launch_description():
         }]
     )
 
-    # 配置状态转换事件
-    configure_car_drive_pwm = RegisterEventHandler(
-        OnProcessStart(
-            target_action=car_drive_pwm_node,
-            on_start=[
-                TimerAction(
-                    period=2.0,  # 等待节点完全启动
-                    actions=[
-                        Node(
-                            package='lifecycle_msgs',
-                            executable='lifecycle_manager',
-                            name='lifecycle_manager_car_drive_pwm',
-                            parameters=[{
-                                'node_name': 'car_drive_pid_pwm_lifecycle_node',
-                                'target_state': '3',  # TRANSITION_CONFIGURE
-                            }],
-                            output='screen',
-                        ),
-                    ],
-                ),
-            ],
-        )
-    )
-    
-    configure_car_pid = RegisterEventHandler(
-        OnProcessStart(
-            target_action=car_pid_node,
-            on_start=[
-                TimerAction(
-                    period=3.0,
-                    actions=[
-                        ExecuteProcess(
-                            cmd=['ros2', 'lifecycle', 'set', 'car_pid_lifecycle_node', 'configure'],
-                            output='screen'
-                        )
-                    ],
-                ),
-            ],
-        )
-    )
-    
-    configure_velocity_pid = RegisterEventHandler(
-        OnProcessStart(
-            target_action=velocity_pid_node,
-            on_start=[
-                TimerAction(
-                    period=3.0,
-                    actions=[
-                        ExecuteProcess(
-                            cmd=['ros2', 'lifecycle', 'set', 'velocity_pid_lifecycle_node', 'configure'],
-                            output='screen'
-                        )
-                    ],
-                ),
-            ],
-        )
-    )
-    
-    configure_velocity_get = RegisterEventHandler(
-        OnProcessStart(
-            target_action=velocity_get_node,
-            on_start=[
-                TimerAction(
-                    period=3.0,
-                    actions=[
-                        ExecuteProcess(
-                            cmd=['ros2', 'lifecycle', 'set', 'encoder_velocity_lifecycle_node', 'configure'],
-                            output='screen'
-                        )
-                    ],
-                ),
-            ],
-        )
-    )
     
     # 返回LaunchDescription
     return LaunchDescription([
@@ -160,9 +64,4 @@ def generate_launch_description():
             actions = [velocity_pid_node]
         ),
         # velocity_get_node,
-        # 节点配置
-        # configure_car_drive_pwm,
-        # configure_car_pid,
-        # configure_velocity_pid,
-        # configure_velocity_get,
     ])

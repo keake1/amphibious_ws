@@ -543,10 +543,17 @@ def main(args=None):
     except KeyboardInterrupt:
         pass
     finally:
-        # 清理资源 - 只需要调用一次关闭操作
-        lifecycle_node.destroy_node()
-        rclpy.shutdown()
-        # 移除 executor.shutdown() 调用，避免重复关闭
+        # 清理资源 - 安全地销毁节点和关闭RCL
+        try:
+            lifecycle_node.destroy_node()
+        except Exception as e:
+            lifecycle_node.get_logger().warning(f'销毁节点时发生异常: {str(e)}')
+        
+        try:
+            if rclpy.ok():
+                rclpy.shutdown()
+        except Exception as e:
+            print(f'关闭RCL时发生异常: {str(e)}')
 
 if __name__ == "__main__":
     main()
