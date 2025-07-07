@@ -24,7 +24,8 @@ from scipy.special import softmax
 from hobot_dnn import pyeasy_dnn as dnn
 from time import time
 import logging
-
+import os
+from launch_ros.substitutions import FindPackageShare
 # ROS 2 相关包
 import rclpy
 from rclpy.lifecycle import LifecycleNode, TransitionCallbackReturn
@@ -320,9 +321,9 @@ def draw_detection(img, bbox, score, class_id) -> None:
 class YoloDetectLifecycleNode(LifecycleNode):
     def __init__(self):
         super().__init__('yolo_detect_lifecycle_node')
-        
+        yolo_detect_pkg_share = FindPackageShare('yolo_detect_pkg').find('yolo_detect_pkg')
         # 声明参数 - 这些在构造函数中声明，但在configure时使用
-        self.declare_parameter('model_path', '/home/sunrise/rdk_model_zoo/demos/detect/YOLO11/YOLO11-Detect_YUV420SP/ptq_models/yolo11m_detect_bayese_640x640_nv12_modified.bin')
+        self.declare_parameter('model_path', os.path.join(yolo_detect_pkg_share, 'models', 'yolo11m_detect_bayese_640x640_nv12_modified.bin'))
         self.declare_parameter('classes_num', 80)
         self.declare_parameter('nms_thres', 0.7)
         self.declare_parameter('score_thres', 0.4)

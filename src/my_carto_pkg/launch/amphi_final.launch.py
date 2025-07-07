@@ -64,7 +64,7 @@ def generate_launch_description():
             actions=[fly_carto_launch]
         ),
         TimerAction(
-            period=2.0,
+            period=1.0,
             actions=[lifecycle_control_node]
         ),
         TimerAction(
@@ -72,15 +72,15 @@ def generate_launch_description():
             actions=[car_drive_launch]
         ),
         TimerAction(
-            period=6.0,
+            period=3.0,
             actions=[item_locate_launch]
         ),
         TimerAction(
-            period=8.0,
+            period=10.0,
             actions=[target_pub_node]
         ),
         TimerAction(
-            period=10.0,
+            period=8.0,
             actions=[com_node]
         ),
     ])

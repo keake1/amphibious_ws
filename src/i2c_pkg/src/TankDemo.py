@@ -39,7 +39,7 @@ speed1 = [50,50,-50,-50]
 speed2 = [-50,-50,-50,-50]
 speed3 = [0,0,0,0]
 
-pwm1 = [70,70,-70,-70]
+pwm1 = [50,-50,-50,50]
 pwm2 = [-100,-100,-100,-100]
 pwm3 = [0,0,0,0]
 
@@ -49,23 +49,21 @@ def Motor_Init(): #电机初始化
     bus.write_byte_data(MOTOR_ADDR, MOTOR_ENCODER_POLARITY_ADDR, MotorEncoderPolarity)  #设置编码极性
 
 def main():
+    start_time = time.time()
     while True:
-      battery = bus.read_i2c_block_data(MOTOR_ADDR, ADC_BAT_ADDR)
-      print("V = {0}mV".format(battery[0]+(battery[1]<<8)))
-      
-      Encode = struct.unpack('iiii',bytes(bus.read_i2c_block_data(MOTOR_ADDR, MOTOR_ENCODER_TOTAL_ADDR,16)))
-      
-      print("Encode1 = {0}  Encode2 = {1}  Encode3 = {2}  Encode4 = {3}".format(Encode[0],Encode[1],Encode[2],Encode[3]))
-      
-      #PWM控制（注意：PWM控制是一个持续控制的过程，若有延时则会打断电机的运行）
-      bus.write_i2c_block_data(MOTOR_ADDR, MOTOR_FIXED_PWM_ADDR,pwm1)
-      
-      
-      #固定转速控制
-    #   bus.write_i2c_block_data(MOTOR_ADDR, MOTOR_FIXED_SPEED_ADDR,speed1)
-    #   time.sleep(3)
-    #   bus.write_i2c_block_data(MOTOR_ADDR, MOTOR_FIXED_SPEED_ADDR,speed2)
-    #   time.sleep(3)
+        battery = bus.read_i2c_block_data(MOTOR_ADDR, ADC_BAT_ADDR)
+        print("V = {0}mV".format(battery[0]+(battery[1]<<8)))
+        
+        Encode = struct.unpack('iiii', bytes(bus.read_i2c_block_data(MOTOR_ADDR, MOTOR_ENCODER_TOTAL_ADDR, 16)))
+        print("Encode1 = {0}  Encode2 = {1}  Encode3 = {2}  Encode4 = {3}".format(Encode[0], Encode[1], Encode[2], Encode[3]))
+        
+        # PWM控制
+        bus.write_i2c_block_data(MOTOR_ADDR, MOTOR_FIXED_PWM_ADDR, pwm1)
+        
+        # 检查是否已运行1秒
+        if time.time() - start_time > 3.0:
+            print("已运行1秒，程序退出。")
+            break
       
 
 

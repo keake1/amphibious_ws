@@ -1,8 +1,6 @@
 #include <rclcpp/rclcpp.hpp>
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/buffer.h>
-#include <tf2/LinearMath/Quaternion.h>
-#include <tf2/LinearMath/Matrix3x3.h>
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <vision_msgs/msg/detection2_d_array.hpp>
 #include <geometry_msgs/msg/pose2_d.hpp>
@@ -91,19 +89,9 @@ private:
             geometry_msgs::msg::TransformStamped transform = 
                 tf_buffer_->lookupTransform("odom", "base_link", tf2::TimePointZero);
             
-            // 获取机器人位置和朝向
+            // 获取机器人位置（不考虑朝向）
             double robot_x = transform.transform.translation.x;
             double robot_y = transform.transform.translation.y;
-            
-            // 从四元数中提取偏航角
-            tf2::Quaternion q(
-                transform.transform.rotation.x,
-                transform.transform.rotation.y,
-                transform.transform.rotation.z,
-                transform.transform.rotation.w);
-            tf2::Matrix3x3 m(q);
-            double roll, pitch, yaw;
-            m.getRPY(roll, pitch, yaw);
             
             // 使用当前高度计算距离比例因子
             // 比例 = 高度 * tan(视场角/2) / (像素宽度/2)
@@ -126,23 +114,15 @@ private:
                 double pixel_dy = center_y - camera_height_ / 2.0;
 
                 // 将像素偏移转换为世界坐标系中的偏移
-                // 注意坐标系转换：
+                // 机器人不旋转，直接进行坐标转换：
                 // 摄像头x正方向 → 世界坐标系y负方向
                 // 摄像头y正方向 → 世界坐标系x负方向
                 double world_dx = -pixel_dy * scale_factor;
                 double world_dy = -pixel_dx * scale_factor;
 
-                // 考虑机器人的朝向，计算物体在世界坐标系中的位置
-                double item_dx_rotated = world_dx * std::cos(yaw) - world_dy * std::sin(yaw);
-                double item_dy_rotated = world_dx * std::sin(yaw) + world_dy * std::cos(yaw);
-
-                // 加上摄像头偏移的修正
-                double camera_dx_rotated = camera_offset_x_ * std::cos(yaw) - camera_offset_y_ * std::sin(yaw);
-                double camera_dy_rotated = camera_offset_x_ * std::sin(yaw) + camera_offset_y_ * std::cos(yaw);
-
-                // 计算物体的世界坐标
-                double item_x = robot_x + item_dx_rotated + camera_dx_rotated;
-                double item_y = robot_y + item_dy_rotated + camera_dy_rotated;
+                // 计算物体的世界坐标（直接相加，不考虑旋转）
+                double item_x = robot_x + world_dx + camera_offset_x_;
+                double item_y = robot_y + world_dy + camera_offset_y_;
 
                 // 日志输出
                 RCLCPP_INFO(this->get_logger(), 

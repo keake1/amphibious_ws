@@ -25,7 +25,8 @@ public:
         };
         
         fly_nodes_ = {
-            "yolo_detect_lifecycle_node"
+            // "yolo_detect_lifecycle_node",
+            "camera_pub_lifecycle_node"
         };
         
         // 声明服务超时参数

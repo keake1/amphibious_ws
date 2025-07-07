@@ -54,9 +54,7 @@ public:
         io_thread_ = std::thread([this]() {
             io_context_.run();
         });
-        auto message = std::make_unique<std_msgs::msg::String>();
-        message->data = "car_mode_on";
-        mode_pub_->publish(*message);
+        
     }
     
     ~SerialComNode() {
@@ -94,11 +92,16 @@ private:
         twist_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(
             "/tracked_pose", 10, 
             std::bind(&SerialComNode::twist_callback, this, std::placeholders::_1));
+
+        // 创建模式切换消息订阅者
+        mode_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/mode_switch", 10, 
+            std::bind(&SerialComNode::mode_switch_callback, this, std::placeholders::_1));
         
         // 创建模式切换消息发布者
-        mode_pub_ = this->create_publisher<std_msgs::msg::String>(
-            "/mode_switch", 10);
-        
+        off_pub_ = this->create_publisher<std_msgs::msg::String>(
+        "/is_off", 10);
+
         // 创建高度数据发布者
         height_pub_ = this->create_publisher<std_msgs::msg::Int32>(
             "/vehicle_height", 10);
@@ -254,16 +257,10 @@ private:
         auto message = std::make_unique<std_msgs::msg::String>();
         
         switch (mode_command) {
-            case 0x02:  // 小车模式
-                message->data = "car_mode_on";
-                RCLCPP_INFO(this->get_logger(), "收到切换指令: 小车模式"); 
-                send_serial_data(0x00, std::vector<uint8_t>{0x02});
-                break;
                 
-            case 0x01:  // 飞行模式
-                message->data = "fly_mode_on";
-                RCLCPP_INFO(this->get_logger(), "收到切换指令: 飞行模式");
-                send_serial_data(0x00, std::vector<uint8_t>{0x01});
+            case 0x01:
+                message->data = "fly_off";
+                RCLCPP_INFO(this->get_logger(), "收到消息:飞机已经降落");
                 break;
                 
             default:
@@ -272,7 +269,7 @@ private:
         }
         
         // 发布模式切换消息
-        mode_pub_->publish(*message);
+        off_pub_->publish(*message);
     }
 
     // 处理高度数据
@@ -435,6 +432,13 @@ private:
         send_velocity_data(*msg);
     }
 
+    // 模式切换消息回调函数
+    void mode_switch_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        RCLCPP_INFO(this->get_logger(), "收到模式切换消息: %s", msg->data.c_str());
+        if (msg->data == "fly_mode_on") send_serial_data(0x00, std::vector<uint8_t>{0x01});
+    }
+
     // 发送速度信息
     void send_velocity_data(const geometry_msgs::msg::Twist& twist)
     {
@@ -480,8 +484,11 @@ private:
     // Twist 消息订阅者
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr twist_sub_;
 
+    // 模式切换消息订阅者
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr mode_sub_;
+
     // 模式切换消息发布者
-    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr mode_pub_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr off_pub_;
 
     // 高度数据发布者
     rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr height_pub_;

@@ -14,12 +14,16 @@ find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(OpenCV REQUIRED)
+find_package(rclcpp_lifecycle REQUIRED)
 
 add_executable(camera_pub src/camera_pub.cpp)
 ament_target_dependencies(camera_pub rclcpp sensor_msgs cv_bridge)
 target_link_libraries(camera_pub ${OpenCV_LIBS})
+add_executable(camera_pub_lifecycle src/camera_pub_lifecycle.cpp)
+ament_target_dependencies(camera_pub_lifecycle rclcpp sensor_msgs cv_bridge rclcpp_lifecycle)
+target_link_libraries(camera_pub_lifecycle ${OpenCV_LIBS})
 
-install(TARGETS camera_pub
+install(TARGETS camera_pub camera_pub_lifecycle
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)

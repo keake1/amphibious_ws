@@ -7,9 +7,6 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2 REQUIRED)
@@ -17,11 +14,11 @@ find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
 find_package(lifecycle_msgs REQUIRED)
-find_library(I2C_LIB i2c)
 find_package(std_srvs REQUIRED)
 find_package(amp_interfaces REQUIRED)
+find_package(rcl_interfaces REQUIRED)
 
-
+# 添加可执行文件
 add_executable(car_drive src/car_drive.cpp)
 ament_target_dependencies(car_drive rclcpp)
 target_link_libraries(car_drive ${I2C_LIB})

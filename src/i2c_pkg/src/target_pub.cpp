@@ -2,8 +2,10 @@
 #include <chrono>
 #include <vector>
 #include <string>
+#include <thread>  
 #include "amp_interfaces/srv/set_target.hpp"
 #include <std_srvs/srv/trigger.hpp>
+#include <std_msgs/msg/string.hpp>
 #include "rcl_interfaces/msg/set_parameters_result.hpp"
 
 using namespace std::chrono_literals;
@@ -17,6 +19,7 @@ struct Waypoint {
 
 class TargetPublisherNode : public rclcpp::Node {
 public:
+    // 修改构造函数，添加延迟发布机制
     TargetPublisherNode() : Node("target_publisher_node"), current_waypoint_index_(0) {
         // 声明参数
         this->declare_parameter("waypoints", std::vector<std::string>({"0.0,0.0,0.0"}));
@@ -48,21 +51,39 @@ public:
             navigation_active_ = false;
         }
 
-        // 创建/set_target服务客户端
+        // 创建发布者和订阅者
         set_target_client_ = this->create_client<amp_interfaces::srv::SetTarget>("/set_target");
-        // 创建/notify_arrival服务服务端
         notify_arrival_srv_ = this->create_service<std_srvs::srv::Trigger>(
             "/notify_arrival", std::bind(&TargetPublisherNode::notify_arrival_callback, this, std::placeholders::_1, std::placeholders::_2));
-
+        
+        // 创建模式切换发布者
+        mode_pub_ = this->create_publisher<std_msgs::msg::String>("/mode_switch", 10);
+        
+        // 创建 /is_off 话题订阅者
+        is_off_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/is_off", 10, 
+            std::bind(&TargetPublisherNode::is_off_callback, this, std::placeholders::_1));
+            
         // 参数回调
         parameter_callback_handle_ = this->add_on_set_parameters_callback(
             std::bind(&TargetPublisherNode::parameters_callback, this, std::placeholders::_1));
 
         print_waypoints();
         RCLCPP_INFO(this->get_logger(), "目标位置发布节点已初始化，当前目标: x=%.2f, y=%.2f, yaw=%.2f", target_x_, target_y_, target_yaw_);
+        
         if (navigation_active_) {
             RCLCPP_INFO(this->get_logger(), "导航已自动启动，共有%zu个路径点", waypoints_.size());
-            send_current_target();
+            
+            // 使用定时器延迟启动，确保所有节点都准备就绪
+            startup_timer_ = this->create_wall_timer(
+                std::chrono::seconds(3),  // 延迟3秒启动
+                [this]() {
+                    this->startup_timer_->cancel();  // 取消定时器
+                    this->send_current_target();
+                }
+            );
+            
+            RCLCPP_INFO(this->get_logger(), "将在3秒后开始导航，等待所有节点准备就绪...");
         } else {
             RCLCPP_INFO(this->get_logger(), "导航未启动，使用ros2 param set设置auto_start参数为true以开始导航");
         }
@@ -126,6 +147,16 @@ private:
     // 发送当前目标到pid_lifecycle
     void send_current_target() {
         if (!navigation_active_ || waypoints_.empty()) return;
+
+        // 如果是第一个目标点，发布 car_mode_on 消消息
+        if (current_waypoint_index_ == 0) {
+            auto mode_msg = std_msgs::msg::String();
+            mode_msg.data = "car_mode_on";
+            mode_pub_->publish(mode_msg);
+            RCLCPP_INFO(this->get_logger(), "发送第一个目标点时发布 car_mode_on 消息");
+            std::this_thread::sleep_for(std::chrono::milliseconds(200));
+        }
+
         auto req = std::make_shared<amp_interfaces::srv::SetTarget::Request>();
         req->x = target_x_;
         req->y = target_y_;
@@ -151,7 +182,24 @@ private:
     // /notify_arrival服务回调，收到到达通知后切换下一个目标并发送
     void notify_arrival_callback(const std::shared_ptr<std_srvs::srv::Trigger::Request> /* request */,
                                 std::shared_ptr<std_srvs::srv::Trigger::Response> response) {
-        RCLCPP_INFO(this->get_logger(), "收到到达通知，切换下一个目标");
+        RCLCPP_INFO(this->get_logger(), "收到到达通知，当前路径点: [%zu/%zu]", current_waypoint_index_ + 1, waypoints_.size());
+        
+        // 检查是否到达第一个目标点
+        if (current_waypoint_index_ == 0) {
+            RCLCPP_INFO(this->get_logger(), "到达第一个目标点，发布飞行模式消息");
+            
+            // 发布飞行模式消息
+            auto mode_msg = std_msgs::msg::String();
+            mode_msg.data = "fly_mode_on";
+            mode_pub_->publish(mode_msg);
+            
+            RCLCPP_INFO(this->get_logger(), "已发布 fly_mode_on 消息，暂停导航");
+            response->success = true;
+            response->message = "到达第一个目标点，已切换飞行模式";
+            return;
+        }
+        
+        // 对于其他目标点，继续正常的导航流程
         move_to_next_waypoint();
         send_current_target();
         response->success = true;
@@ -203,6 +251,41 @@ private:
         return result;
     }
 
+    // 添加 /is_off 话题的回调函数
+    // /is_off 话题回调函数，收到 fly_off 消息时处理
+    void is_off_callback(const std_msgs::msg::String::SharedPtr msg) {
+        RCLCPP_INFO(this->get_logger(), "收到 is_off 消息: %s", msg->data.c_str());
+        
+        if (msg->data == "fly_off") {
+            RCLCPP_INFO(this->get_logger(), "收到 fly_off 消息，重新激活车辆模式");
+            
+            // 发布 car_mode_on 消息
+            auto mode_msg = std_msgs::msg::String();
+            mode_msg.data = "car_mode_on";
+            mode_pub_->publish(mode_msg);
+            
+            // 检查是否有第二个目标点
+            if (waypoints_.size() >= 2) {
+                // 切换到第二个目标点
+                current_waypoint_index_ = 1;
+                target_x_ = waypoints_[1].x;
+                target_y_ = waypoints_[1].y;
+                target_yaw_ = waypoints_[1].yaw;
+                
+                RCLCPP_INFO(this->get_logger(), "切换到第二个目标点: x=%.2f, y=%.2f, yaw=%.2f", 
+                           target_x_, target_y_, target_yaw_);
+                
+                // 重新激活导航
+                navigation_active_ = true;
+                
+                // 发送第二个目标点
+                send_current_target();
+            } else {
+                RCLCPP_WARN(this->get_logger(), "没有第二个目标点可以导航");
+            }
+        }
+    }
+
     // 成员变量
     double target_x_;
     double target_y_;
@@ -213,7 +296,10 @@ private:
     std::vector<Waypoint> waypoints_;
     rclcpp::Client<amp_interfaces::srv::SetTarget>::SharedPtr set_target_client_;
     rclcpp::Service<std_srvs::srv::Trigger>::SharedPtr notify_arrival_srv_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr mode_pub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr is_off_sub_;  // 新增
     rclcpp::node_interfaces::OnSetParametersCallbackHandle::SharedPtr parameter_callback_handle_;
+    rclcpp::TimerBase::SharedPtr startup_timer_;  // 新增，定时器用于延迟发布
 };
 
 int main(int argc, char** argv) {

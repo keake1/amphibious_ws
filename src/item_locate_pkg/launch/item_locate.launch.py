@@ -10,16 +10,16 @@ def generate_launch_description():
     # 1. 定义摄像头发布节点
     camera_pub_node = Node(
         package='camera_pkg',
-        executable='camera_pub',
-        name='camera_pub_node',
+        executable='camera_pub_lifecycle',
+        name='camera_pub_lifecycle_node',
         output='screen'
     )
     
     # 2. 定义YOLO目标检测生命周期节点
     yolo_detect_node = Node(
         package='yolo_detect_pkg',
-        executable='yolo11_detect_lifecycle',
-        name='yolo_detect_lifecycle_node',
+        executable='yolo11_detect',
+        name='yolo_detect_node',
         output='screen',
         parameters=[{
             'model_path': '/home/sunrise/rdk_model_zoo/demos/detect/YOLO11/YOLO11-Detect_YUV420SP/ptq_models/yolo11m_detect_bayese_640x640_nv12_modified.bin',
@@ -37,7 +37,7 @@ def generate_launch_description():
         name='item_locate_node',
         output='screen',
         parameters=[{
-            'camera_fov_degrees': 62.2,
+            'camera_fov_degrees': 59.5,
             'camera_width': 640,
             'camera_height': 640,
             'camera_offset_x': 0.0,
@@ -47,7 +47,16 @@ def generate_launch_description():
     
     # 返回所有操作的组合
     return LaunchDescription([
-        camera_pub_node,
-        yolo_detect_node,
-        item_locate_node,
+        TimerAction(
+            period=0.0, 
+            actions=[camera_pub_node]
+        ),
+        TimerAction(
+            period=1.0,
+            actions=[yolo_detect_node]
+        ),
+        TimerAction(
+            period=2.0,
+            actions=[item_locate_node]
+        ),
     ])

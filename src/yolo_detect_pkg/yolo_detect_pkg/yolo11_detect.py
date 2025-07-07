@@ -32,6 +32,8 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
+from vision_msgs.msg import Detection2D, Detection2DArray, ObjectHypothesisWithPose
+from geometry_msgs.msg import Pose2D
 
 # 日志模块配置
 # logging configs
@@ -105,7 +107,7 @@ class YOLO11_Detect():
         RESIZE_TYPE = 0
         LETTERBOX_TYPE = 1
         PREPROCESS_TYPE = LETTERBOX_TYPE
-        logger.info(f"PREPROCESS_TYPE = {PREPROCESS_TYPE}")
+        # logger.info(f"PREPROCESS_TYPE = {PREPROCESS_TYPE}")
 
         begin_time = time()
         self.img_h, self.img_w = img.shape[0:2]
@@ -118,7 +120,7 @@ class YOLO11_Detect():
             self.x_scale = 1.0 * self.input_W / self.img_w
             self.y_shift = 0
             self.x_shift = 0
-            logger.info("\033[1;31m" + f"pre process(resize) time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
+            # logger.info("\033[1;31m" + f"pre process(resize) time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
         elif PREPROCESS_TYPE == LETTERBOX_TYPE:
             # 利用 letter box 的方式进行前处理, 准备nv12的输入数据
             begin_time = time()
@@ -139,14 +141,14 @@ class YOLO11_Detect():
             input_tensor = cv2.resize(img, (new_w, new_h))
             input_tensor = cv2.copyMakeBorder(input_tensor, self.y_shift, y_other, self.x_shift, x_other, cv2.BORDER_CONSTANT, value=[127, 127, 127])
             input_tensor = self.bgr2nv12(input_tensor)
-            logger.info("\033[1;31m" + f"pre process(letter box) time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
+            # logger.info("\033[1;31m" + f"pre process(letter box) time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
         else:
             logger.error(f"illegal PREPROCESS_TYPE = {PREPROCESS_TYPE}")
             exit(-1)
 
         logger.debug("\033[1;31m" + f"pre process time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
-        logger.info(f"y_scale = {self.y_scale:.2f}, x_scale = {self.x_scale:.2f}")
-        logger.info(f"y_shift = {self.y_shift:.2f}, x_shift = {self.x_shift:.2f}")
+        # logger.info(f"y_scale = {self.y_scale:.2f}, x_scale = {self.x_scale:.2f}")
+        # logger.info(f"y_shift = {self.y_shift:.2f}, x_shift = {self.x_shift:.2f}")
         return input_tensor
 
     def bgr2nv12(self, bgr_img):
@@ -353,6 +355,12 @@ class YoloDetectNode(Node):
             10
         )
         
+        self.detections_pub = self.create_publisher(
+                Detection2DArray,
+                'camera/detections',  # 发布目标检测结果话题
+                10
+            )
+
         # 创建CV桥接器
         self.cv_bridge = CvBridge()
         
@@ -362,7 +370,7 @@ class YoloDetectNode(Node):
         """处理接收到的图像消息"""
         try:
             # 将ROS图像消息转换为OpenCV格式
-            begin_time = time()
+            # begin_time = time()
             cv_image = self.cv_bridge.imgmsg_to_cv2(msg, "bgr8")
             
             # 准备输入数据
@@ -374,9 +382,41 @@ class YoloDetectNode(Node):
             # 后处理
             results = self.yolo_detector.postProcess(outputs)
             
-            # 在图像上绘制检测结果
+            # 创建检测结果消息
+            detections_msg = Detection2DArray()
+            detections_msg.header = msg.header
+            
+            # 在图像上绘制检测结果并填充检测消息
             for class_id, score, x1, y1, x2, y2 in results:
+                # 绘制检测框
                 draw_detection(cv_image, (x1, y1, x2, y2), score, class_id)
+                
+                # 创建单个检测消息
+                detection = Detection2D()
+                detection.header = msg.header
+                
+                # 设置中心点坐标和边界框大小
+                detection.bbox.center.x = float((x1 + x2) / 2)
+                detection.bbox.center.y = float((y1 + y2) / 2)
+                detection.bbox.size_x = float(x2 - x1)
+                detection.bbox.size_y = float(y2 - y1)
+                
+                # 设置类别和置信度
+                hypothesis = ObjectHypothesisWithPose()
+                hypothesis.id = str(class_id)
+                hypothesis.score = float(score)
+                hypothesis.pose.pose = Pose2D(x=x1, y=y1, theta=0.0)  # 使用左上角作为pose
+                detection.results.append(hypothesis)
+                
+                # 在检测结果中存储完整坐标 (x1,y1,x2,y2)
+                source_img = Pose2D(x=float(x2), y=float(y2), theta=0.0)  # 使用右下角作为source_img
+                detection.source_img = source_img
+                
+                # 添加到检测数组
+                detections_msg.detections.append(detection)
+            
+            # 发布检测结果
+            self.detections_pub.publish(detections_msg)
             
             # 转换回ROS图像消息并发布
             result_msg = self.cv_bridge.cv2_to_imgmsg(cv_image, "bgr8")
@@ -384,11 +424,11 @@ class YoloDetectNode(Node):
             self.image_pub.publish(result_msg)
             
             # 计算并显示总处理时间
-            total_time = time() - begin_time
-            if len(results) > 0:
-                self.get_logger().info(f'检测到 {len(results)} 个目标，总处理时间: {total_time*1000:.2f}ms')
-            else:
-                self.get_logger().info(f'未检测到目标，总处理时间: {total_time*1000:.2f}ms')
+            # total_time = time() - begin_time
+            # if len(results) > 0:
+            #     self.get_logger().info(f'检测到 {len(results)} 个目标，总处理时间: {total_time*1000:.2f}ms')
+            # else:
+            #     self.get_logger().info(f'未检测到目标，总处理时间: {total_time*1000:.2f}ms')
                 
         except Exception as e:
             self.get_logger().error(f'处理图像时发生错误: {str(e)}')

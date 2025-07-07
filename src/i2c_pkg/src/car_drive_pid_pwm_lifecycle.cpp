@@ -3,6 +3,7 @@
 #include <lifecycle_msgs/msg/state.hpp>
 #include <lifecycle_msgs/msg/transition.hpp>
 #include <std_msgs/msg/float32_multi_array.hpp>
+#include <std_msgs/msg/string.hpp>
 #include <linux/i2c-dev.h>
 #include <sys/ioctl.h>
 #include <fcntl.h>
@@ -31,8 +32,15 @@ public:
         // 在构造函数中只声明参数，不初始化资源
         this->declare_parameter("i2c_bus", I2C_BUS);
         this->declare_parameter("motor_addr", MOTOR_ADDR);
-        
+        // 创建模式切换发布者
+        mode_pub_ = this->create_publisher<std_msgs::msg::String>("/mode_switch", 10);
+
         RCLCPP_INFO(this->get_logger(), "小车PWM驱动生命周期节点已创建，等待配置");
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        auto message = std::make_unique<std_msgs::msg::String>();
+        message->data = "car_mode_on";
+        mode_pub_->publish(*message);
+        
     }
     
     ~CarDrivePIDPWMLifecycleNode() {
@@ -198,6 +206,7 @@ public:
 private:
     int i2c_fd_;
     rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr pwm_sub_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr mode_pub_;
     std::vector<int8_t> last_pwm_;
     std::mutex pwm_mutex_;
     std::thread send_thread_;

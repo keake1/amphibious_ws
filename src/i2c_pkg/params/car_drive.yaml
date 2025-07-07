@@ -9,22 +9,22 @@ car_drive_pid_pwm_lifecycle_node:
 pid_lifecycle_node:
   ros__parameters:
     # 位置PID控制参数
-    position_kp: 0.36       # 位置比例系数
-    position_ki: 0.07       # 位置积分系数
+    position_kp: 0.5       # 位置比例系数
+    position_ki: 0.05       # 位置积分系数
     position_kd: 0.0       # 位置微分系数
-    position_deadzone: 0.05        # 位置死区（米）
-    position_integral_region: 0.3  # 位置积分区域（米）
+    position_deadzone: 0.09        # 位置死区（米）
+    position_integral_region: 0.8  # 位置积分区域（米）
     
     # 角度PID控制参数
-    angle_kp: 3.6          # 角度比例系数
-    angle_ki: 0.7         # 角度积分系数
-    angle_kd: 1.0          # 角度微分系数
+    angle_kp: 1.0          # 角度比例系数
+    angle_ki: 0.1         # 角度积分系数
+    angle_kd: 0.0          # 角度微分系数
     angle_deadzone: 0.05   # 角度死区（弧度，约3度）
     angle_integral_region: 0.5  # 角度积分区域（弧度，约28.6度）
     
     # 速度限制
-    max_linear_speed: 2.0  # 最大线速度（m/s）
-    max_angular_speed: 20.0  # 最大角速度（rad/s）
+    max_linear_speed: 0.4  # 最大线速度（m/s）
+    max_angular_speed: 0.8  # 最大角速度（rad/s）
     
     # 积分限制因子
     integral_limit_factor: 0.2  # 积分限制 = max_speed * integral_limit_factor
@@ -33,14 +33,14 @@ pid_lifecycle_node:
 velocity_pid_lifecycle_node:
   ros__parameters:
     # 速度PID控制参数
-    kp: 1.675              # 比例系数
-    ki: 20.0               # 积分系数
+    kp: 0.0              # 比例系数
+    ki: 1.4               # 积分系数
     kd: 0.0                # 微分系数
     deadzone: 0.03         # 死区（m/s）
     
     # PWM输出参数
     pwm_limit: 80.0       # PWM输出限制（最大值）
-    startup_pwm: 42.0      # 启动PWM阈值
+    startup_pwm: 35.0      # 启动PWM阈值
     
     # 机器人几何参数
     wheel_base_length: 0.21  # 前后轮距（米）
