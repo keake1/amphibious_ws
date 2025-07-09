@@ -39,7 +39,7 @@ speed1 = [50,50,-50,-50]
 speed2 = [-50,-50,-50,-50]
 speed3 = [0,0,0,0]
 
-pwm1 = [50,-50,-50,50]
+pwm1 = [43,-42,-41,48]
 pwm2 = [-100,-100,-100,-100]
 pwm3 = [0,0,0,0]
 
@@ -48,14 +48,26 @@ def Motor_Init(): #电机初始化
     time.sleep(0.5)
     bus.write_byte_data(MOTOR_ADDR, MOTOR_ENCODER_POLARITY_ADDR, MotorEncoderPolarity)  #设置编码极性
 
+def reset_encoder_counts():
+    """
+    重置编码器计数（将16字节0写入MOTOR_ENCODER_TOTAL_ADDR）
+    """
+    reset_data = [0] * 16  # 16字节全0
+    try:
+        # smbus的write_i2c_block_data一次最多写32字节
+        bus.write_i2c_block_data(MOTOR_ADDR, MOTOR_ENCODER_TOTAL_ADDR, reset_data)
+        print("编码器计数已重置")
+    except Exception as e:
+        print(f"重置编码器计数失败: {e}")
+
 def main():
     start_time = time.time()
     while True:
-        battery = bus.read_i2c_block_data(MOTOR_ADDR, ADC_BAT_ADDR)
-        print("V = {0}mV".format(battery[0]+(battery[1]<<8)))
+        # battery = bus.read_i2c_block_data(MOTOR_ADDR, ADC_BAT_ADDR)
+        # print("V = {0}mV".format(battery[0]+(battery[1]<<8)))
         
-        Encode = struct.unpack('iiii', bytes(bus.read_i2c_block_data(MOTOR_ADDR, MOTOR_ENCODER_TOTAL_ADDR, 16)))
-        print("Encode1 = {0}  Encode2 = {1}  Encode3 = {2}  Encode4 = {3}".format(Encode[0], Encode[1], Encode[2], Encode[3]))
+        # Encode = struct.unpack('iiii', bytes(bus.read_i2c_block_data(MOTOR_ADDR, MOTOR_ENCODER_TOTAL_ADDR, 16)))
+        # print("Encode1 = {0}  Encode2 = {1}  Encode3 = {2}  Encode4 = {3}".format(Encode[0], Encode[1], Encode[2], Encode[3]))
         
         # PWM控制
         bus.write_i2c_block_data(MOTOR_ADDR, MOTOR_FIXED_PWM_ADDR, pwm1)
@@ -69,4 +81,5 @@ def main():
 
 if __name__ == "__main__":
     Motor_Init()
+    reset_encoder_counts()  # 调用重置函数
     main()
