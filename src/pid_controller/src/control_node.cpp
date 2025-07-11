@@ -53,7 +53,6 @@ private:
             // 提取当前位置
             current_position_.x = transform_stamped.transform.translation.x;
             current_position_.y = transform_stamped.transform.translation.y;
-            current_position_.z = transform_stamped.transform.translation.z;
             
             // 提取当前姿态角
             tf2::Quaternion q(

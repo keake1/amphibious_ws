@@ -177,7 +177,7 @@ private:
       int m3 = static_cast<int>(msg->data[2]);
       int m4 = static_cast<int>(msg->data[3]);
       if (motor_type_ == 4) control_pwm(m1, m2, m3, m4);
-      else control_speed(m1, m2, m3, m4);
+      else control_speed(-m1, -m2, -m3, -m4);
     }
   }
 

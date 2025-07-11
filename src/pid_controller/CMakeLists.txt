@@ -23,7 +23,10 @@ include_directories(
 add_executable(control_node src/control_node.cpp src/pid_controller.cpp)
 ament_target_dependencies(control_node rclcpp geometry_msgs std_msgs tf2_ros tf2 tf2_geometry_msgs amp_interfaces)
 
-install(TARGETS control_node
+add_executable(target_pub src/target_pub.cpp)
+ament_target_dependencies(target_pub rclcpp amp_interfaces)
+
+install(TARGETS control_node target_pub
   DESTINATION lib/${PROJECT_NAME}
 )
 
