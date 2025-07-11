@@ -32,7 +32,7 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-from vision_msgs.msg import Detection2D, Detection2DArray, ObjectHypothesisWithPose
+from vision_msgs.msg import Detection2D, Detection2DArray, ObjectHypothesisWithPose, BoundingBox2D
 from geometry_msgs.msg import Pose2D
 
 # 日志模块配置
@@ -318,7 +318,7 @@ class YoloDetectNode(Node):
         super().__init__('yolo_detect_node')
         
         # 声明参数
-        self.declare_parameter('model_path', '/home/sunrise/rdk_model_zoo/demos/detect/YOLO11/YOLO11-Detect_YUV420SP/ptq_models/yolo11m_detect_bayese_640x640_nv12_modified.bin')
+        self.declare_parameter('model_path', '/home/sunrise/rdk_model_zoo/demos/detect/YOLO11/YOLO11-Detect_YUV420SP/ptq_models/yolo11s_detect_bayese_640x640_nv12_modified.bin')
         self.declare_parameter('classes_num', 80)
         self.declare_parameter('nms_thres', 0.7)
         self.declare_parameter('score_thres', 0.4)
@@ -370,7 +370,6 @@ class YoloDetectNode(Node):
         """处理接收到的图像消息"""
         try:
             # 将ROS图像消息转换为OpenCV格式
-            # begin_time = time()
             cv_image = self.cv_bridge.imgmsg_to_cv2(msg, "bgr8")
             
             # 准备输入数据
@@ -386,52 +385,52 @@ class YoloDetectNode(Node):
             detections_msg = Detection2DArray()
             detections_msg.header = msg.header
             
-            # 在图像上绘制检测结果并填充检测消息
             for class_id, score, x1, y1, x2, y2 in results:
                 # 绘制检测框
                 draw_detection(cv_image, (x1, y1, x2, y2), score, class_id)
                 
-                # 创建单个检测消息
+                # 创建检测消息
                 detection = Detection2D()
                 detection.header = msg.header
                 
-                # 设置中心点坐标和边界框大小
-                detection.bbox.center.x = float((x1 + x2) / 2)
-                detection.bbox.center.y = float((y1 + y2) / 2)
-                detection.bbox.size_x = float(x2 - x1)
-                detection.bbox.size_y = float(y2 - y1)
+                # 修改这部分 - 使用正确的方式创建BoundingBox2D和Pose2D
+                bbox = BoundingBox2D()
+                
+                # 创建Pose2D对象
+                center = Pose2D()
+                center.x = float((x1 + x2) / 2)
+                center.y = float((y1 + y2) / 2)
+                center.theta = 0.0
+                
+                # 设置bbox的属性
+                bbox.center = center
+                bbox.size_x = float(x2 - x1)
+                bbox.size_y = float(y2 - y1)
+                
+                # 设置detection的bbox
+                detection.bbox = bbox
                 
                 # 设置类别和置信度
                 hypothesis = ObjectHypothesisWithPose()
                 hypothesis.id = str(class_id)
                 hypothesis.score = float(score)
-                hypothesis.pose.pose = Pose2D(x=x1, y=y1, theta=0.0)  # 使用左上角作为pose
                 detection.results.append(hypothesis)
-                
-                # 在检测结果中存储完整坐标 (x1,y1,x2,y2)
-                source_img = Pose2D(x=float(x2), y=float(y2), theta=0.0)  # 使用右下角作为source_img
-                detection.source_img = source_img
                 
                 # 添加到检测数组
                 detections_msg.detections.append(detection)
-            
-            # 发布检测结果
+    
+            # 循环外部：发布所有检测结果
             self.detections_pub.publish(detections_msg)
-            
+        
             # 转换回ROS图像消息并发布
             result_msg = self.cv_bridge.cv2_to_imgmsg(cv_image, "bgr8")
-            result_msg.header = msg.header  # 保持相同的时间戳和帧ID
+            result_msg.header = msg.header
             self.image_pub.publish(result_msg)
-            
-            # 计算并显示总处理时间
-            # total_time = time() - begin_time
-            # if len(results) > 0:
-            #     self.get_logger().info(f'检测到 {len(results)} 个目标，总处理时间: {total_time*1000:.2f}ms')
-            # else:
-            #     self.get_logger().info(f'未检测到目标，总处理时间: {total_time*1000:.2f}ms')
-                
+        
         except Exception as e:
+            import traceback
             self.get_logger().error(f'处理图像时发生错误: {str(e)}')
+            self.get_logger().error(traceback.format_exc())
 
 def main(args=None):
     rclpy.init(args=args)
