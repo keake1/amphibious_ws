@@ -70,7 +70,7 @@ def generate_launch_description():
         ),
         # Step 2: Launch robot_state_publisher_node after 2 seconds
         TimerAction(
-            period=2.0,
+            period=1.0,
             actions=[robot_state_publisher_node]
         ),
         # Step 3: Launch cartographer_node after 4 seconds
