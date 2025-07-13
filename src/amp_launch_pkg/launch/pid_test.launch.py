@@ -17,33 +17,44 @@ def generate_launch_description():
         )
     )
     target_pub_node = Node(
-            package='pid_controller',
-            executable='target_pub',
-            name='target_pub',
-            parameters=[
-                {'x': 1.0},
-                {'y': 0.0},
-                {'yaw': 0.0}
-            ]
-        )
+        package='pid_controller',
+        executable='target_pub',
+        name='target_pub',
+        parameters=[
+            {'x': -1.0},
+            {'y': 0.0},
+            {'yaw': 0.0}
+        ]
+    )
 
-        control_node = Node(
-            package='pid_controller',
-            executable='control_node',
-            name='control_node'
-        )
+    control_node = Node(
+        package='pid_controller',
+        executable='control_node',
+        name='control_node',
+        parameters=[
+            {'pid_x_kp': 1.0},
+            {'pid_x_ki': 0.0},
+            {'pid_x_kd': 0.005},
+            {'pid_x_dead_zone': 0.05},
+            {'pid_x_max_output': 0.7},
+            {'pid_y_kp': 1.0},
+            {'pid_y_ki': 0.0},
+            {'pid_y_kd': 0.005},
+            {'pid_y_dead_zone': 0.05},
+            {'pid_y_max_output': 0.7},
+            {'pid_yaw_kp': 2.0},
+            {'pid_yaw_ki': 0.0},
+            {'pid_yaw_kd': 0.01},
+            {'pid_yaw_dead_zone': 0.05},
+            {'pid_yaw_max_output': 0.8*5},
+        ]
+    )
 
-        car_driver_node = Node(
-            package='car_driver',
-            executable='car_driver',
-            name='car_driver',
-            parameters=[
-                {'serial_port': '/dev/ttyUSB0'},
-                {'baudrate': 115200},
-                {'motor_type': 2},
-                {'upload_data': 3}
-            ]
-        ),
+    car_driver_node = Node(
+        package='car_driver',
+        executable='car_driver',
+        name='car_driver'
+    )
     return LaunchDescription([
         TimerAction(period = 0.0, actions=[fly_carto_launch]),
         TimerAction(period = 5.0, actions=[target_pub_node]),

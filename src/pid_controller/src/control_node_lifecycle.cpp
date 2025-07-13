@@ -1,4 +1,6 @@
 #include "rclcpp/rclcpp.hpp"
+#include "rclcpp_lifecycle/lifecycle_node.hpp"
+#include "rclcpp_lifecycle/lifecycle_publisher.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "std_msgs/msg/float32_multi_array.hpp"
 #include "tf2_ros/transform_listener.h"
@@ -11,15 +13,18 @@
 #include "amp_interfaces/msg/target_position.hpp"
 #include <cmath>
 
-class ControlNode : public rclcpp::Node {
+using rclcpp_lifecycle::LifecycleNode;
+using rclcpp_lifecycle::LifecyclePublisher;
+using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;
+
+class ControlNode : public LifecycleNode {
 public:
-    ControlNode() : Node("control_node"), 
+    ControlNode() : LifecycleNode("control_node_lifecycle"),
                     tf_buffer_(this->get_clock()),
                     tf_listener_(tf_buffer_),
-                    wheel_radius_(0.04),  // 轮子半径 4cm
-                    wheel_base_(0.21),    // 轮距 21cm
-                    track_width_(0.20) {  // 轴距 20cm
-
+                    wheel_radius_(0.04),
+                    wheel_base_(0.21),
+                    track_width_(0.20) {
         // 声明参数并设置默认值
         this->declare_parameter<double>("pid_x_kp", 0.3);
         this->declare_parameter<double>("pid_x_ki", 0.0);
@@ -39,22 +44,58 @@ public:
         this->declare_parameter<double>("pid_yaw_max_output", 0.8);
         this->declare_parameter<double>("pid_yaw_dead_zone", 0.0);
 
-        // 获取参数并初始化 PID
-        update_pid_params();
-
         target_position_.x = 0.0;
         target_position_.y = 0.0;
         target_position_.yaw = 0.0; 
-        
+    }
+
+    CallbackReturn on_configure(const rclcpp_lifecycle::State &)
+    {
+        update_pid_params();
         target_sub_ = this->create_subscription<amp_interfaces::msg::TargetPosition>(
             "target_position", 10, std::bind(&ControlNode::targetCallback, this, std::placeholders::_1));
-        
+        timer_ = this->create_wall_timer(
+            std::chrono::milliseconds(10),
+            std::bind(&ControlNode::timerCallback, this));
         velocity_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("target_velocity", 10);
         wheel_speeds_pub_ = this->create_publisher<std_msgs::msg::Float32MultiArray>("wheel_speeds", 10);
-        
-        timer_ = this->create_wall_timer(
-            std::chrono::milliseconds(10), 
-            std::bind(&ControlNode::timerCallback, this));
+        return CallbackReturn::SUCCESS;
+    }
+
+    CallbackReturn on_activate(const rclcpp_lifecycle::State &)
+    {
+        velocity_pub_->on_activate();
+        wheel_speeds_pub_->on_activate();
+        RCLCPP_INFO(this->get_logger(), "ControlNode activated.");
+        return CallbackReturn::SUCCESS;
+    }
+
+    CallbackReturn on_deactivate(const rclcpp_lifecycle::State &)
+    {
+        velocity_pub_->on_deactivate();
+        wheel_speeds_pub_->on_deactivate();
+        RCLCPP_INFO(this->get_logger(), "ControlNode deactivated.");
+        return CallbackReturn::SUCCESS;
+    }
+
+    CallbackReturn on_cleanup(const rclcpp_lifecycle::State &)
+    {
+        target_sub_.reset();
+        timer_.reset();
+        velocity_pub_.reset();
+        wheel_speeds_pub_.reset();
+        RCLCPP_INFO(this->get_logger(), "ControlNode cleaned up.");
+        return CallbackReturn::SUCCESS;
+    }
+
+    CallbackReturn on_shutdown(const rclcpp_lifecycle::State &)
+    {
+        target_sub_.reset();
+        timer_.reset();
+        velocity_pub_.reset();
+        wheel_speeds_pub_.reset();
+        RCLCPP_INFO(this->get_logger(), "ControlNode shutdown.");
+        return CallbackReturn::SUCCESS;
     }
 
 private:
@@ -88,6 +129,8 @@ private:
     }
 
     void targetCallback(const amp_interfaces::msg::TargetPosition::SharedPtr msg) {
+        RCLCPP_INFO(this->get_logger(), "Received target position: x=%.2f, y=%.2f, yaw=%.2f",
+                    msg->x, msg->y, msg->yaw);
         target_position_ = *msg;
     }
 
@@ -164,8 +207,8 @@ private:
     double wheel_base_;
     double track_width_;
     rclcpp::Subscription<amp_interfaces::msg::TargetPosition>::SharedPtr target_sub_;
-    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr velocity_pub_;
-    rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr wheel_speeds_pub_;
+    std::shared_ptr<LifecyclePublisher<geometry_msgs::msg::Twist>> velocity_pub_;
+    std::shared_ptr<LifecyclePublisher<std_msgs::msg::Float32MultiArray>> wheel_speeds_pub_;
     rclcpp::TimerBase::SharedPtr timer_;
     amp_interfaces::msg::TargetPosition target_position_;
     geometry_msgs::msg::Point current_position_;
@@ -174,7 +217,8 @@ private:
 
 int main(int argc, char **argv) {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<ControlNode>());
+    auto node = std::make_shared<ControlNode>();
+    rclcpp::spin(node->get_node_base_interface());
     rclcpp::shutdown();
     return 0;
 }

@@ -8,8 +8,8 @@ using namespace std::chrono_literals;
 class TargetPublisher : public rclcpp::Node {
 public:
   TargetPublisher() : Node("target_pub") {
-    this->declare_parameter("x", 1.0);
-    this->declare_parameter("y", 0.0);
+    this->declare_parameter("x", 0.0);
+    this->declare_parameter("y", 1.0);
     this->declare_parameter("yaw", 0.0);
 
     pub_ = this->create_publisher<amp_interfaces::msg::TargetPosition>("/target_position", 10);

@@ -15,7 +15,7 @@ using namespace std::chrono_literals;
 class CarDriver : public rclcpp::Node {
 public:
   CarDriver() : Node("car_driver"), io_(), serial_(io_) {
-    this->declare_parameter("serial_port", "/dev/ttyUSB0");
+    this->declare_parameter("serial_port", "/dev/car_serial");
     this->declare_parameter("baudrate", 115200);
     this->declare_parameter("motor_type", 2);
     this->declare_parameter("upload_data", 3);
@@ -172,10 +172,10 @@ private:
   }
   void wheel_speeds_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg) {
     if (msg->data.size() >= 4) {
-      int m1 = static_cast<int>(msg->data[0]);
-      int m2 = static_cast<int>(msg->data[1]);
-      int m3 = static_cast<int>(msg->data[2]);
-      int m4 = static_cast<int>(msg->data[3]);
+      int m1 = static_cast<int>(msg->data[0] * 1000);
+      int m2 = static_cast<int>(msg->data[1] * 1000);
+      int m3 = static_cast<int>(msg->data[2] * 1000);
+      int m4 = static_cast<int>(msg->data[3] * 1000);
       if (motor_type_ == 4) control_pwm(m1, m2, m3, m4);
       else control_speed(-m1, -m2, -m3, -m4);
     }
