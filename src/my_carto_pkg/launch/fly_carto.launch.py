@@ -75,7 +75,7 @@ def generate_launch_description():
         ),
         # Step 3: Launch cartographer_node after 4 seconds
         TimerAction(
-            period=3.0,
+            period=5.0,
             actions=[cartographer_node]
         ),
     ])

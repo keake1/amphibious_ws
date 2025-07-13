@@ -9,7 +9,7 @@
 
 class RescueTaskNode : public rclcpp::Node {
 public:
-    RescueTaskNode() : Node("rescue_task"), tf_buffer_(this->get_clock()), tf_listener_(tf_buffer_) {
+    RescueTaskNode() : Node("rescue_task_test"), tf_buffer_(this->get_clock()), tf_listener_(tf_buffer_) {
         lifecycle_cmd_pub_ = this->create_publisher<std_msgs::msg::String>("/lifecycle_switch_cmd", 10);
         target_pub_ = this->create_publisher<amp_interfaces::msg::TargetPosition>("/target_position", 10);
         tf_timer_ = this->create_wall_timer(std::chrono::milliseconds(100), std::bind(&RescueTaskNode::tf_callback, this));
