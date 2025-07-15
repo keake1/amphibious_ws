@@ -17,6 +17,8 @@ public:
 
         // 两个节点的ChangeState客户端
         client_control_ = this->create_client<lifecycle_msgs::srv::ChangeState>("/control_node_lifecycle/change_state");
+        client_camera_ = this->create_client<lifecycle_msgs::srv::ChangeState>("/camera_pub_lifecycle/change_state");
+        client_temp_ = this->create_client<lifecycle_msgs::srv::ChangeState>("/temp_cam_driver_lifecycle/change_state");
         // 启动时先将两个节点configure
         this->declare_parameter("startup_delay_ms", 500);
         int delay = this->get_parameter("startup_delay_ms").as_int();
@@ -25,6 +27,10 @@ public:
             [this]() {
                 this->startup_timer_->cancel();
                 this->change_state(client_control_, lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE, "control_node_lifecycle");
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+                this->change_state(client_camera_, lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE, "camera_pub_lifecycle");
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+                this->change_state(client_temp_, lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE, "temp_cam_driver_lifecycle");
             }
         );
     }
@@ -32,6 +38,8 @@ public:
 private:
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr cmd_sub_;
     rclcpp::Client<lifecycle_msgs::srv::ChangeState>::SharedPtr client_control_;
+    rclcpp::Client<lifecycle_msgs::srv::ChangeState>::SharedPtr client_camera_;
+    rclcpp::Client<lifecycle_msgs::srv::ChangeState>::SharedPtr client_temp_;
 
     rclcpp::TimerBase::SharedPtr startup_timer_;
 
@@ -65,11 +73,15 @@ private:
         {
             RCLCPP_INFO(this->get_logger(), "Activating control_node_lifecycle nodes...");
             change_state(client_control_, lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE, "control_node_lifecycle");
+            change_state(client_camera_, lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE, "camera_pub_lifecycle");
+            change_state(client_temp_, lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE, "temp_cam_driver_lifecycle");
         } 
         else if (msg->data == "fly_mode_on") 
         {
             RCLCPP_INFO(this->get_logger(), "Deactivating control_node_lifecycle nodes...");
             change_state(client_control_, lifecycle_msgs::msg::Transition::TRANSITION_DEACTIVATE, "control_node_lifecycle");
+            change_state(client_camera_, lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE, "camera_pub_lifecycle");
+            change_state(client_temp_, lifecycle_msgs::msg::Transition::TRANSITION_ACTIVATE, "temp_cam_driver_lifecycle");
         }
     }
 };

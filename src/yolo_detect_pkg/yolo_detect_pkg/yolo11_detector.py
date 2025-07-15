@@ -30,6 +30,7 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
+from geometry_msgs.msg import Point
 
 # 日志模块配置
 # logging configs
@@ -61,6 +62,7 @@ class Yolo11DetectorNode(Node):
             10
         )
         self.detected_image_pub_ = self.create_publisher(Image, 'camera0/detected_image', 10)
+        self.person_position_pub_ = self.create_publisher(Point, 'camera0/person_position', 10)
         self.get_logger().info('YOLO11 Detector Node 已启动，等待图像消息...')
 
     def get_opt(self):
@@ -81,9 +83,20 @@ class Yolo11DetectorNode(Node):
         input_tensor = self.model.preprocess_yuv420sp(img)
         outputs = self.model.c2numpy(self.model.forward(input_tensor))
         results = self.model.postProcess(outputs)
+        person_count = 0
         for class_id, score, x1, y1, x2, y2 in results:
-            draw_detection(img, (x1, y1, x2, y2), score, class_id)
-        self.get_logger().info(f'检测到 {len(results)} 个目标')
+            if class_id == 0:  # 只识别人
+                draw_detection(img, (x1, y1, x2, y2), score, class_id)
+                # 计算人的中心点
+                cx = int((x1 + x2) / 2)
+                cy = int((y1 + y2) / 2)
+                point_msg = Point()
+                point_msg.x = cx
+                point_msg.y = cy
+                point_msg.z = 0.0
+                self.person_position_pub_.publish(point_msg)
+                person_count += 1
+        self.get_logger().info(f'检测到 {person_count} 个目标')
         # 发布识别结果图像
         detected_msg = self.bridge.cv2_to_imgmsg(img, encoding='bgr8')
         detected_msg.header = msg.header
