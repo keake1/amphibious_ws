@@ -95,7 +95,7 @@ private:
 
         // 创建模式切换消息订阅者
         mode_sub_ = this->create_subscription<std_msgs::msg::String>(
-            "/mode_switch", 10, 
+            "/lifecycle_switch_cmd", 10, 
             std::bind(&SerialComNode::mode_switch_callback, this, std::placeholders::_1));
         
         // 创建模式切换消息发布者

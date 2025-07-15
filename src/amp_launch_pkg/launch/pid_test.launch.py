@@ -21,8 +21,8 @@ def generate_launch_description():
         executable='target_pub',
         name='target_pub',
         parameters=[
-            {'x': -1.0},
-            {'y': 0.0},
+            {'x': 0.0},
+            {'y': 1.88},
             {'yaw': 0.0}
         ]
     )

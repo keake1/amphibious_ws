@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(activity_controller)
+project(temp_cam_pkg)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -8,17 +8,13 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_lifecycle REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(amp_interfaces REQUIRED)
-find_package(tf2_ros REQUIRED)
 
-add_executable(rescue_task_test src/rescue_task_test.cpp)
-ament_target_dependencies(rescue_task_test rclcpp std_msgs amp_interfaces tf2_ros)
+add_executable(temp_cam_driver_lifecycle src/temp_cam_driver_lifecycle.cpp)
+ament_target_dependencies(temp_cam_driver_lifecycle rclcpp rclcpp_lifecycle std_msgs)
 
-add_executable(rescue_task_test2 src/rescue_task_test2.cpp)
-ament_target_dependencies(rescue_task_test2 rclcpp std_msgs amp_interfaces tf2_ros)
-
-install(TARGETS rescue_task_test rescue_task_test2
+install(TARGETS temp_cam_driver_lifecycle
   DESTINATION lib/${PROJECT_NAME}
 )
 

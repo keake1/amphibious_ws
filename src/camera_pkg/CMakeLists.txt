@@ -27,7 +27,11 @@ add_executable(camera_pub_lifecycle src/camera_pub_lifecycle.cpp)
 ament_target_dependencies(camera_pub_lifecycle rclcpp sensor_msgs cv_bridge OpenCV rclcpp_lifecycle)
 target_link_libraries(camera_pub_lifecycle ${OpenCV_LIBS})
 
-install(TARGETS camera_pub camera_pub_lifecycle
+add_executable(fov_measure src/fov_measure.cpp)
+ament_target_dependencies(fov_measure rclcpp sensor_msgs cv_bridge std_msgs)
+target_link_libraries(fov_measure ${OpenCV_LIBS} ${ZBAR_LIBRARIES})
+
+install(TARGETS camera_pub camera_pub_lifecycle fov_measure
   DESTINATION lib/${PROJECT_NAME}
 )
 

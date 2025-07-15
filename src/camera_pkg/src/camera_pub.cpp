@@ -14,7 +14,7 @@ public:
         cap0_.open(0,cv::CAP_V4L2);
         // 新增：设置分辨率、帧率、像素格式
         cap0_.set(cv::CAP_PROP_FRAME_WIDTH, 640);
-        cap0_.set(cv::CAP_PROP_FRAME_HEIGHT, 480);
+        cap0_.set(cv::CAP_PROP_FRAME_HEIGHT, 640);
         cap0_.set(cv::CAP_PROP_FPS, 25);
         cap0_.set(cv::CAP_PROP_FOURCC, cv::VideoWriter::fourcc('Y','U','Y','V'));
         if (!cap0_.isOpened()) {

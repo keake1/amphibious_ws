@@ -32,9 +32,9 @@ def generate_launch_description():
             {'pid_y_kd': 0.0},
             {'pid_y_dead_zone': 0.05},
             {'pid_y_max_output': 0.8},
-            {'pid_yaw_kp': 2.0},
+            {'pid_yaw_kp': 1.5},
             {'pid_yaw_ki': 0.0},
-            {'pid_yaw_kd': 0.05},
+            {'pid_yaw_kd': 0.01},
             {'pid_yaw_dead_zone': 0.05},
             {'pid_yaw_max_output': 0.8*5},
         ]
@@ -54,12 +54,18 @@ def generate_launch_description():
 
     rescue_task_node = Node(
         package='activity_controller',
-        executable='rescue_task_test',
-        name='rescue_task_test'
+        executable='rescue_task_test2',
+        name='rescue_task_test2'
     )
 
+    com_node = Node(
+        package='com_pkg',
+        executable='com_amp',
+        name='com_amp',
+    )
     return LaunchDescription([
         TimerAction(period = 0.0, actions=[fly_carto_launch]),
+        TimerAction(period = 8.0, actions=[com_node]),
         TimerAction(period = 10.0, actions=[control_node]),
         TimerAction(period = 11.0, actions=[car_driver_node]),
         TimerAction(period = 12.0, actions=[lifecycle_contoller_node]),
