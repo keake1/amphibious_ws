@@ -10,6 +10,7 @@
 #include <array>
 #include <std_msgs/msg/string.hpp>
 #include <std_msgs/msg/int32.hpp>
+#include <std_msgs/msg/float32.hpp>
 
 using namespace boost::asio;
 using namespace std::chrono_literals;
@@ -105,6 +106,16 @@ private:
         // 创建高度数据发布者
         height_pub_ = this->create_publisher<std_msgs::msg::Int32>(
             "/vehicle_height", 10);
+        
+        // 创建温度数据订阅者
+        temperature_sub_ = this->create_subscription<std_msgs::msg::Float32>(
+            "/temperature", 10,
+            std::bind(&SerialComNode::temperature_callback, this, std::placeholders::_1));
+        
+        // 创建人员坐标订阅者
+        person_pos_sub_ = this->create_subscription<geometry_msgs::msg::Point>(
+            "/camera0/person_position", 10,
+            std::bind(&SerialComNode::person_position_callback, this, std::placeholders::_1));
         
         RCLCPP_INFO(this->get_logger(), "订阅话题: /tracked_pose");
         RCLCPP_INFO(this->get_logger(), "发布话题: /mode_switch");
@@ -439,6 +450,17 @@ private:
         if (msg->data == "fly_mode_on") send_serial_data(0x00, std::vector<uint8_t>{0x01});
     }
 
+    // 温度数据回调函数（以int16_t格式传输）
+    void temperature_callback(const std_msgs::msg::Float32::SharedPtr msg)
+    {
+        float temperature = msg->data;
+        int16_t temp_int = static_cast<int16_t>(temperature); // 保留两位小数
+        std::vector<uint8_t> payload;
+        append_to_data(payload, temp_int); // 以int16_t格式传输
+        send_serial_data(0x10, payload); // type=0x10
+        RCLCPP_DEBUG(this->get_logger(), "发送温度数据: %.2f °C (int16=%d)", temperature, temp_int);
+    }
+
     // 发送速度信息
     void send_velocity_data(const geometry_msgs::msg::Twist& twist)
     {
@@ -453,6 +475,17 @@ private:
         
         RCLCPP_DEBUG(this->get_logger(), "发送速度数据: vx=%d cm/s, vy=%d cm/s", vx, vy);
     }
+
+    // 人员坐标聚合结构体
+    struct PersonAggregator {
+        std::vector<std::pair<float, float>> samples; // 坐标样本
+        float avg_x = 0.0f;
+        float avg_y = 0.0f;
+        bool ready = false;
+    };
+
+    // 人员聚合列表
+    std::vector<PersonAggregator> persons_;
 
     // 成员变量
     std::string serial_port_name_; // 串口名称
@@ -492,6 +525,86 @@ private:
 
     // 高度数据发布者
     rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr height_pub_;
+
+    // 温度数据订阅者
+    rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr temperature_sub_;
+
+    // 人员坐标订阅者
+    rclcpp::Subscription<geometry_msgs::msg::Point>::SharedPtr person_pos_sub_;
+    
+    // 人员坐标回调
+    void person_position_callback(const geometry_msgs::msg::Point::SharedPtr msg)
+    {
+        float x = msg->x;
+        float y = msg->y;
+        const float merge_dist = 0.2f; // 20cm
+        const int min_samples = 10;
+        const int max_persons = 3;
+
+        // 初始化聚合器
+        if (persons_.empty()) persons_.resize(max_persons);
+
+        // 尝试归类到已有人员
+        bool merged = false;
+        for (auto& person : persons_) {
+            if (!person.samples.empty()) {
+                float dx = x - person.avg_x;
+                float dy = y - person.avg_y;
+                if (std::sqrt(dx*dx + dy*dy) < merge_dist) {
+                    person.samples.emplace_back(x, y);
+                    if (person.samples.size() >= min_samples && !person.ready) {
+                        float sum_x = 0, sum_y = 0;
+                        for (auto& s : person.samples) { sum_x += s.first; sum_y += s.second; }
+                        person.avg_x = sum_x / person.samples.size();
+                        person.avg_y = sum_y / person.samples.size();
+                        person.ready = true;
+                    } else if (!person.ready) {
+                        float sum_x = 0, sum_y = 0;
+                        for (auto& s : person.samples) { sum_x += s.first; sum_y += s.second; }
+                        person.avg_x = sum_x / person.samples.size();
+                        person.avg_y = sum_y / person.samples.size();
+                    }
+                    merged = true;
+                    break;
+                }
+            }
+        }
+        // 如果没有归类，且还有空位，则新建一个
+        if (!merged) {
+            for (auto& person : persons_) {
+                if (person.samples.empty()) {
+                    person.samples.emplace_back(x, y);
+                    person.avg_x = x;
+                    person.avg_y = y;
+                    break;
+                }
+            }
+        }
+        // 检查是否三人都ready
+        int ready_count = 0;
+        for (auto& person : persons_) {
+            if (person.ready) ready_count++;
+        }
+        if (ready_count == max_persons) {
+            std::vector<uint8_t> payload;
+            for (auto& person : persons_) {
+                int16_t x_int = static_cast<int16_t>(person.avg_x * 100);
+                int16_t y_int = static_cast<int16_t>(person.avg_y * 100);
+                append_to_data(payload, x_int);
+                append_to_data(payload, y_int);
+            }
+            send_serial_data(0x11, payload); // type=0x11
+            RCLCPP_INFO(this->get_logger(), "三人坐标已聚合并发送: (%d,%d), (%d,%d), (%d,%d)",
+                static_cast<int>(persons_[0].avg_x*100), static_cast<int>(persons_[0].avg_y*100),
+                static_cast<int>(persons_[1].avg_x*100), static_cast<int>(persons_[1].avg_y*100),
+                static_cast<int>(persons_[2].avg_x*100), static_cast<int>(persons_[2].avg_y*100));
+            // 清空聚合器，准备下一轮
+            for (auto& person : persons_) {
+                person.samples.clear();
+                person.ready = false;
+            }
+        }
+    }
 };
 
 int main(int argc, char* argv[])
