@@ -31,7 +31,10 @@ add_executable(fov_measure src/fov_measure.cpp)
 ament_target_dependencies(fov_measure rclcpp sensor_msgs cv_bridge std_msgs)
 target_link_libraries(fov_measure ${OpenCV_LIBS} ${ZBAR_LIBRARIES})
 
-install(TARGETS camera_pub camera_pub_lifecycle fov_measure
+add_executable(people_locate src/people_locate.cpp)
+ament_target_dependencies(people_locate rclcpp geometry_msgs tf2_ros std_msgs)
+
+install(TARGETS camera_pub camera_pub_lifecycle fov_measure people_locate
   DESTINATION lib/${PROJECT_NAME}
 )
 

@@ -70,7 +70,7 @@ class Yolo11DetectorNode(Node):
             model_path = '/home/sunrise/amphibious_ws/src/yolo_detect_pkg/models/yolo11m_detect_bayese_640x640_nv12_modified.bin'
             classes_num = 80
             nms_thres = 0.7
-            score_thres = 0.6
+            score_thres = 0.3
             reg = 16
         return Opt()
 
@@ -88,15 +88,15 @@ class Yolo11DetectorNode(Node):
             if class_id == 0:  # 只识别人
                 draw_detection(img, (x1, y1, x2, y2), score, class_id)
                 # 计算人的中心点
-                cx = int((x1 + x2) / 2)
-                cy = int((y1 + y2) / 2)
+                cx = float((x1 + x2) / 2)
+                cy = float((y1 + y2) / 2)
                 point_msg = Point()
                 point_msg.x = cx
                 point_msg.y = cy
                 point_msg.z = 0.0
                 self.person_position_pub_.publish(point_msg)
                 person_count += 1
-        self.get_logger().info(f'检测到 {person_count} 个目标')
+        # self.get_logger().info(f'检测到 {person_count} 个目标')
         # 发布识别结果图像
         detected_msg = self.bridge.cv2_to_imgmsg(img, encoding='bgr8')
         detected_msg.header = msg.header
@@ -166,7 +166,7 @@ class YOLO11_Detect():
         RESIZE_TYPE = 0
         LETTERBOX_TYPE = 1
         PREPROCESS_TYPE = LETTERBOX_TYPE
-        logger.info(f"PREPROCESS_TYPE = {PREPROCESS_TYPE}")
+        # logger.info(f"PREPROCESS_TYPE = {PREPROCESS_TYPE}")
 
         begin_time = time()
         self.img_h, self.img_w = img.shape[0:2]
@@ -179,7 +179,7 @@ class YOLO11_Detect():
             self.x_scale = 1.0 * self.input_W / self.img_w
             self.y_shift = 0
             self.x_shift = 0
-            logger.info("\033[1;31m" + f"pre process(resize) time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
+            # logger.info("\033[1;31m" + f"pre process(resize) time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
         elif PREPROCESS_TYPE == LETTERBOX_TYPE:
             # 利用 letter box 的方式进行前处理, 准备nv12的输入数据
             begin_time = time()
@@ -200,14 +200,14 @@ class YOLO11_Detect():
             input_tensor = cv2.resize(img, (new_w, new_h))
             input_tensor = cv2.copyMakeBorder(input_tensor, self.y_shift, y_other, self.x_shift, x_other, cv2.BORDER_CONSTANT, value=[127, 127, 127])
             input_tensor = self.bgr2nv12(input_tensor)
-            logger.info("\033[1;31m" + f"pre process(letter box) time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
+            # logger.info("\033[1;31m" + f"pre process(letter box) time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
         else:
-            logger.error(f"illegal PREPROCESS_TYPE = {PREPROCESS_TYPE}")
+            # logger.error(f"illegal PREPROCESS_TYPE = {PREPROCESS_TYPE}")
             exit(-1)
 
-        logger.debug("\033[1;31m" + f"pre process time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
-        logger.info(f"y_scale = {self.y_scale:.2f}, x_scale = {self.x_scale:.2f}")
-        logger.info(f"y_shift = {self.y_shift:.2f}, x_shift = {self.x_shift:.2f}")
+        # logger.debug("\033[1;31m" + f"pre process time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
+        # logger.info(f"y_scale = {self.y_scale:.2f}, x_scale = {self.x_scale:.2f}")
+        # logger.info(f"y_shift = {self.y_shift:.2f}, x_shift = {self.x_shift:.2f}")
         return input_tensor
 
     def bgr2nv12(self, bgr_img):
