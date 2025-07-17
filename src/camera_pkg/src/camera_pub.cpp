@@ -32,10 +32,9 @@ public:
 private:
     void timer_callback()
     {
-        cv::Mat frame0, resized0;
+        cv::Mat frame0;
         if (cap0_.read(frame0)) {
-            cv::resize(frame0, resized0, cv::Size(640, 480));
-            auto msg0 = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", resized0).toImageMsg();
+            auto msg0 = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", frame0).toImageMsg();
             msg0->header.stamp = this->now();
             pub_cam0_->publish(*msg0);
         }

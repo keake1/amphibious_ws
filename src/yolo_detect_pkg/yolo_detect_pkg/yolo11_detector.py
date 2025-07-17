@@ -67,7 +67,7 @@ class Yolo11DetectorNode(Node):
 
     def get_opt(self):
         class Opt:
-            model_path = '/home/sunrise/amphibious_ws/src/yolo_detect_pkg/models/yolo11m_detect_bayese_640x640_nv12_modified.bin'
+            model_path = '/home/sunrise/amphibious_ws/src/yolo_detect_pkg/models/yolo11s_detect_bayese_640x640_nv12_modified.bin'
             classes_num = 80
             nms_thres = 0.7
             score_thres = 0.3
