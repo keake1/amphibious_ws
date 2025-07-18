@@ -221,19 +221,19 @@ class YOLO11_Detect():
         nv12 = np.zeros_like(yuv420p)
         nv12[:height * width] = y
         nv12[height * width:] = uv_packed
-        logger.debug("\033[1;31m" + f"bgr8 to nv12 time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
+        # logger.debug("\033[1;31m" + f"bgr8 to nv12 time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
         return nv12
 
     def forward(self, input_tensor):
         begin_time = time()
         quantize_outputs = self.quantize_model[0].forward(input_tensor)
-        logger.debug("\033[1;31m" + f"forward time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
+        # logger.debug("\033[1;31m" + f"forward time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
         return quantize_outputs
 
     def c2numpy(self, outputs):
         begin_time = time()
         outputs = [dnnTensor.buffer for dnnTensor in outputs]
-        logger.debug("\033[1;31m" + f"c to numpy time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
+        # logger.debug("\033[1;31m" + f"c to numpy time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
         return outputs
 
     def postProcess(self, outputs):
@@ -328,7 +328,7 @@ class YOLO11_Detect():
 
                 results.append((i, scores[id_indices][indic], x1, y1, x2, y2))
 
-        logger.debug("\033[1;31m" + f"Post Process time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
+        # logger.debug("\033[1;31m" + f"Post Process time = {1000*(time() - begin_time):.2f} ms" + "\033[0m")
 
         return results
 

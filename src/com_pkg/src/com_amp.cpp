@@ -11,6 +11,7 @@
 #include <std_msgs/msg/string.hpp>
 #include <std_msgs/msg/int32.hpp>
 #include <std_msgs/msg/float32.hpp>
+#include <std_msgs/msg/float32_multi_array.hpp>
 
 using namespace boost::asio;
 using namespace std::chrono_literals;
@@ -116,6 +117,10 @@ private:
         person_pos_sub_ = this->create_subscription<geometry_msgs::msg::Point>(
             "/camera0/person_position", 10,
             std::bind(&SerialComNode::person_position_callback, this, std::placeholders::_1));
+        
+        // 创建人员坐标发布者
+        temp_pos_pub_ = this->create_publisher<std_msgs::msg::Float32MultiArray>(
+            "/temp_person_positions", 10);
         
         RCLCPP_INFO(this->get_logger(), "订阅话题: /tracked_pose");
         RCLCPP_INFO(this->get_logger(), "发布话题: /mode_switch");
@@ -255,13 +260,36 @@ private:
                     RCLCPP_WARN(this->get_logger(), "高度数据长度不足: %zu", data.size());
                 }
                 break;
-                
+            case 0x02:  // 温度坐标数据
+                if (data.size() == 9) {
+                    process_temperature_position(data);
+                } else {
+                    RCLCPP_WARN(this->get_logger(), "温度坐标数据长度错误: %zu", data.size());
+                }
+                break;
             default:
                 RCLCPP_INFO(this->get_logger(), "未知数据类型: 0x%02X", type);
                 break;
         }
     }
+    void process_temperature_position(const std::vector<uint8_t>& data)
+    {
+        float x = 0.0f, y = 0.0f;
+        std::memcpy(&x, data.data(), 4);
+        std::memcpy(&y, data.data() + 4, 4);
+        uint8_t temp_flag = data[8];
 
+        std_msgs::msg::Float32MultiArray msg;
+        msg.data.resize(3);
+        msg.data[0] = x;
+        msg.data[1] = y;
+        msg.data[2] = static_cast<float>(temp_flag);
+
+        temp_pos_pub_->publish(msg);
+
+        RCLCPP_INFO(this->get_logger(), "发布温度坐标: x=%.2f, y=%.2f, 高温=%s",
+            x, y, temp_flag == 0x01 ? "是" : "否");
+    }
     // 添加处理模式切换命令的方法
     void process_mode_command(uint8_t mode_command)
     {
@@ -531,6 +559,9 @@ private:
 
     // 人员坐标订阅者
     rclcpp::Subscription<geometry_msgs::msg::Point>::SharedPtr person_pos_sub_;
+
+    // 人员坐标发布者
+    rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr temp_pos_pub_;
     
     // 人员坐标回调
     void person_position_callback(const geometry_msgs::msg::Point::SharedPtr msg)

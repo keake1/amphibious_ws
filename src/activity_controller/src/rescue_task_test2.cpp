@@ -78,7 +78,7 @@ private:
             }
             case 1: {
                 // 等待1s
-                if ((now - last_time_).seconds() >= 1.0) {
+                if ((now - last_time_).seconds() >= 5.0) {
                     amp_interfaces::msg::TargetPosition target;
                     target.x = target1_.x;
                     target.y = target1_.y;
