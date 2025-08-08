@@ -281,8 +281,8 @@ private:
 
         std_msgs::msg::Float32MultiArray msg;
         msg.data.resize(3);
-        msg.data[0] = x;
-        msg.data[1] = y;
+        msg.data[0] = x/100.0;
+        msg.data[1] = y/100.0;
         msg.data[2] = static_cast<float>(temp_flag);
 
         temp_pos_pub_->publish(msg);

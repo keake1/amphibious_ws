@@ -22,7 +22,7 @@ def generate_launch_description():
         name='target_pub',
         parameters=[
             {'x': 0.0},
-            {'y': 1.88},
+            {'y': 1.2},
             {'yaw': 0.0}
         ]
     )
@@ -32,17 +32,17 @@ def generate_launch_description():
         executable='control_node',
         name='control_node',
         parameters=[
-            {'pid_x_kp': 1.0},
-            {'pid_x_ki': 0.0},
-            {'pid_x_kd': 0.005},
+            {'pid_x_kp': 0.8},
+            {'pid_x_ki': 0.03},
+            {'pid_x_kd': 0.0},
             {'pid_x_dead_zone': 0.05},
-            {'pid_x_max_output': 0.7},
-            {'pid_y_kp': 1.0},
-            {'pid_y_ki': 0.0},
-            {'pid_y_kd': 0.005},
+            {'pid_x_max_output': 0.6},
+            {'pid_y_kp': 0.8},
+            {'pid_y_ki': 0.03},
+            {'pid_y_kd': 0.0},
             {'pid_y_dead_zone': 0.05},
-            {'pid_y_max_output': 0.7},
-            {'pid_yaw_kp': 2.0},
+            {'pid_y_max_output': 0.6},
+            {'pid_yaw_kp': 1.5},
             {'pid_yaw_ki': 0.0},
             {'pid_yaw_kd': 0.01},
             {'pid_yaw_dead_zone': 0.05},

@@ -8,10 +8,10 @@ def generate_launch_description():
             executable='wheel_speeds_pub',
             name='wheel_speeds_pub',
             parameters=[
-                {'m1_speed': 500.0},
-                {'m2_speed': 500.0},
-                {'m3_speed': 500.0},
-                {'m4_speed': 500.0}
+                {'m1_speed': 0.5},
+                {'m2_speed': 0.5},
+                {'m3_speed': 0.5},
+                {'m4_speed': 0.5}
             ]
         ),
         Node(

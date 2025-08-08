@@ -67,11 +67,11 @@ class Yolo11DetectorNode(Node):
 
     def get_opt(self):
         class Opt:
-            model_path = '/home/sunrise/amphibious_ws/src/yolo_detect_pkg/models/yolo11s_detect_bayese_640x640_nv12_modified.bin'
-            classes_num = 80
-            nms_thres = 0.7
+            model_path = '/home/sunrise/amphibious_ws/src/yolo_detect_pkg/models/yolo11m_detect_bayese_640x640_nv12_modified.bin'
+            nms_thres = 0.25
             score_thres = 0.3
             reg = 16
+            classes_num = 80
         return Opt()
 
     def image_callback(self, msg):
@@ -342,6 +342,7 @@ coco_names = [
     "dining table", "toilet", "tv", "laptop", "mouse", "remote", "keyboard", "cell phone", "microwave", "oven", 
     "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors", "teddy bear", "hair drier", "toothbrush"
     ]
+
 
 rdk_colors = [
     (56, 56, 255), (151, 157, 255), (31, 112, 255), (29, 178, 255),(49, 210, 207), (10, 249, 72), (23, 204, 146), (134, 219, 61),

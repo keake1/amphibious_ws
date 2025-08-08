@@ -149,7 +149,7 @@ private:
     } else if (motor_type_ == 2) {
       set_motor_type(2); std::this_thread::sleep_for(std::chrono::milliseconds(100));
       set_pluse_phase(20); std::this_thread::sleep_for(std::chrono::milliseconds(100));
-      set_pluse_line(500); std::this_thread::sleep_for(std::chrono::milliseconds(100));
+      set_pluse_line(13); std::this_thread::sleep_for(std::chrono::milliseconds(100));
       set_wheel_dis(80.00); std::this_thread::sleep_for(std::chrono::milliseconds(100));
       set_motor_deadzone(1300); std::this_thread::sleep_for(std::chrono::milliseconds(100));
     } else if (motor_type_ == 3) {
@@ -177,7 +177,7 @@ private:
       int m3 = static_cast<int>(msg->data[2] * 1000);
       int m4 = static_cast<int>(msg->data[3] * 1000);
       if (motor_type_ == 4) control_pwm(m1, m2, m3, m4);
-      else control_speed(-m1, -m2, -m3, -m4);
+      else control_speed(m1, m2, m3, m4);
     }
   }
 

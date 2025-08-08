@@ -24,8 +24,8 @@ private:
     msg.y = this->get_parameter("y").as_double();
     msg.yaw = this->get_parameter("yaw").as_double();
     pub_->publish(msg);
-    RCLCPP_INFO(this->get_logger(), "Published target_position: x=%.2f, y=%.2f, yaw=%.2f",
-                msg.x, msg.y, msg.yaw);
+    // RCLCPP_INFO(this->get_logger(), "Published target_position: x=%.2f, y=%.2f, yaw=%.2f",
+    //             msg.x, msg.y, msg.yaw);
   }
 
   rclcpp::Publisher<amp_interfaces::msg::TargetPosition>::SharedPtr pub_;
