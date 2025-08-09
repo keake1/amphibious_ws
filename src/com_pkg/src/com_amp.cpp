@@ -126,7 +126,13 @@ private:
         temp_pos_pub_ = this->create_publisher<std_msgs::msg::Float32MultiArray>(
             "/temp_person_positions", 10);
         
+        // 创建舵机命令订阅者
+        duoji_cmd_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/duoji_cmd", 10,
+            std::bind(&SerialComNode::duoji_cmd_callback, this, std::placeholders::_1));
+        
         RCLCPP_INFO(this->get_logger(), "订阅话题: /tracked_pose");
+        RCLCPP_INFO(this->get_logger(), "订阅话题: /duoji_cmd");
         RCLCPP_INFO(this->get_logger(), "发布话题: /mode_switch");
         RCLCPP_INFO(this->get_logger(), "发布话题: /vehicle_height");
         RCLCPP_INFO(this->get_logger(), "发布话题: /voltage");
@@ -528,6 +534,17 @@ private:
         RCLCPP_DEBUG(this->get_logger(), "发送温度数据: %.2f °C (int16=%d)", temperature, temp_int);
     }
 
+    // 舵机命令回调函数
+    void duoji_cmd_callback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        RCLCPP_INFO(this->get_logger(), "收到舵机命令: %s", msg->data.c_str());
+        if (msg->data == "duoji_on") {
+            std::vector<uint8_t> payload{0x01}; // 发送一个字节的0x01
+            send_serial_data(0x12, payload); // type=0x12
+            RCLCPP_INFO(this->get_logger(), "发送舵机开启命令 (type=0x12, data=0x01)");
+        }
+    }
+
     // 发送速度信息
     void send_velocity_data(const geometry_msgs::msg::Twist& twist)
     {
@@ -604,6 +621,9 @@ private:
 
     // 人员坐标发布者
     rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr temp_pos_pub_;
+    
+    // 舵机命令订阅者
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr duoji_cmd_sub_;
     
     // 人员坐标回调
     void person_position_callback(const geometry_msgs::msg::Point::SharedPtr msg)
