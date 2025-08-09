@@ -153,7 +153,7 @@ int main(int argc, char *argv[])
     
     try
     {
-        auto node = std::make_shared<ThermalCameraNode>("/dev/ttyUSB0"); // 替换为实际的串口名称
+        auto node = std::make_shared<ThermalCameraNode>("/dev/thermal_cam"); // 替换为实际的串口名称
         rclcpp::spin(node);
     }
     catch (const std::exception &e)

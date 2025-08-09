@@ -108,6 +108,10 @@ private:
         height_pub_ = this->create_publisher<std_msgs::msg::Int32>(
             "/vehicle_height", 10);
         
+        // 创建电压数据发布者
+        voltage_pub_ = this->create_publisher<std_msgs::msg::Float32>(
+            "/voltage", 10);
+        
         // 创建温度数据订阅者
         temperature_sub_ = this->create_subscription<std_msgs::msg::Float32>(
             "/temperature", 10,
@@ -125,6 +129,7 @@ private:
         RCLCPP_INFO(this->get_logger(), "订阅话题: /tracked_pose");
         RCLCPP_INFO(this->get_logger(), "发布话题: /mode_switch");
         RCLCPP_INFO(this->get_logger(), "发布话题: /vehicle_height");
+        RCLCPP_INFO(this->get_logger(), "发布话题: /voltage");
         
     }
 
@@ -267,6 +272,17 @@ private:
                     RCLCPP_WARN(this->get_logger(), "温度坐标数据长度错误: %zu", data.size());
                 }
                 break;
+            case 0x03:
+                if (data.size() == 2){
+                    process_voltage_data(data);
+                } else {
+                    RCLCPP_WARN(this->get_logger(), "电压数据长度错误: %zu", data.size());
+                }
+                break;
+            case 0x04:
+                if (data.size() >= 1) {
+                    process_mode_command(data[0]);
+                }
             default:
                 RCLCPP_INFO(this->get_logger(), "未知数据类型: 0x%02X", type);
                 break;
@@ -290,6 +306,29 @@ private:
         RCLCPP_INFO(this->get_logger(), "发布温度坐标: x=%.2f, y=%.2f, 高温=%s",
             x, y, temp_flag == 0x01 ? "是" : "否");
     }
+    
+    // 处理电压数据
+    void process_voltage_data(const std::vector<uint8_t>& data)
+    {
+        if (data.size() != 2) {
+            RCLCPP_WARN(this->get_logger(), "电压数据长度错误: %zu (期望2字节)", data.size());
+            return;
+        }
+        
+        // 从数据中提取uint16_t电压值
+        uint16_t voltage_raw = extract_from_data<uint16_t>(data, 0);
+        
+        // 转换为float并除以100
+        float voltage = static_cast<float>(voltage_raw) / 100.0f;
+        
+        // 发布电压数据
+        std_msgs::msg::Float32 voltage_msg;
+        voltage_msg.data = voltage;
+        voltage_pub_->publish(voltage_msg);
+        
+        RCLCPP_DEBUG(this->get_logger(), "发布电压数据: %.2f V (原始值: %u)", voltage, voltage_raw);
+    }
+
     // 添加处理模式切换命令的方法
     void process_mode_command(uint8_t mode_command)
     {
@@ -553,6 +592,9 @@ private:
 
     // 高度数据发布者
     rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr height_pub_;
+
+    // 电压数据发布者
+    rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr voltage_pub_;
 
     // 温度数据订阅者
     rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr temperature_sub_;

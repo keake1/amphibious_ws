@@ -9,6 +9,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
 find_package(amp_interfaces REQUIRED)
 find_package(tf2_ros REQUIRED)
 
@@ -18,7 +19,11 @@ ament_target_dependencies(rescue_task_test rclcpp std_msgs amp_interfaces tf2_ro
 add_executable(rescue_task_test2 src/rescue_task_test2.cpp)
 ament_target_dependencies(rescue_task_test2 rclcpp std_msgs amp_interfaces tf2_ros)
 
-install(TARGETS rescue_task_test rescue_task_test2
+add_executable(rescue_task_test4 src/rescue_task_test4.cpp)
+ament_target_dependencies(rescue_task_test4 rclcpp std_msgs amp_interfaces tf2_ros geometry_msgs)
+
+
+install(TARGETS rescue_task_test rescue_task_test2 rescue_task_test4
   DESTINATION lib/${PROJECT_NAME}
 )
 

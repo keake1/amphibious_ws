@@ -14,7 +14,10 @@ find_package(std_msgs REQUIRED)
 add_executable(temp_cam_driver_lifecycle src/temp_cam_driver_lifecycle.cpp)
 ament_target_dependencies(temp_cam_driver_lifecycle rclcpp rclcpp_lifecycle std_msgs)
 
-install(TARGETS temp_cam_driver_lifecycle
+add_executable(temp_cam_driver src/temp_cam_driver.cpp)
+ament_target_dependencies(temp_cam_driver rclcpp rclcpp_lifecycle std_msgs)
+
+install(TARGETS temp_cam_driver_lifecycle temp_cam_driver
   DESTINATION lib/${PROJECT_NAME}
 )
 

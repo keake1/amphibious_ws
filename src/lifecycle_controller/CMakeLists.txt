@@ -13,7 +13,11 @@ find_package(lifecycle_msgs REQUIRED)
 
 add_executable(lifecycle_controller src/lifecycle_controller.cpp)
 ament_target_dependencies(lifecycle_controller rclcpp std_msgs lifecycle_msgs)
-install(TARGETS lifecycle_controller
+
+add_executable(lifecycle_controller_ver2 src/lifecycle_controller_ver2.cpp)
+ament_target_dependencies(lifecycle_controller_ver2 rclcpp std_msgs lifecycle_msgs)
+
+install(TARGETS lifecycle_controller lifecycle_controller_ver2
   DESTINATION lib/${PROJECT_NAME}
 )
 
