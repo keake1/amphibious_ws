@@ -55,7 +55,10 @@ def generate_launch_description():
     rescue_task_node = Node(
         package='activity_controller',
         executable='rescue_task_test4',
-        name='rescue_task_test4'
+        name='rescue_task_test4',
+        parameters=[{
+                'target_reached_threshold': 0.5  # 可以根据需要调整，默认为2.0秒
+            }],
     )
 
     com_node = Node(

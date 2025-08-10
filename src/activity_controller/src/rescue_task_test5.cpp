@@ -10,6 +10,9 @@
 class RescueTaskNode : public rclcpp::Node {
 public:
     RescueTaskNode() : Node("rescue_task_test5"), tf_buffer_(this->get_clock()), tf_listener_(tf_buffer_) {
+        // 声明参数
+        this->declare_parameter("target_reached_threshold", 0.5);
+        
         lifecycle_cmd_pub_ = this->create_publisher<std_msgs::msg::String>("/lifecycle_switch_cmd", 10);
         target_pub_ = this->create_publisher<amp_interfaces::msg::TargetPosition>("/target_position", 10);
         duoji_cmd_pub_ = this->create_publisher<std_msgs::msg::String>("/duoji_cmd", 10);  // 新增舵机命令发布器
@@ -22,6 +25,10 @@ public:
         last_time_ = this->now();
         current_target_reached_ = false;
         target_published_ = false;  // 新增标志位
+        
+        // 获取参数值
+        target_reached_threshold_ = this->get_parameter("target_reached_threshold").as_double();
+        RCLCPP_INFO(this->get_logger(), "Target reached threshold set to: %.2f seconds", target_reached_threshold_);
         
         // 添加启动延迟，确保所有节点都已准备好
         startup_timer_ = this->create_wall_timer(
@@ -50,6 +57,7 @@ private:
     int current_step_;
     rclcpp::Time last_time_;
     double target_reached_time_;
+    double target_reached_threshold_;  // 新增参数变量
     bool current_target_reached_ = false;
     bool target_published_ = false;  // 新增：标记当前步骤的目标是否已发布
     geometry_msgs::msg::TransformStamped current_tf_;
@@ -126,7 +134,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 3;  // 跳到第3步（原第5步，删除原3、4步）
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -146,7 +154,7 @@ private:
                                    current_target_.x, current_target_.y, current_target_.yaw);
                     }
                     
-                    if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                    if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                         current_step_ = 4;
                         current_target_reached_ = false;
                         target_reached_time_ = 0.0;
@@ -165,7 +173,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 5;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -183,7 +191,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 6;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -201,7 +209,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 7;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -219,7 +227,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 8;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -237,7 +245,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 9;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -255,7 +263,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 10;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -283,7 +291,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 12;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -301,7 +309,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 13;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -319,7 +327,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 14;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -337,7 +345,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 15;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;

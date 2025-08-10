@@ -10,6 +10,9 @@
 class RescueTaskNode : public rclcpp::Node {
 public:
     RescueTaskNode() : Node("rescue_task_test4"), tf_buffer_(this->get_clock()), tf_listener_(tf_buffer_) {
+        // 声明参数
+        this->declare_parameter("target_reached_threshold", 2.0);
+        
         lifecycle_cmd_pub_ = this->create_publisher<std_msgs::msg::String>("/lifecycle_switch_cmd", 10);
         target_pub_ = this->create_publisher<amp_interfaces::msg::TargetPosition>("/target_position", 10);
         duoji_cmd_pub_ = this->create_publisher<std_msgs::msg::String>("/duoji_cmd", 10);  // 新增舵机命令发布器
@@ -17,12 +20,19 @@ public:
         is_off_sub_ = this->create_subscription<std_msgs::msg::String>(
             "/is_off", 10, std::bind(&RescueTaskNode::is_off_callback, this, std::placeholders::_1));
         
-        current_step_ = 0;
+        task_cmd_sub_ = this->create_subscription<std_msgs::msg::String>(
+            "/task_cmd", 10, std::bind(&RescueTaskNode::task_cmd_callback, this, std::placeholders::_1));
+        
+        current_step_ = -1;  // 修改为-1，表示等待task_on命令
         target_reached_time_ = 0.0;
         last_time_ = this->now();
         fly_off_received_ = false;
         current_target_reached_ = false;
         target_published_ = false;  // 新增标志位
+        
+        // 获取参数值
+        target_reached_threshold_ = this->get_parameter("target_reached_threshold").as_double();
+        RCLCPP_INFO(this->get_logger(), "Target reached threshold set to: %.2f seconds", target_reached_threshold_);
         
         // 添加启动延迟，确保所有节点都已准备好
         startup_timer_ = this->create_wall_timer(
@@ -48,10 +58,13 @@ private:
     rclcpp::TimerBase::SharedPtr step_timer_;
     rclcpp::TimerBase::SharedPtr startup_timer_;  // 新增启动定时器
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr is_off_sub_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr task_cmd_sub_;  // 新增任务命令订阅器
     int current_step_;
     rclcpp::Time last_time_;
     double target_reached_time_;
+    double target_reached_threshold_;  // 新增参数变量
     bool fly_off_received_ = false;
+    bool task_received_ = false;  // 新增：标记是否收到task_on命令
     bool current_target_reached_ = false;
     bool target_published_ = false;  // 新增：标记当前步骤的目标是否已发布
     geometry_msgs::msg::TransformStamped current_tf_;
@@ -83,6 +96,12 @@ private:
 
     void step_callback() {
         auto now = this->now();
+        
+        // 如果还没收到task_on命令，则不执行任务
+        if (!task_received_) {
+            return;
+        }
+        
         // TF可用性判断，流程关键步骤前先判断TF
         if (!tf_available_ && (current_step_ == 2 || current_step_ >= 5)) {
             if (tf_buffer_.canTransform("odom", "base_link", tf2::TimePointZero)) {
@@ -100,6 +119,11 @@ private:
         }
         
         switch (current_step_) {
+            case -1: {
+                // 等待任务开始命令
+                RCLCPP_INFO_ONCE(this->get_logger(), "Waiting for task_on command...");
+                break;
+            }
             case 0: {
                 // 第一步：发布car_mode_on
                 std_msgs::msg::String cmd;
@@ -128,7 +152,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 3;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -169,7 +193,7 @@ private:
                                    current_target_.x, current_target_.y, current_target_.yaw);
                     }
                     
-                    if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                    if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                         current_step_ = 6;
                         current_target_reached_ = false;
                         target_reached_time_ = 0.0;
@@ -188,7 +212,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 7;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -206,7 +230,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 8;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -224,7 +248,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 9;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -242,7 +266,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 10;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -260,7 +284,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 11;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -278,7 +302,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 12;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -306,7 +330,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 14;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -324,7 +348,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 15;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -342,7 +366,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 16;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -360,7 +384,7 @@ private:
                                current_target_.x, current_target_.y, current_target_.yaw);
                 }
                 
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                if (current_target_reached_ && target_reached_time_ >= target_reached_threshold_) {
                     current_step_ = 17;
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
@@ -446,6 +470,14 @@ private:
         if (msg->data == "fly_off" && current_step_ == 4) {
             fly_off_received_ = true;
             RCLCPP_INFO(this->get_logger(), "Received fly_off from com_amp");
+        }
+    }
+
+    void task_cmd_callback(const std_msgs::msg::String::SharedPtr msg) {
+        if (msg->data == "task_on" && current_step_ == -1) {
+            task_received_ = true;
+            current_step_ = 0;  // 开始执行任务
+            RCLCPP_INFO(this->get_logger(), "Received task_on command, starting mission...");
         }
     }
 };
