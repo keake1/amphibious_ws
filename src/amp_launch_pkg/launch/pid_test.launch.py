@@ -23,7 +23,7 @@ def generate_launch_description():
         parameters=[
             {'x': 0.0},
             {'y': 1.2},
-            {'yaw': 0.0}
+            {'yaw': 1.57}
         ]
     )
 
@@ -36,12 +36,12 @@ def generate_launch_description():
             {'pid_x_ki': 0.03},
             {'pid_x_kd': 0.0},
             {'pid_x_dead_zone': 0.05},
-            {'pid_x_max_output': 0.6},
+            {'pid_x_max_output': 0.4},
             {'pid_y_kp': 0.8},
             {'pid_y_ki': 0.03},
             {'pid_y_kd': 0.0},
             {'pid_y_dead_zone': 0.05},
-            {'pid_y_max_output': 0.6},
+            {'pid_y_max_output': 0.4},
             {'pid_yaw_kp': 1.5},
             {'pid_yaw_ki': 0.0},
             {'pid_yaw_kd': 0.01},

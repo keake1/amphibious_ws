@@ -54,8 +54,8 @@ def generate_launch_description():
 
     rescue_task_node = Node(
         package='activity_controller',
-        executable='rescue_task_test4',
-        name='rescue_task_test4'
+        executable='rescue_task_test5',
+        name='rescue_task_test5'
     )
 
     com_node = Node(

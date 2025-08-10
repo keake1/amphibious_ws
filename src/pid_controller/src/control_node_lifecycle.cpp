@@ -47,6 +47,7 @@ public:
         target_position_.x = 0.0;
         target_position_.y = 0.0;
         target_position_.yaw = 0.0; 
+        is_active_ = false;  // 初始化为非活跃状态 
     }
 
     CallbackReturn on_configure(const rclcpp_lifecycle::State &)
@@ -66,12 +67,14 @@ public:
     {
         velocity_pub_->on_activate();
         wheel_speeds_pub_->on_activate();
+        is_active_ = true;  // 添加活跃状态标志
         RCLCPP_INFO(this->get_logger(), "ControlNode activated.");
         return CallbackReturn::SUCCESS;
     }
 
     CallbackReturn on_deactivate(const rclcpp_lifecycle::State &)
     {
+        is_active_ = false;  // 设置为非活跃状态
         velocity_pub_->on_deactivate();
         wheel_speeds_pub_->on_deactivate();
         RCLCPP_INFO(this->get_logger(), "ControlNode deactivated.");
@@ -135,6 +138,11 @@ private:
     }
 
     void timerCallback() {
+        // 检查节点是否处于活跃状态
+        if (!is_active_) {
+            return;  // 如果节点未激活，直接返回，不执行控制逻辑
+        }
+        
         try {
             geometry_msgs::msg::TransformStamped transform_stamped = 
                 tf_buffer_.lookupTransform("odom", "base_link", tf2::TimePointZero);
@@ -152,22 +160,80 @@ private:
             m.getRPY(roll, pitch, yaw);
             current_yaw_ = yaw;
             
-            double error_x = pid_x_.compute(target_position_.x, current_position_.x, 0.01);
-            double error_y = pid_y_.compute(target_position_.y, current_position_.y, 0.01);
+            // 1. 计算全局坐标系下的位置误差
+            double error_x_global = target_position_.x - current_position_.x;
+            double error_y_global = target_position_.y - current_position_.y;
+            
+            // 2. 计算角度误差
             double error_yaw = normalizeAngle(target_position_.yaw - current_yaw_);
+            
+            // 3. 将全局坐标系下的位置误差转换到机器人本体坐标系
+            double error_x_local, error_y_local;
+            globalToLocal(error_x_global, error_y_global, current_yaw_, error_x_local, error_y_local);
+            
+            // 4. PID控制器计算本体坐标系下的速度指令
+            double vx_local = pid_x_.compute(error_x_local, 0.0, 0.01);
+            double vy_local = pid_y_.compute(error_y_local, 0.0, 0.01);
             double angular_velocity = pid_yaw_.compute(error_yaw, 0.0, 0.01);
 
+            // 5. 发布Twist消息（这里发布的是本体坐标系下的速度）
             auto velocity_msg = geometry_msgs::msg::Twist();
-            velocity_msg.linear.x = error_x;
-            velocity_msg.linear.y = error_y;
+            velocity_msg.linear.x = vx_local;
+            velocity_msg.linear.y = vy_local;
             velocity_msg.angular.z = angular_velocity;
             velocity_pub_->publish(velocity_msg);
             
-            calculateMecanumWheelSpeeds(error_x, error_y, angular_velocity);
+            // 6. 计算麦克纳姆轮速度（使用本体坐标系下的速度）
+            calculateMecanumWheelSpeeds(vx_local, vy_local, angular_velocity);
+            
+            // 调试信息
+            if (std::abs(error_x_global) > 0.01 || std::abs(error_y_global) > 0.01 || std::abs(error_yaw) > 0.01) {
+                RCLCPP_DEBUG(this->get_logger(), 
+                    "Global error: x=%.3f, y=%.3f | Local error: x=%.3f, y=%.3f | Yaw error: %.3f | Current yaw: %.3f",
+                    error_x_global, error_y_global, error_x_local, error_y_local, error_yaw, current_yaw_);
+                RCLCPP_DEBUG(this->get_logger(),
+                    "Velocities: vx_local=%.3f, vy_local=%.3f, omega=%.3f",
+                    vx_local, vy_local, angular_velocity);
+            }
             
         } catch (tf2::TransformException &ex) {
             RCLCPP_WARN(this->get_logger(), "Could not transform odom to base_link: %s", ex.what());
         }
+    }
+
+    /**
+     * 将全局坐标系下的坐标转换到机器人本体坐标系
+     * @param x_global 全局坐标系下的x坐标
+     * @param y_global 全局坐标系下的y坐标  
+     * @param robot_yaw 机器人在全局坐标系中的朝向角度
+     * @param x_local 输出：本体坐标系下的x坐标
+     * @param y_local 输出：本体坐标系下的y坐标
+     */
+    void globalToLocal(double x_global, double y_global, double robot_yaw, 
+                       double& x_local, double& y_local) {
+        // 旋转变换矩阵：从全局坐标系到本体坐标系
+        // [x_local]   [cos(θ)  sin(θ)] [x_global]
+        // [y_local] = [-sin(θ) cos(θ)] [y_global]
+        double cos_yaw = std::cos(robot_yaw);
+        double sin_yaw = std::sin(robot_yaw);
+        
+        x_local = cos_yaw * x_global + sin_yaw * y_global;
+        y_local = -sin_yaw * x_global + cos_yaw * y_global;
+    }
+
+    /**
+     * 将机器人本体坐标系下的坐标转换到全局坐标系（备用函数）
+     */
+    void localToGlobal(double x_local, double y_local, double robot_yaw,
+                       double& x_global, double& y_global) {
+        // 旋转变换矩阵：从本体坐标系到全局坐标系
+        // [x_global]   [cos(θ) -sin(θ)] [x_local]
+        // [y_global] = [sin(θ)  cos(θ)] [y_local]
+        double cos_yaw = std::cos(robot_yaw);
+        double sin_yaw = std::sin(robot_yaw);
+        
+        x_global = cos_yaw * x_local - sin_yaw * y_local;
+        y_global = sin_yaw * x_local + cos_yaw * y_local;
     }
 
     double normalizeAngle(double angle) {
@@ -177,13 +243,25 @@ private:
     }
 
     void calculateMecanumWheelSpeeds(double vx, double vy, double omega) {
+        // 麦克纳姆轮运动学公式
+        // vx: 机器人本体坐标系下前进方向速度
+        // vy: 机器人本体坐标系下左侧方向速度  
+        // omega: 角速度（逆时针为正）
+        
         double wheel_speeds[4];
-        double lx = wheel_base_ / 2.0;
-        double ly = track_width_ / 2.0;
+        double lx = wheel_base_ / 2.0;  // 前后轮距的一半
+        double ly = track_width_ / 2.0; // 左右轮距的一半
+        
+        // 麦克纳姆轮速度计算公式（标准配置）
+        // 前左轮 (Front Left)
         wheel_speeds[0] = (vx - vy - omega * (lx + ly));
+        // 前右轮 (Front Right)  
         wheel_speeds[1] = (vx + vy - omega * (lx + ly));
+        // 后右轮 (Rear Right)
         wheel_speeds[2] = (vx + vy + omega * (lx + ly));
+        // 后左轮 (Rear Left)
         wheel_speeds[3] = (vx - vy + omega * (lx + ly));
+        
         auto wheel_msg = std_msgs::msg::Float32MultiArray();
         wheel_msg.data.resize(4);
         for (int i = 0; i < 4; i++) {
@@ -191,10 +269,11 @@ private:
         }
         wheel_speeds_pub_->publish(wheel_msg);
 
+        // 详细调试信息（可选开启）
         // RCLCPP_INFO(this->get_logger(), 
-        //     "Target: vx=%.3f, vy=%.3f, omega=%.3f", vx, vy, omega);
+        //     "Local velocities: vx=%.3f, vy=%.3f, omega=%.3f", vx, vy, omega);
         // RCLCPP_INFO(this->get_logger(), 
-        //     "Wheel speeds - FL: %.3f, FR: %.3f, RL: %.3f, RR: %.3f", 
+        //     "Wheel speeds - FL: %.3f, FR: %.3f, RR: %.3f, RL: %.3f", 
         //     wheel_speeds[0], wheel_speeds[1], wheel_speeds[2], wheel_speeds[3]);
     }
 
@@ -213,6 +292,7 @@ private:
     amp_interfaces::msg::TargetPosition target_position_;
     geometry_msgs::msg::Point current_position_;
     double current_yaw_;
+    bool is_active_;  // 添加活跃状态标志
 };
 
 int main(int argc, char **argv) {

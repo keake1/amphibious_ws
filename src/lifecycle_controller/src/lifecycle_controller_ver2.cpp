@@ -9,7 +9,7 @@ class LifecycleNodeControl : public rclcpp::Node
 {
 public:
     LifecycleNodeControl()
-        : Node("lifecycle_node_control")
+        : Node("lifecycle_node_controller_ver2")
     {
         cmd_sub_ = this->create_subscription<std_msgs::msg::String>(
             "/lifecycle_switch_cmd", 10,

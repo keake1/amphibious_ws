@@ -22,8 +22,11 @@ ament_target_dependencies(rescue_task_test2 rclcpp std_msgs amp_interfaces tf2_r
 add_executable(rescue_task_test4 src/rescue_task_test4.cpp)
 ament_target_dependencies(rescue_task_test4 rclcpp std_msgs amp_interfaces tf2_ros geometry_msgs)
 
+add_executable(rescue_task_test5 src/rescue_task_test5.cpp)
+ament_target_dependencies(rescue_task_test5 rclcpp std_msgs amp_interfaces tf2_ros geometry_msgs)
 
-install(TARGETS rescue_task_test rescue_task_test2 rescue_task_test4
+
+install(TARGETS rescue_task_test rescue_task_test2 rescue_task_test4 rescue_task_test5
   DESTINATION lib/${PROJECT_NAME}
 )
 

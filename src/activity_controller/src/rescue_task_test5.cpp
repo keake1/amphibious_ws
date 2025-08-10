@@ -9,7 +9,7 @@
 
 class RescueTaskNode : public rclcpp::Node {
 public:
-    RescueTaskNode() : Node("rescue_task_test4"), tf_buffer_(this->get_clock()), tf_listener_(tf_buffer_) {
+    RescueTaskNode() : Node("rescue_task_test5"), tf_buffer_(this->get_clock()), tf_listener_(tf_buffer_) {
         lifecycle_cmd_pub_ = this->create_publisher<std_msgs::msg::String>("/lifecycle_switch_cmd", 10);
         target_pub_ = this->create_publisher<amp_interfaces::msg::TargetPosition>("/target_position", 10);
         duoji_cmd_pub_ = this->create_publisher<std_msgs::msg::String>("/duoji_cmd", 10);  // 新增舵机命令发布器
@@ -20,7 +20,6 @@ public:
         current_step_ = 0;
         target_reached_time_ = 0.0;
         last_time_ = this->now();
-        fly_off_received_ = false;
         current_target_reached_ = false;
         target_published_ = false;  // 新增标志位
         
@@ -51,7 +50,6 @@ private:
     int current_step_;
     rclcpp::Time last_time_;
     double target_reached_time_;
-    bool fly_off_received_ = false;
     bool current_target_reached_ = false;
     bool target_published_ = false;  // 新增：标记当前步骤的目标是否已发布
     geometry_msgs::msg::TransformStamped current_tf_;
@@ -129,48 +127,27 @@ private:
                 }
                 
                 if (current_target_reached_ && target_reached_time_ >= 2.0) {
-                    current_step_ = 3;
+                    current_step_ = 3;  // 跳到第3步（原第5步，删除原3、4步）
                     current_target_reached_ = false;
                     target_reached_time_ = 0.0;
                     target_published_ = false;
+                    last_time_ = now;  // 设置时间基准
                 }
                 break;
             }
             case 3: {
-                // 第三步：发布fly_mode_on
-                std_msgs::msg::String cmd;
-                cmd.data = "fly_mode_on";
-                lifecycle_cmd_pub_->publish(cmd);
-                RCLCPP_INFO(this->get_logger(), "Step 3: fly_mode_on published");
-                current_step_ = 4;
-                break;
-            }
-            case 4: {
-                // 第四步：等待收到fly_off消息
-                if (fly_off_received_) {
-                    std_msgs::msg::String cmd;
-                    cmd.data = "car_mode_on";
-                    lifecycle_cmd_pub_->publish(cmd);
-                    RCLCPP_INFO(this->get_logger(), "Step 4: Received fly_off, switching to car_mode_on");
-                    current_step_ = 5;
-                    last_time_ = now;
-                    target_published_ = false;  // 重置目标发布标志
-                }
-                break;
-            }
-            case 5: {
-                // 第五步：移动至{3.5, -2.0, 0.0} - 索引1
+                // 第三步：移动至{3.5, -2.0, 0.0} - 索引1（原第5步）
                 if ((now - last_time_).seconds() >= 1.0) {
                     if (!target_published_) {
                         current_target_ = targets_[1];
                         publish_target(current_target_);
                         target_published_ = true;
-                        RCLCPP_INFO(this->get_logger(), "Step 5: Moving to target (%.2f, %.2f, %.2f)", 
+                        RCLCPP_INFO(this->get_logger(), "Step 3: Moving to target (%.2f, %.2f, %.2f)", 
                                    current_target_.x, current_target_.y, current_target_.yaw);
                     }
                     
                     if (current_target_reached_ && target_reached_time_ >= 2.0) {
-                        current_step_ = 6;
+                        current_step_ = 4;
                         current_target_reached_ = false;
                         target_reached_time_ = 0.0;
                         target_published_ = false;
@@ -178,10 +155,46 @@ private:
                 }
                 break;
             }
-            case 6: {
-                // 第六步：移动至{3.5, -2.0, 1.57} - 索引2
+            case 4: {
+                // 第四步：移动至{3.5, -2.0, 1.57} - 索引2（原第6步）
                 if (!target_published_) {
                     current_target_ = targets_[2];
+                    publish_target(current_target_);
+                    target_published_ = true;
+                    RCLCPP_INFO(this->get_logger(), "Step 4: Moving to target (%.2f, %.2f, %.2f)", 
+                               current_target_.x, current_target_.y, current_target_.yaw);
+                }
+                
+                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                    current_step_ = 5;
+                    current_target_reached_ = false;
+                    target_reached_time_ = 0.0;
+                    target_published_ = false;
+                }
+                break;
+            }
+            case 5: {
+                // 第五步：移动至{3.5, -1.26, 1.57} - 索引3（原第7步）
+                if (!target_published_) {
+                    current_target_ = targets_[3];
+                    publish_target(current_target_);
+                    target_published_ = true;
+                    RCLCPP_INFO(this->get_logger(), "Step 5: Moving to target (%.2f, %.2f, %.2f)", 
+                               current_target_.x, current_target_.y, current_target_.yaw);
+                }
+                
+                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                    current_step_ = 6;
+                    current_target_reached_ = false;
+                    target_reached_time_ = 0.0;
+                    target_published_ = false;
+                }
+                break;
+            }
+            case 6: {
+                // 第六步：移动至{3.5, -1.26, 2.1} - 索引4（原第8步）
+                if (!target_published_) {
+                    current_target_ = targets_[4];
                     publish_target(current_target_);
                     target_published_ = true;
                     RCLCPP_INFO(this->get_logger(), "Step 6: Moving to target (%.2f, %.2f, %.2f)", 
@@ -197,9 +210,9 @@ private:
                 break;
             }
             case 7: {
-                // 第七步：移动至{3.5, -1.26, 1.57} - 索引3
+                // 第七步：移动至{3.5, -1.26, 1.57} - 索引5（原第9步）
                 if (!target_published_) {
-                    current_target_ = targets_[3];
+                    current_target_ = targets_[5];
                     publish_target(current_target_);
                     target_published_ = true;
                     RCLCPP_INFO(this->get_logger(), "Step 7: Moving to target (%.2f, %.2f, %.2f)", 
@@ -215,9 +228,9 @@ private:
                 break;
             }
             case 8: {
-                // 第八步：移动至{3.5, -1.26, 2.1} - 索引4
+                // 第八步：移动至{3.5, 0.0, 1.57} - 索引6（原第10步）
                 if (!target_published_) {
-                    current_target_ = targets_[4];
+                    current_target_ = targets_[6];
                     publish_target(current_target_);
                     target_published_ = true;
                     RCLCPP_INFO(this->get_logger(), "Step 8: Moving to target (%.2f, %.2f, %.2f)", 
@@ -233,9 +246,9 @@ private:
                 break;
             }
             case 9: {
-                // 第九步：移动至{3.5, -1.26, 1.57} - 索引5
+                // 第九步：移动至{3.5, 0.0, -1.57} - 索引7（原第11步）
                 if (!target_published_) {
-                    current_target_ = targets_[5];
+                    current_target_ = targets_[7];
                     publish_target(current_target_);
                     target_published_ = true;
                     RCLCPP_INFO(this->get_logger(), "Step 9: Moving to target (%.2f, %.2f, %.2f)", 
@@ -251,27 +264,19 @@ private:
                 break;
             }
             case 10: {
-                // 第十步：移动至{3.5, 0.0, 1.57} - 索引6
-                if (!target_published_) {
-                    current_target_ = targets_[6];
-                    publish_target(current_target_);
-                    target_published_ = true;
-                    RCLCPP_INFO(this->get_logger(), "Step 10: Moving to target (%.2f, %.2f, %.2f)", 
-                               current_target_.x, current_target_.y, current_target_.yaw);
-                }
-                
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
-                    current_step_ = 11;
-                    current_target_reached_ = false;
-                    target_reached_time_ = 0.0;
-                    target_published_ = false;
-                }
+                // 第十步：发布"duoji_on"消息到/duoji_cmd（原第12步）
+                std_msgs::msg::String duoji_cmd;
+                duoji_cmd.data = "duoji_on";
+                duoji_cmd_pub_->publish(duoji_cmd);
+                RCLCPP_INFO(this->get_logger(), "Step 10: duoji_on published");
+                current_step_ = 11;
+                target_published_ = false;  // 重置目标发布标志
                 break;
             }
             case 11: {
-                // 第十一步：移动至{3.5, 0.0, -1.57} - 索引7
+                // 第十一步：移动至{3.5, -0.43, -1.57} - 索引8（原第13步）
                 if (!target_published_) {
-                    current_target_ = targets_[7];
+                    current_target_ = targets_[8];
                     publish_target(current_target_);
                     target_published_ = true;
                     RCLCPP_INFO(this->get_logger(), "Step 11: Moving to target (%.2f, %.2f, %.2f)", 
@@ -287,19 +292,27 @@ private:
                 break;
             }
             case 12: {
-                // 第十二步：发布"duoji_on"消息到/duoji_cmd
-                std_msgs::msg::String duoji_cmd;
-                duoji_cmd.data = "duoji_on";
-                duoji_cmd_pub_->publish(duoji_cmd);
-                RCLCPP_INFO(this->get_logger(), "Step 12: duoji_on published");
-                current_step_ = 13;
-                target_published_ = false;  // 重置目标发布标志
+                // 第十二步：移动至{3.5, -0.43, 0.0} - 索引9（原第14步）
+                if (!target_published_) {
+                    current_target_ = targets_[9];
+                    publish_target(current_target_);
+                    target_published_ = true;
+                    RCLCPP_INFO(this->get_logger(), "Step 12: Moving to target (%.2f, %.2f, %.2f)", 
+                               current_target_.x, current_target_.y, current_target_.yaw);
+                }
+                
+                if (current_target_reached_ && target_reached_time_ >= 2.0) {
+                    current_step_ = 13;
+                    current_target_reached_ = false;
+                    target_reached_time_ = 0.0;
+                    target_published_ = false;
+                }
                 break;
             }
             case 13: {
-                // 第十三步：移动至{3.5, -0.43, -1.57} - 索引8
+                // 第十三步：移动至{1.6, -0.43, 0.0} - 索引10（原第15步）
                 if (!target_published_) {
-                    current_target_ = targets_[8];
+                    current_target_ = targets_[10];
                     publish_target(current_target_);
                     target_published_ = true;
                     RCLCPP_INFO(this->get_logger(), "Step 13: Moving to target (%.2f, %.2f, %.2f)", 
@@ -315,9 +328,9 @@ private:
                 break;
             }
             case 14: {
-                // 第十四步：移动至{3.5, -0.43, 0.0} - 索引9
+                // 第十四步：移动至{1.6, 0.0, 0.0} - 索引11（原第16步）
                 if (!target_published_) {
-                    current_target_ = targets_[9];
+                    current_target_ = targets_[11];
                     publish_target(current_target_);
                     target_published_ = true;
                     RCLCPP_INFO(this->get_logger(), "Step 14: Moving to target (%.2f, %.2f, %.2f)", 
@@ -333,52 +346,8 @@ private:
                 break;
             }
             case 15: {
-                // 第十五步：移动至{1.6, -0.43, 0.0} - 索引10
-                if (!target_published_) {
-                    current_target_ = targets_[10];
-                    publish_target(current_target_);
-                    target_published_ = true;
-                    RCLCPP_INFO(this->get_logger(), "Step 15: Moving to target (%.2f, %.2f, %.2f)", 
-                               current_target_.x, current_target_.y, current_target_.yaw);
-                }
-                
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
-                    current_step_ = 16;
-                    current_target_reached_ = false;
-                    target_reached_time_ = 0.0;
-                    target_published_ = false;
-                }
-                break;
-            }
-            case 16: {
-                // 第十六步：移动至{1.6, 0.0, 0.0} - 索引11
-                if (!target_published_) {
-                    current_target_ = targets_[11];
-                    publish_target(current_target_);
-                    target_published_ = true;
-                    RCLCPP_INFO(this->get_logger(), "Step 16: Moving to target (%.2f, %.2f, %.2f)", 
-                               current_target_.x, current_target_.y, current_target_.yaw);
-                }
-                
-                if (current_target_reached_ && target_reached_time_ >= 2.0) {
-                    current_step_ = 17;
-                    current_target_reached_ = false;
-                    target_reached_time_ = 0.0;
-                    target_published_ = false;
-                }
-                break;
-            }
-            case 17: {
-                // 第十七步：发送fly_mode_on至/lifecycle_switch_cmd
-                std_msgs::msg::String cmd;
-                cmd.data = "fly_mode_on";
-                lifecycle_cmd_pub_->publish(cmd);
-                RCLCPP_INFO(this->get_logger(), "Step 17: fly_mode_on published, mission completed");
-                current_step_ = 18;
-                break;
-            }
-            case 18: {
                 // 任务完成
+                RCLCPP_INFO(this->get_logger(), "Mission completed!");
                 break;
             }
         }
@@ -394,7 +363,7 @@ private:
 
     void tf_callback() {
         // 只在需要移动的步骤检查目标点
-        if (current_step_ != 2 && current_step_ < 5) return;
+        if (current_step_ != 2 && current_step_ < 3) return;
         if (current_step_ > 17) return;
         
         // TF可用性判断
@@ -443,10 +412,8 @@ private:
     }
 
     void is_off_callback(const std_msgs::msg::String::SharedPtr msg) {
-        if (msg->data == "fly_off" && current_step_ == 4) {
-            fly_off_received_ = true;
-            RCLCPP_INFO(this->get_logger(), "Received fly_off from com_amp");
-        }
+        // fly_off 相关逻辑已删除，此回调函数保留以防未来需要
+        RCLCPP_DEBUG(this->get_logger(), "Received is_off message: %s", msg->data.c_str());
     }
 };
 
