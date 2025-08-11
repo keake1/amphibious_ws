@@ -22,21 +22,21 @@ def generate_launch_description():
         executable='control_node_lifecycle',
         name='control_node_lifecycle',
         parameters=[
-            {'pid_x_kp': 0.8},
-            {'pid_x_ki': 0.03},
+            {'pid_x_kp': 0.45},
+            {'pid_x_ki': 0.02},
             {'pid_x_kd': 0.0},
             {'pid_x_dead_zone': 0.05},
-            {'pid_x_max_output': 0.6},
-            {'pid_y_kp': 0.8},
-            {'pid_y_ki': 0.03},
+            {'pid_x_max_output': 0.45},
+            {'pid_y_kp': 0.45},
+            {'pid_y_ki': 0.02},
             {'pid_y_kd': 0.0},
             {'pid_y_dead_zone': 0.05},
-            {'pid_y_max_output': 0.6},
+            {'pid_y_max_output': 0.35},
             {'pid_yaw_kp': 1.5},
             {'pid_yaw_ki': 0.0},
             {'pid_yaw_kd': 0.01},
             {'pid_yaw_dead_zone': 0.05},
-            {'pid_yaw_max_output': 0.6*5},
+            {'pid_yaw_max_output': 0.5*5},
         ]
     )
 
@@ -56,9 +56,11 @@ def generate_launch_description():
         package='activity_controller',
         executable='rescue_task_test4',
         name='rescue_task_test4',
-        parameters=[{
-                'target_reached_threshold': 0.5  # 可以根据需要调整，默认为2.0秒
-            }],
+        parameters=[
+            {'target_reached_threshold': 0.5},
+            {"position_tolerance": 0.1},
+            {"angle_tolerance": 0.08},
+            ],
     )
 
     com_node = Node(
@@ -88,12 +90,12 @@ def generate_launch_description():
 
     return LaunchDescription([
         TimerAction(period = 0.0, actions=[fly_carto_launch]),
-        # TimerAction(period = 5.0, actions=[camera_node]),
-        # TimerAction(period = 6.0, actions=[detect_node]),
-        # TimerAction(period = 7.0, actions=[temp_node]),
-        TimerAction(period = 8.0, actions=[com_node]),
-        TimerAction(period = 10.0, actions=[control_node]),
-        TimerAction(period = 11.0, actions=[car_driver_node]),
-        TimerAction(period = 12.0, actions=[lifecycle_contoller_node]),
-        TimerAction(period = 15.0, actions=[rescue_task_node]),
+        TimerAction(period = 5.0, actions=[camera_node]),
+        TimerAction(period = 6.0, actions=[detect_node]),
+        TimerAction(period = 7.0, actions=[temp_node]),
+        TimerAction(period = 8.0, actions=[control_node]),
+        TimerAction(period = 9.0, actions=[car_driver_node]),
+        TimerAction(period = 10.0, actions=[lifecycle_contoller_node]),
+        TimerAction(period = 12.0, actions=[rescue_task_node]),
+        TimerAction(period = 15.0, actions=[com_node]),
     ])

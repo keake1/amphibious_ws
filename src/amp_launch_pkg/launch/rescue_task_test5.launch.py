@@ -22,21 +22,21 @@ def generate_launch_description():
         executable='control_node_lifecycle',
         name='control_node_lifecycle',
         parameters=[
-            {'pid_x_kp': 0.3},
-            {'pid_x_ki': 0.015},
+            {'pid_x_kp': 0.45},
+            {'pid_x_ki': 0.02},
             {'pid_x_kd': 0.0},
-            {'pid_x_dead_zone': 0.05},
-            {'pid_x_max_output': 0.3},
-            {'pid_y_kp': 0.3},
-            {'pid_y_ki': 0.015},
+            {'pid_x_dead_zone': 0.06},
+            {'pid_x_max_output': 0.45},
+            {'pid_y_kp': 0.45},
+            {'pid_y_ki': 0.02},
             {'pid_y_kd': 0.0},
             {'pid_y_dead_zone': 0.06},
-            {'pid_y_max_output': 0.3},
-            {'pid_yaw_kp': 1.0},
+            {'pid_y_max_output': 0.35},
+            {'pid_yaw_kp': 1.5},
             {'pid_yaw_ki': 0.0},
-            {'pid_yaw_kd': 0.07},
-            {'pid_yaw_dead_zone': 0.05},
-            {'pid_yaw_max_output': 0.3*5},
+            {'pid_yaw_kd': 0.01},
+            {'pid_yaw_dead_zone': 0.07},
+            {'pid_yaw_max_output': 0.5*5},
         ]
     )
 
@@ -56,9 +56,11 @@ def generate_launch_description():
         package='activity_controller',
         executable='rescue_task_test5',
         name='rescue_task_test5',
-        parameters=[{
-                'target_reached_threshold': 0.5  # 可以根据需要调整，默认为2.0秒
-            }],
+        parameters=[
+            {'target_reached_threshold': 0.5},
+            {"position_tolerance": 0.09},
+            {"angle_tolerance": 0.07},
+        ],
     )
 
     com_node = Node(

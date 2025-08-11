@@ -12,6 +12,8 @@ public:
     RescueTaskNode() : Node("rescue_task_test5"), tf_buffer_(this->get_clock()), tf_listener_(tf_buffer_) {
         // 声明参数
         this->declare_parameter("target_reached_threshold", 0.5);
+        this->declare_parameter("position_tolerance", 0.05);
+        this->declare_parameter("angle_tolerance", 0.05);
         
         lifecycle_cmd_pub_ = this->create_publisher<std_msgs::msg::String>("/lifecycle_switch_cmd", 10);
         target_pub_ = this->create_publisher<amp_interfaces::msg::TargetPosition>("/target_position", 10);
@@ -28,7 +30,10 @@ public:
         
         // 获取参数值
         target_reached_threshold_ = this->get_parameter("target_reached_threshold").as_double();
-        RCLCPP_INFO(this->get_logger(), "Target reached threshold set to: %.2f seconds", target_reached_threshold_);
+        position_tolerance_ = this->get_parameter("position_tolerance").as_double();
+        angle_tolerance_ = this->get_parameter("angle_tolerance").as_double();
+        RCLCPP_INFO(this->get_logger(), "Target reached threshold: %.2f s, Position tolerance: %.3f m, Angle tolerance: %.3f rad (%.1f°)", 
+                   target_reached_threshold_, position_tolerance_, angle_tolerance_, angle_tolerance_ * 180.0 / M_PI);
         
         // 添加启动延迟，确保所有节点都已准备好
         startup_timer_ = this->create_wall_timer(
@@ -58,6 +63,8 @@ private:
     rclcpp::Time last_time_;
     double target_reached_time_;
     double target_reached_threshold_;  // 新增参数变量
+    double position_tolerance_;  // 位置容差参数
+    double angle_tolerance_;     // 角度容差参数
     bool current_target_reached_ = false;
     bool target_published_ = false;  // 新增：标记当前步骤的目标是否已发布
     geometry_msgs::msg::TransformStamped current_tf_;
@@ -74,17 +81,17 @@ private:
     // 定义所有目标点
     std::vector<Target> targets_ = {
         {0.0, -1.9, 0.0},      // 索引0 - Step 2
-        {3.5, -2.0, 0.0},      // 索引1 - Step 5
-        {3.5, -2.0, 1.57},     // 索引2 - Step 6
-        {3.5, -1.26, 1.57},    // 索引3 - Step 7
-        {3.5, -1.26, 2.1},     // 索引4 - Step 8
-        {3.5, -1.26, 1.57},    // 索引5 - Step 9
-        {3.5, 0.0, 1.57},      // 索引6 - Step 10
-        {3.5, 0.0, -1.57},     // 索引7 - Step 11
-        {3.5, -0.43, -1.57},   // 索引8 - Step 13
-        {3.5, -0.43, 0.0},     // 索引9 - Step 14
-        {1.6, -0.43, 0.0},     // 索引10 - Step 15
-        {1.6, 0.0, 0.0}        // 索引11 - Step 16
+        {3.35, -2.0, 0.0},      // 索引1 - Step 5
+        {3.35, -2.0, 1.57},     // 索引2 - Step 6
+        {3.35, -1.36, 1.57},    // 索引3 - Step 7
+        {3.35, -1.36, 2.6},     // 索引4 - Step 8
+        {3.35, -1.36, 1.57},    // 索引5 - Step 9
+        {3.35, 0.0, 1.57},      // 索引6 - Step 10
+        {3.35, 0.0, -1.57},     // 索引7 - Step 11
+        {3.35, -0.6, -1.57},   // 索引8 - Step 13
+        {3.35, -0.6, 0.0},     // 索引9 - Step 14
+        {1.6, -0.6, 0.0},     // 索引10 - Step 15
+        {1.6, 0.0, 0.0}       // 索引11 - Step 16
     };
 
     void step_callback() {
@@ -401,18 +408,47 @@ private:
             double dy = tf.transform.translation.y - current_target_.y;
             double dist = std::sqrt(dx * dx + dy * dy);
             
-            if (dist <= 0.05) {
+            // 计算当前机器人的偏航角
+            double current_yaw = std::atan2(
+                2.0 * (tf.transform.rotation.w * tf.transform.rotation.z + 
+                       tf.transform.rotation.x * tf.transform.rotation.y),
+                1.0 - 2.0 * (tf.transform.rotation.y * tf.transform.rotation.y + 
+                             tf.transform.rotation.z * tf.transform.rotation.z)
+            );
+            
+            // 计算角度差
+            double angle_diff = std::abs(current_yaw - current_target_.yaw);
+            // 处理角度环绕问题（-π到π）
+            if (angle_diff > M_PI) {
+                angle_diff = 2.0 * M_PI - angle_diff;
+            }
+            
+            // 位置和角度都满足条件才认为到达目标
+            bool position_reached = (dist <= position_tolerance_);
+            bool angle_reached = (angle_diff <= angle_tolerance_);
+            
+            if (position_reached && angle_reached) {
                 if (!current_target_reached_) {
                     current_target_reached_ = true;
                     target_reached_time_ = 0.0;
-                    RCLCPP_INFO(this->get_logger(), "Robot entered target area (%.2f m) - Target: (%.2f, %.2f)", 
-                               dist, current_target_.x, current_target_.y);
+                    RCLCPP_INFO(this->get_logger(), "Robot reached target - Pos: %.3f m, Angle: %.3f rad (%.1f°) - Target: (%.2f, %.2f, %.2f)", 
+                               dist, angle_diff, angle_diff * 180.0 / M_PI, current_target_.x, current_target_.y, current_target_.yaw);
                 } else {
                     target_reached_time_ += 0.1; // 每100ms计时
                 }
             } else {
                 current_target_reached_ = false;
                 target_reached_time_ = 0.0;
+                // 可选：调试信息，显示当前状态
+                if (!position_reached || !angle_reached) {
+                    static int debug_count = 0;
+                    if (debug_count % 50 == 0) {  // 每5秒输出一次调试信息
+                        RCLCPP_DEBUG(this->get_logger(), "Moving to target - Pos: %.3f m (need ≤%.3f), Angle: %.3f rad/%.1f° (need ≤%.3f rad/%.1f°)", 
+                                   dist, position_tolerance_, angle_diff, angle_diff * 180.0 / M_PI, 
+                                   angle_tolerance_, angle_tolerance_ * 180.0 / M_PI);
+                    }
+                    debug_count++;
+                }
             }
         } catch (tf2::TransformException &ex) {
             RCLCPP_WARN(this->get_logger(), "TF lookup failed: %s", ex.what());
